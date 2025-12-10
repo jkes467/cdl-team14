@@ -1,0 +1,15 @@
+CAPI=2:
+name: "u337mg096:ece337:ai_accelerator_syn"
+
+filesets:
+    netlist:
+        files:
+            - "ai_accelerator.v"
+        file_type: systemVerilogSource
+
+targets:
+    default:
+        filesets:
+            - netlist
+        toplevel: ai_accelerator
+

@@ -15,6 +15,7 @@ filesets:
             - "u337mg096:ece337:controller:1.0.0"
             - "u337mg096:ece337:sram_buffer:1.0.0"
             - "ece337:course-lib:ahb_model_updated"
+            - "u337mg096:ece337:controller"
 
     synth:
         depend:

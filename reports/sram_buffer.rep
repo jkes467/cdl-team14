@@ -1,0 +1,135 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'sram_buffer' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : sram_buffer
+Version: W-2024.09-SP4
+Date   : Wed Dec 10 01:39:02 2025
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: output_mem_index_reg[4]
+              (rising edge-triggered flip-flop)
+  Endpoint: output_data[12]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  output_mem_index_reg[4]/CLK (DFFSR)      0.00 #     0.00 r
+  output_mem_index_reg[4]/Q (DFFSR)        1.00       1.00 f
+  U29256/Y (NAND3X1)                       1.07       2.08 r
+  U29187/Y (INVX2)                         0.15       2.23 f
+  U28937/Y (BUFX2)                         0.30       2.53 f
+  U28637/Y (INVX2)                         0.73       3.25 r
+  U31046/Y (NOR2X1)                        0.36       3.61 f
+  U31047/Y (OAI21X1)                       0.18       3.79 r
+  U31049/Y (NOR2X1)                        0.21       4.00 f
+  U31050/Y (AOI22X1)                       0.12       4.12 r
+  U31068/Y (NAND2X1)                       0.08       4.20 f
+  U31069/Y (OAI21X1)                       0.12       4.32 r
+  U31070/Y (OAI21X1)                       0.05       4.37 f
+  output_data[12] (out)                    0.00       4.37 f
+  data arrival time                                   4.37
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : area
+Design : sram_buffer
+Version: W-2024.09-SP4
+Date   : Wed Dec 10 01:39:02 2025
+****************************************
+
+Library(s) Used:
+
+    osu05_stdcells (File: /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db)
+
+Number of ports:                          481
+Number of nets:                         56176
+Number of cells:                        55863
+Number of combinational cells:          39237
+Number of sequential cells:              8308
+Number of macros/black boxes:               0
+Number of buf/inv:                       3485
+Number of references:                      27
+
+Combinational area:            9487017.000000
+Buf/Inv area:                   743760.000000
+Noncombinational area:        13159872.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:              22646889.000000
+Total area:                 undefined
+1
+Loading db file '/home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : sram_buffer
+Version: W-2024.09-SP4
+Date   : Wed Dec 10 01:39:05 2025
+****************************************
+
+
+Library(s) Used:
+
+    osu05_stdcells (File: /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db)
+
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 5    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+sram_buffer                              68.664  879.667 7.12e+03  948.339 100.0
+  add_48 (sram_buffer_DW01_inc_4_DW01_inc_9)
+                                          0.000    0.000    1.541 1.54e-06   0.0
+  output_counter (flex_counter_SIZE7_0)
+                                          1.290    1.606    9.798    2.897   0.3
+    add_32_aco (flex_counter_SIZE7_0_DW01_inc_0_DW01_inc_10)
+                                       1.11e-02 3.23e-02    1.541 4.34e-02   0.0
+  input_counter_read (flex_counter_SIZE7_1)
+                                          0.480    0.921    9.798    1.401   0.1
+    add_32_aco (flex_counter_SIZE7_1_DW01_inc_0_DW01_inc_11)
+                                       1.63e-04 4.79e-04    1.541 6.44e-04   0.0
+  input_counter_write (flex_counter_SIZE7_2)
+                                          0.491    0.929    9.798    1.420   0.1
+    add_32_aco (flex_counter_SIZE7_2_DW01_inc_0_DW01_inc_12)
+                                       2.94e-04 8.62e-04    1.541 1.16e-03   0.0
+  weight_counter_read (flex_counter_SIZE3_0)
+                                       1.47e-02    0.425    3.874    0.440   0.0
+  weight_counter_write (flex_counter_SIZE3_1)
+                                       1.34e-02    0.424    3.874    0.437   0.0
+1

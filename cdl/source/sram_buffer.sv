@@ -22,10 +22,10 @@ module sram_buffer #(
 
     // outputs to controller
     output logic [63:0] data, 
-    output logic data_ready, out_done,
+    output logic data_ready, out_done, output_valid, occupancy_err,
+    output logic [7:0] num_inputs,
 
     // outputs to ahb
-    output logic output_valid,
     output logic [63:0] output_data,
 
     // outputs to sram
@@ -33,7 +33,6 @@ module sram_buffer #(
     output logic [9:0] addr,
     output logic [31:0] wdata
 );
-
     typedef enum logic [31:0] {
         IDLE = 0,
         W_WEIGHT = 1,
@@ -62,18 +61,18 @@ module sram_buffer #(
     logic [3:0] weight_write_count, weight_read_count;
     logic weight_write_clear, weight_write_inc, weight_write_flag, weight_read_clear, weight_read_inc, weight_read_flag;
     logic input_write_clear, input_write_inc, input_write_flag, input_read_clear, input_read_inc, input_read_flag, out_clear, out_flag;
-    logic [7:0] input_write_count, input_read_count, num_inputs, out_count, out_count_reg, out_count_reg_next;
+    logic [7:0] input_write_count, input_read_count, out_count, out_count_reg, out_count_reg_next;
 
     logic [63:0] data_reg, data_reg_next;
     logic [63:0] out_mem [0:127];
     logic [63:0] out_mem_next [0:127];
     logic [6:0] output_mem_index, output_mem_index_next;
     logic inference_done, inference_done_next;
-
+    logic occupancy_err_reg, occupancy_err_next, occ_err_pulse;
     assign output_data = out_mem[output_mem_index];
     assign output_valid = inference_done && (output_mem_index <= out_count_reg);
     assign output_mem_index_next = (state == INFERENCE_DONE) ? 0 : handshake && output_valid ? output_mem_index + 1 : output_mem_index;
-
+    assign occupancy_err = occ_err_pulse;
     flex_counter #(.SIZE(4)) weight_counter_write (
         .clk(clk),
         .n_rst(n_rst),
@@ -121,13 +120,19 @@ module sram_buffer #(
     //     .async_in(out_valid),
     //     .sync_out(out_inc)
     // );                                     
-
+    edge_det occ_err_edge (
+        .clk(clk),
+        .n_rst(n_rst),
+        .async_in(occupancy_err_reg),
+        .sync_out(),          // not needed
+        .edge_flag(occ_err_pulse)
+    );
     flex_counter #(.SIZE(8)) output_counter (
         .clk(clk),
         .n_rst(n_rst),
         .clear(out_clear),
         .count_enable(out_valid),
-        .rollover_val(num_inputs[7:0] - 8'd1),
+        .rollover_val(num_inputs - 8'd1),
         .count_out(out_count),
         .rollover_flag(out_flag)
     );
@@ -139,11 +144,12 @@ module sram_buffer #(
         if (~n_rst) begin
             state <= IDLE;
             data_reg <= 64'b0;
-            num_inputs <= 7'd0;
+            num_inputs <= 8'd0;
             out_mem <= '{default: 0};
             output_mem_index <= 0;
             inference_done <= 0;
             out_count_reg <= 0;
+            occupancy_err_reg <= 0;
         end else begin
             state <= n_state;
             data_reg <= data_reg_next;
@@ -152,6 +158,7 @@ module sram_buffer #(
             output_mem_index <= output_mem_index_next;
             inference_done <= inference_done_next;
             out_count_reg <= out_count_reg_next;
+            occupancy_err_reg <= occupancy_err_next;
         end
     end
 
@@ -180,6 +187,7 @@ module sram_buffer #(
         out_mem_next = out_mem;
         inference_done_next = inference_done;
         out_count_reg_next = out_count_reg;
+        occupancy_err_next = occupancy_err_reg;
         case (state)
             IDLE: begin
                 if (write_enable && is_weight && sram_state == 2'b0) begin
@@ -189,9 +197,15 @@ module sram_buffer #(
                     inference_done_next = 0;
                     n_state = W_INPUT;
                 end else if (get_weights && sram_state == 2'b0) begin
+                    if (weight_read_count >= weight_write_count) begin
+                        occupancy_err_next = 1;
+                    end
                     inference_done_next = 0;
                     n_state = R_WEIGHT;
                 end else if (get_inputs && sram_state == 2'b0) begin
+                    if (input_read_count >= input_write_count) begin
+                        occupancy_err_next = 1;
+                    end
                     inference_done_next = 0;
                     n_state = R_INPUT;
                 end else if (get_out) begin
@@ -205,6 +219,9 @@ module sram_buffer #(
                 n_state = W_WEIGHT_LOW_WAIT;
                 wen = 1;
                 weight_write_inc = 1;
+                if (weight_write_count >= 8) begin
+                    occupancy_err_next = 1;
+                end
             end
             W_WEIGHT_LOW_WAIT: begin
                 n_state = (sram_state == 2'd2) ? WAIT1 : W_WEIGHT_LOW_WAIT;
@@ -227,6 +244,9 @@ module sram_buffer #(
             W_INPUT: begin
                 n_state = W_IN_LOW_WAIT;
                 input_write_inc = 1;
+                if (input_write_count >= 128) begin
+                    occupancy_err_next = 1'b1;
+                end
             end
             W_IN_LOW_WAIT: begin
                 n_state = (sram_state == 2'd2) ? WAIT2 : W_IN_LOW_WAIT;
@@ -305,6 +325,9 @@ module sram_buffer #(
                 inference_done_next = out_flag ? 1 : 0;
                 out_mem_next[out_count] = out_valid ? activations : out_mem_next[out_count];
                 out_count_reg_next = out_flag ? out_count : out_count_reg;
+                if (out_count >= num_inputs) begin
+                    occupancy_err_next = 1;
+                end
             end
             INFERENCE_DONE: begin
                 n_state = IDLE;

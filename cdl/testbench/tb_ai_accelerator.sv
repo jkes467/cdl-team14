@@ -47,9 +47,42 @@ module tb_ai_accelerator ();
     logic [9:0] addr;
     logic [1:0] sram_state;
 
+    localparam [1:0] HTRANS_IDLE = 2'b00;
+    localparam [1:0] HTRANS_BUSY = 2'b01;
+    localparam [1:0] HTRANS_NONSEQ = 2'b10;
+    localparam [1:0] HTRANS_SEQ = 2'b11;
 
-    ai_accelerator #() DUT (.clk(clk), .n_rst(n_rst), .hsel(hsel), .haddr(haddr), .htrans(htrans), .hsize(hsize), .hwrite(hwrite), .hwdata(hwdata), .hburst(hburst), .hrdata(hrdata), .hresp(hresp), .hready(hready), .address(addr), .read_enable(ren), .write_enable(wen), .write_data(wdata), .read_data(rdata), .sram_state(sram_state));
+    localparam [2:0] HBURST_SINGLE= 3'b000;
+    localparam [2:0] HBURST_INCR = 3'b001;
+    localparam [2:0] HBURST_WRAP4 = 3'b010;
+    localparam [2:0] HBURST_INCR4 = 3'b011;
+    localparam [2:0] HBURST_WRAP8 = 3'b100;
+    localparam [2:0] HBURST_INCR8 = 3'b101;
+    localparam [2:0] HBURST_WRAP16 = 3'b110;
+    localparam [2:0] HBURST_INCR16= 3'b111;
 
+    // ai_accelerator #() DUT (.clk(clk), .n_rst(n_rst), .hsel(hsel), .haddr(haddr), .htrans(htrans), .hsize(hsize), .hwrite(hwrite), .hwdata(hwdata), .hburst(hburst), .hrdata(hrdata), .hresp(hresp), .hready(hready), .address(addr), .read_enable(ren), .write_enable(wen), .write_data(wdata), .read_data(rdata), .sram_state(sram_state));
+
+    ai_accelerator DUT (
+        .clk(clk),
+        .n_rst(n_rst),
+        .hsel(hsel),
+        .haddr(haddr),
+        .htrans(htrans),
+        .hsize(hsize),
+        .hwrite(hwrite),
+        .hwdata(hwdata),
+        .hburst(hburst),
+        .hrdata(hrdata),
+        .hresp(hresp),
+        .hready(hread),
+        .wen(wen),
+        .ren(ren),
+        .rdata(rdata),
+        .wdata(wdata),
+        .addr(addr),
+        .sram_state(sram_state)
+    );
     task wait_hready;
     begin
         @(posedge clk);
@@ -60,9 +93,6 @@ module tb_ai_accelerator ();
     task check_data;
     begin
         @(posedge clk);
-        // write to start inference
-        ahb_single_write(10'h23, 8'h01);
-
         hsel <= 1'b1;
         hwrite <= 1'b0;
         haddr <= 10'h23;
@@ -82,6 +112,15 @@ module tb_ai_accelerator ();
         else begin
             $display("Passed Test");
         end
+        @(posedge clk);
+    end
+    endtask
+
+    task start_inference;
+    begin
+        @(posedge clk);
+        // write to start inference
+        ahb_single_write(10'h22, 8'h01);
         @(posedge clk);
     end
     endtask
@@ -216,22 +255,39 @@ module tb_ai_accelerator ();
         n_rst = 1;
     
         reset_dut;
+        // ==================== Valid single transaction  =================
         write_weights(64'h0101_0101_0101_0101);
         write_inputs();
         write_bias();
         write_activation();
         load_weights();
+        start_inference();
         check_data();
-        // ==================== Valid single transaction above =================
+        
+        // error during inference
+        write_weights(64'hA00F_BC41_DEAD_BEEF);
         fork
             begin
                 check_data();
             end
             begin
-                write_weights(64'hA00F_BC41_DEAD_BEEF);
                 load_weights();
             end
         join
+        // ================== inference before weight test ==================
+        reset_dut();
+        start_inference();
+        load_weights();
+        fork
+            begin
+            check_data();
+            end
+            begin
+            while(!hresp) @(posedge clk);
+            $display("Passed error inference before weight test");
+            end
+        join
+
 
         $finish;
     end

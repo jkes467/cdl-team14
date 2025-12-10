@@ -1,0 +1,661 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'ai_accelerator' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : ai_accelerator
+Version: W-2024.09-SP4
+Date   : Wed Dec 10 05:51:13 2025
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: buffer/output_mem_index_reg[6]
+              (rising edge-triggered flip-flop)
+  Endpoint: hrdata[63] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  buffer/output_mem_index_reg[6]/CLK (DFFSR)              0.00       0.00 r
+  buffer/output_mem_index_reg[6]/Q (DFFSR)                1.43       1.43 f
+  buffer/U11688/Y (INVX2)                                 0.48       1.91 r
+  buffer/U11250/Y (INVX2)                                 0.88       2.79 f
+  buffer/U47770/Y (NOR2X1)                                0.11       2.90 r
+  buffer/U47745/Y (OAI21X1)                               0.16       3.06 f
+  buffer/U30916/Y (INVX1)                                 0.11       3.17 r
+  buffer/output_valid (sram_buffer)                       0.00       3.17 r
+  control_unit/output_valid (controller)                  0.00       3.17 r
+  control_unit/U29/Y (NAND2X1)                            0.08       3.25 f
+  control_unit/U28/Y (NOR2X1)                             0.09       3.34 r
+  control_unit/status_reg[0] (controller)                 0.00       3.34 r
+  subordinate/status_reg[0] (ahb_sub)                     0.00       3.34 r
+  subordinate/U1054/Y (NAND2X1)                           0.28       3.62 f
+  subordinate/U242/Y (OR2X2)                              0.97       4.59 f
+  subordinate/U241/Y (BUFX4)                              1.03       5.62 f
+  subordinate/U657/Y (OAI21X1)                            0.25       5.87 r
+  subordinate/hrdata[63] (ahb_sub)                        0.00       5.87 r
+  hrdata[63] (out)                                        0.00       5.87 r
+  data arrival time                                                  5.87
+  --------------------------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : area
+Design : ai_accelerator
+Version: W-2024.09-SP4
+Date   : Wed Dec 10 05:51:13 2025
+****************************************
+
+Library(s) Used:
+
+    osu05_stdcells (File: /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db)
+
+Number of ports:                        16649
+Number of nets:                        147835
+Number of cells:                       130695
+Number of combinational cells:         108723
+Number of sequential cells:             10662
+Number of macros/black boxes:               0
+Number of buf/inv:                      20776
+Number of references:                       6
+
+Combinational area:           29864817.000000
+Buf/Inv area:                  3354984.000000
+Noncombinational area:        16888608.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:              46753425.000000
+Total area:                 undefined
+1
+Loading db file '/home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : ai_accelerator
+Version: W-2024.09-SP4
+Date   : Wed Dec 10 05:51:19 2025
+****************************************
+
+
+Library(s) Used:
+
+    osu05_stdcells (File: /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db)
+
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 5    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+ai_accelerator                          813.542 1.97e+03 1.47e+04 2.78e+03 100.0
+  act (activation)                        0.000    0.000  540.629 5.41e-04   0.0
+    O6356 (multiply_by_2_0)               0.000    0.000   64.686 6.47e-05   0.0
+      add_2_root_add_62_7 (multiply_by_2_0_DW01_add_9_DW01_add_10)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_62_7 (multiply_by_2_0_DW01_add_5_DW01_add_6)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    O5548 (multiply_by_2_1)               0.000    0.000   64.686 6.47e-05   0.0
+      add_2_root_add_62_7 (multiply_by_2_1_DW01_add_9_DW01_add_22)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_62_7 (multiply_by_2_1_DW01_add_5_DW01_add_18)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    O4740 (multiply_by_2_2)               0.000    0.000   64.686 6.47e-05   0.0
+      add_2_root_add_62_7 (multiply_by_2_2_DW01_add_9_DW01_add_34)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_62_7 (multiply_by_2_2_DW01_add_5_DW01_add_30)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    O3932 (multiply_by_2_3)               0.000    0.000   64.686 6.47e-05   0.0
+      add_2_root_add_62_7 (multiply_by_2_3_DW01_add_9_DW01_add_46)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_62_7 (multiply_by_2_3_DW01_add_5_DW01_add_42)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    O3124 (multiply_by_2_4)               0.000    0.000   64.686 6.47e-05   0.0
+      add_2_root_add_62_7 (multiply_by_2_4_DW01_add_9_DW01_add_58)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_62_7 (multiply_by_2_4_DW01_add_5_DW01_add_54)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    O2316 (multiply_by_2_5)               0.000    0.000   64.686 6.47e-05   0.0
+      add_2_root_add_62_7 (multiply_by_2_5_DW01_add_9_DW01_add_70)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_62_7 (multiply_by_2_5_DW01_add_5_DW01_add_66)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    O158 (multiply_by_2_6)                0.000    0.000   64.686 6.47e-05   0.0
+      add_2_root_add_62_7 (multiply_by_2_6_DW01_add_9_DW01_add_82)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_62_7 (multiply_by_2_6_DW01_add_5_DW01_add_78)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    O70 (multiply_by_2_7)                 0.000    0.000   64.686 6.47e-05   0.0
+      add_2_root_add_62_7 (multiply_by_2_7_DW01_add_9_DW01_add_94)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_62_7 (multiply_by_2_7_DW01_add_5_DW01_add_90)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+  bias (bias_adder)                       0.000    0.000 1.11e+03 1.11e-03   0.0
+    U6356 (signed_multiplier_64)          0.000    0.000   68.880 6.89e-05   0.0
+      add_2_root_add_63_7 (signed_multiplier_64_DW01_add_10_DW01_add_107)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_63_7 (signed_multiplier_64_DW01_add_6_DW01_add_103)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    U5548 (signed_multiplier_65)          0.000    0.000   68.880 6.89e-05   0.0
+      add_2_root_add_63_7 (signed_multiplier_65_DW01_add_10_DW01_add_120)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_63_7 (signed_multiplier_65_DW01_add_6_DW01_add_116)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    U4740 (signed_multiplier_66)          0.000    0.000   68.880 6.89e-05   0.0
+      add_2_root_add_63_7 (signed_multiplier_66_DW01_add_10_DW01_add_133)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_63_7 (signed_multiplier_66_DW01_add_6_DW01_add_129)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    U3932 (signed_multiplier_67)          0.000    0.000   68.880 6.89e-05   0.0
+      add_2_root_add_63_7 (signed_multiplier_67_DW01_add_10_DW01_add_146)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_63_7 (signed_multiplier_67_DW01_add_6_DW01_add_142)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    U3124 (signed_multiplier_68)          0.000    0.000   68.880 6.89e-05   0.0
+      add_2_root_add_63_7 (signed_multiplier_68_DW01_add_10_DW01_add_159)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_63_7 (signed_multiplier_68_DW01_add_6_DW01_add_155)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    U2316 (signed_multiplier_69)          0.000    0.000   68.880 6.89e-05   0.0
+      add_2_root_add_63_7 (signed_multiplier_69_DW01_add_10_DW01_add_172)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_63_7 (signed_multiplier_69_DW01_add_6_DW01_add_168)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    U158 (signed_multiplier_70)           0.000    0.000   68.880 6.89e-05   0.0
+      add_2_root_add_63_7 (signed_multiplier_70_DW01_add_10_DW01_add_185)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_63_7 (signed_multiplier_70_DW01_add_6_DW01_add_181)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    U70 (signed_multiplier_71)            0.000    0.000   68.880 6.89e-05   0.0
+      add_2_root_add_63_7 (signed_multiplier_71_DW01_add_10_DW01_add_198)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_63_7 (signed_multiplier_71_DW01_add_6_DW01_add_194)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    A6356 (signed_multiplier_72)          0.000    0.000   68.911 6.89e-05   0.0
+      add_2_root_add_63_7 (signed_multiplier_72_DW01_add_10_DW01_add_211)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_63_7 (signed_multiplier_72_DW01_add_6_DW01_add_207)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    A5548 (signed_multiplier_73)          0.000    0.000   68.911 6.89e-05   0.0
+      add_2_root_add_63_7 (signed_multiplier_73_DW01_add_10_DW01_add_224)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_63_7 (signed_multiplier_73_DW01_add_6_DW01_add_220)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    A4740 (signed_multiplier_74)          0.000    0.000   68.911 6.89e-05   0.0
+      add_2_root_add_63_7 (signed_multiplier_74_DW01_add_10_DW01_add_237)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_63_7 (signed_multiplier_74_DW01_add_6_DW01_add_233)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    A3932 (signed_multiplier_75)          0.000    0.000   68.911 6.89e-05   0.0
+      add_2_root_add_63_7 (signed_multiplier_75_DW01_add_10_DW01_add_250)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_63_7 (signed_multiplier_75_DW01_add_6_DW01_add_246)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    A3124 (signed_multiplier_76)          0.000    0.000   68.911 6.89e-05   0.0
+      add_2_root_add_63_7 (signed_multiplier_76_DW01_add_10_DW01_add_263)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_63_7 (signed_multiplier_76_DW01_add_6_DW01_add_259)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    A2316 (signed_multiplier_77)          0.000    0.000   68.911 6.89e-05   0.0
+      add_2_root_add_63_7 (signed_multiplier_77_DW01_add_10_DW01_add_276)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_63_7 (signed_multiplier_77_DW01_add_6_DW01_add_272)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    A158 (signed_multiplier_78)           0.000    0.000   68.911 6.89e-05   0.0
+      add_2_root_add_63_7 (signed_multiplier_78_DW01_add_10_DW01_add_289)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_63_7 (signed_multiplier_78_DW01_add_6_DW01_add_285)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    A70 (signed_multiplier_79)            0.000    0.000   68.911 6.89e-05   0.0
+      add_2_root_add_63_7 (signed_multiplier_79_DW01_add_10_DW01_add_302)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+      add_0_root_add_63_7 (signed_multiplier_79_DW01_add_6_DW01_add_298)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+  sys (systolic_array)                  159.117  417.368 5.64e+03  576.490  20.7
+    final_row_column7 (PE_0)              1.344    5.561   84.138    6.906   0.2
+      s0 (signed_multiplier_0)            0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_0_DW01_add_10_DW01_add_315)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_0_DW01_add_6_DW01_add_311)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    final_row_column6 (PE_1)              1.344    5.561   83.652    6.906   0.2
+      s0 (signed_multiplier_1)            0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_1_DW01_add_10_DW01_add_328)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_1_DW01_add_6_DW01_add_324)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    final_row_column5 (PE_2)              1.850    4.249   83.713    6.099   0.2
+      s0 (signed_multiplier_2)            0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_2_DW01_add_10_DW01_add_341)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_2_DW01_add_6_DW01_add_337)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    final_row_column4 (PE_3)              1.344    5.561   83.652    6.906   0.2
+      s0 (signed_multiplier_3)            0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_3_DW01_add_10_DW01_add_354)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_3_DW01_add_6_DW01_add_350)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    final_row_column3 (PE_4)              1.344    5.561   83.652    6.906   0.2
+      s0 (signed_multiplier_4)            0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_4_DW01_add_10_DW01_add_367)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_4_DW01_add_6_DW01_add_363)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    final_row_column2 (PE_5)              1.796    4.250   83.713    6.046   0.2
+      s0 (signed_multiplier_5)            0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_5_DW01_add_10_DW01_add_380)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_5_DW01_add_6_DW01_add_376)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    final_row_column1 (PE_6)              1.344    5.561   83.652    6.906   0.2
+      s0 (signed_multiplier_6)            0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_6_DW01_add_10_DW01_add_393)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_6_DW01_add_6_DW01_add_389)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    final_row_column0 (PE_7)              1.344    5.561   83.652    6.906   0.2
+      s0 (signed_multiplier_7)            0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_7_DW01_add_10_DW01_add_406)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_7_DW01_add_6_DW01_add_402)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[6].column7 (PE_8)             1.796    4.250   83.794    6.046   0.2
+      s0 (signed_multiplier_8)            0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_8_DW01_add_10_DW01_add_419)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_8_DW01_add_6_DW01_add_415)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[6].column6 (PE_9)             1.344    5.561   83.733    6.906   0.2
+      s0 (signed_multiplier_9)            0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_9_DW01_add_10_DW01_add_432)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_9_DW01_add_6_DW01_add_428)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[6].column5 (PE_10)            1.344    5.561   83.733    6.906   0.2
+      s0 (signed_multiplier_10)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_10_DW01_add_10_DW01_add_445)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_10_DW01_add_6_DW01_add_441)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[6].column4 (PE_11)            1.850    4.257   83.794    6.107   0.2
+      s0 (signed_multiplier_11)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_11_DW01_add_10_DW01_add_458)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_11_DW01_add_6_DW01_add_454)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[6].column3 (PE_12)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_12)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_12_DW01_add_10_DW01_add_471)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_12_DW01_add_6_DW01_add_467)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[6].column2 (PE_13)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_13)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_13_DW01_add_10_DW01_add_484)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_13_DW01_add_6_DW01_add_480)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[6].column1 (PE_14)            1.850    4.257   83.794    6.107   0.2
+      s0 (signed_multiplier_14)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_14_DW01_add_10_DW01_add_497)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_14_DW01_add_6_DW01_add_493)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[6].column0 (PE_15)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_15)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_15_DW01_add_10_DW01_add_510)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_15_DW01_add_6_DW01_add_506)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[5].column7 (PE_16)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_16)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_16_DW01_add_10_DW01_add_523)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_16_DW01_add_6_DW01_add_519)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[5].column6 (PE_17)            1.850    4.257   83.794    6.107   0.2
+      s0 (signed_multiplier_17)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_17_DW01_add_10_DW01_add_536)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_17_DW01_add_6_DW01_add_532)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[5].column5 (PE_18)            1.291    5.570   83.733    6.860   0.2
+      s0 (signed_multiplier_18)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_18_DW01_add_10_DW01_add_549)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_18_DW01_add_6_DW01_add_545)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[5].column4 (PE_19)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_19)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_19_DW01_add_10_DW01_add_562)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_19_DW01_add_6_DW01_add_558)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[5].column3 (PE_20)            1.796    4.258   83.794    6.054   0.2
+      s0 (signed_multiplier_20)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_20_DW01_add_10_DW01_add_575)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_20_DW01_add_6_DW01_add_571)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[5].column2 (PE_21)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_21)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_21_DW01_add_10_DW01_add_588)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_21_DW01_add_6_DW01_add_584)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[5].column1 (PE_22)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_22)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_22_DW01_add_10_DW01_add_601)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_22_DW01_add_6_DW01_add_597)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[5].column0 (PE_23)            1.796    4.258   83.794    6.054   0.2
+      s0 (signed_multiplier_23)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_23_DW01_add_10_DW01_add_614)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_23_DW01_add_6_DW01_add_610)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[4].column7 (PE_24)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_24)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_24_DW01_add_10_DW01_add_627)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_24_DW01_add_6_DW01_add_623)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[4].column6 (PE_25)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_25)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_25_DW01_add_10_DW01_add_640)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_25_DW01_add_6_DW01_add_636)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[4].column5 (PE_26)            1.850    4.257   83.794    6.107   0.2
+      s0 (signed_multiplier_26)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_26_DW01_add_10_DW01_add_653)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_26_DW01_add_6_DW01_add_649)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[4].column4 (PE_27)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_27)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_27_DW01_add_10_DW01_add_666)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_27_DW01_add_6_DW01_add_662)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[4].column3 (PE_28)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_28)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_28_DW01_add_10_DW01_add_679)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_28_DW01_add_6_DW01_add_675)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[4].column2 (PE_29)            1.850    4.257   83.794    6.107   0.2
+      s0 (signed_multiplier_29)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_29_DW01_add_10_DW01_add_692)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_29_DW01_add_6_DW01_add_688)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[4].column1 (PE_30)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_30)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_30_DW01_add_10_DW01_add_705)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_30_DW01_add_6_DW01_add_701)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[4].column0 (PE_31)            1.291    5.570   83.733    6.860   0.2
+      s0 (signed_multiplier_31)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_31_DW01_add_10_DW01_add_718)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_31_DW01_add_6_DW01_add_714)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[3].column7 (PE_32)            1.850    4.257   83.794    6.107   0.2
+      s0 (signed_multiplier_32)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_32_DW01_add_10_DW01_add_731)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_32_DW01_add_6_DW01_add_727)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[3].column6 (PE_33)            1.291    5.570   83.733    6.860   0.2
+      s0 (signed_multiplier_33)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_33_DW01_add_10_DW01_add_744)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_33_DW01_add_6_DW01_add_740)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[3].column5 (PE_34)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_34)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_34_DW01_add_10_DW01_add_757)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_34_DW01_add_6_DW01_add_753)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[3].column4 (PE_35)            1.850    4.257   83.794    6.107   0.2
+      s0 (signed_multiplier_35)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_35_DW01_add_10_DW01_add_770)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_35_DW01_add_6_DW01_add_766)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[3].column3 (PE_36)            1.291    5.570   83.733    6.860   0.2
+      s0 (signed_multiplier_36)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_36_DW01_add_10_DW01_add_783)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_36_DW01_add_6_DW01_add_779)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[3].column2 (PE_37)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_37)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_37_DW01_add_10_DW01_add_796)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_37_DW01_add_6_DW01_add_792)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[3].column1 (PE_38)            1.850    4.257   83.794    6.107   0.2
+      s0 (signed_multiplier_38)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_38_DW01_add_10_DW01_add_809)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_38_DW01_add_6_DW01_add_805)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[3].column0 (PE_39)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_39)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_39_DW01_add_10_DW01_add_822)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_39_DW01_add_6_DW01_add_818)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[2].column7 (PE_40)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_40)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_40_DW01_add_10_DW01_add_835)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_40_DW01_add_6_DW01_add_831)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[2].column6 (PE_41)            1.850    4.257   83.794    6.107   0.2
+      s0 (signed_multiplier_41)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_41_DW01_add_10_DW01_add_848)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_41_DW01_add_6_DW01_add_844)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[2].column5 (PE_42)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_42)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_42_DW01_add_10_DW01_add_861)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_42_DW01_add_6_DW01_add_857)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[2].column4 (PE_43)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_43)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_43_DW01_add_10_DW01_add_874)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_43_DW01_add_6_DW01_add_870)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[2].column3 (PE_44)            1.796    4.258   83.794    6.054   0.2
+      s0 (signed_multiplier_44)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_44_DW01_add_10_DW01_add_887)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_44_DW01_add_6_DW01_add_883)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[2].column2 (PE_45)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_45)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_45_DW01_add_10_DW01_add_900)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_45_DW01_add_6_DW01_add_896)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[2].column1 (PE_46)            1.291    5.570   83.733    6.860   0.2
+      s0 (signed_multiplier_46)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_46_DW01_add_10_DW01_add_913)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_46_DW01_add_6_DW01_add_909)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[2].column0 (PE_47)            1.850    4.257   83.794    6.107   0.2
+      s0 (signed_multiplier_47)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_47_DW01_add_10_DW01_add_926)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_47_DW01_add_6_DW01_add_922)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[1].column7 (PE_48)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_48)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_48_DW01_add_10_DW01_add_939)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_48_DW01_add_6_DW01_add_935)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[1].column6 (PE_49)            1.291    5.570   83.733    6.860   0.2
+      s0 (signed_multiplier_49)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_49_DW01_add_10_DW01_add_952)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_49_DW01_add_6_DW01_add_948)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[1].column5 (PE_50)            1.850    4.257   83.794    6.107   0.2
+      s0 (signed_multiplier_50)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_50_DW01_add_10_DW01_add_965)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_50_DW01_add_6_DW01_add_961)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[1].column4 (PE_51)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_51)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_51_DW01_add_10_DW01_add_978)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_51_DW01_add_6_DW01_add_974)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[1].column3 (PE_52)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_52)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_52_DW01_add_10_DW01_add_991)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_52_DW01_add_6_DW01_add_987)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[1].column2 (PE_53)            1.850    4.257   83.794    6.107   0.2
+      s0 (signed_multiplier_53)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_53_DW01_add_10_DW01_add_1004)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_53_DW01_add_6_DW01_add_1000)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[1].column1 (PE_54)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_54)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_54_DW01_add_10_DW01_add_1017)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_54_DW01_add_6_DW01_add_1013)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[1].column0 (PE_55)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_55)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_55_DW01_add_10_DW01_add_1030)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_55_DW01_add_6_DW01_add_1026)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[0].column7 (PE_56)            1.850    4.257   83.794    6.107   0.2
+      s0 (signed_multiplier_56)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_56_DW01_add_10_DW01_add_1043)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_56_DW01_add_6_DW01_add_1039)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[0].column6 (PE_57)            1.291    5.570   83.733    6.860   0.2
+      s0 (signed_multiplier_57)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_57_DW01_add_10_DW01_add_1056)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_57_DW01_add_6_DW01_add_1052)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[0].column5 (PE_58)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_58)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_58_DW01_add_10_DW01_add_1069)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_58_DW01_add_6_DW01_add_1065)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[0].column4 (PE_59)            1.796    4.258   83.794    6.054   0.2
+      s0 (signed_multiplier_59)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_59_DW01_add_10_DW01_add_1082)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_59_DW01_add_6_DW01_add_1078)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[0].column3 (PE_60)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_60)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_60_DW01_add_10_DW01_add_1095)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_60_DW01_add_6_DW01_add_1091)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[0].column2 (PE_61)            1.344    5.569   83.733    6.914   0.2
+      s0 (signed_multiplier_61)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_61_DW01_add_10_DW01_add_1108)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_61_DW01_add_6_DW01_add_1104)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[0].column1 (PE_62)            1.796    4.258   83.794    6.054   0.2
+      s0 (signed_multiplier_62)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_62_DW01_add_10_DW01_add_1121)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_62_DW01_add_6_DW01_add_1117)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+    genblk1[0].column0 (PE_63)            1.344    4.605   83.733    5.949   0.2
+      s0 (signed_multiplier_63)           0.000    0.000   68.880 6.89e-05   0.0
+        add_2_root_add_63_7 (signed_multiplier_63_DW01_add_10_DW01_add_1134)
+                                          0.000    0.000    5.033 5.03e-06   0.0
+        add_0_root_add_63_7 (signed_multiplier_63_DW01_add_6_DW01_add_1130)
+                                          0.000    0.000    4.305 4.30e-06   0.0
+  control_unit (controller)               0.526    2.552   35.246    3.078   0.1
+    input_counter (flex_counter_SIZE8_0)
+                                          0.526    1.017   11.151    1.542   0.1
+      add_32_aco (flex_counter_SIZE8_0_DW01_inc_0_DW01_inc_10)
+                                          0.000    0.000    1.807 1.81e-06   0.0
+    weight_counter (flex_counter_SIZE3)
+                                          0.000    0.409    3.874    0.409   0.0
+    detect_weights (edge_det_0)           0.000    0.307    1.680    0.307   0.0
+      synchronize (sync_0)                0.000    0.205    1.066    0.205   0.0
+    detect_inference (edge_det_1)         0.000    0.307    1.680    0.307   0.0
+      synchronize (sync_1)                0.000    0.205    1.066    0.205   0.0
+  buffer (sram_buffer)                  632.595 1.51e+03 7.20e+03 2.14e+03  77.0
+    add_74 (sram_buffer_DW01_inc_4_DW01_inc_15)
+                                          0.000    0.000    1.541 1.54e-06   0.0
+    output_counter (flex_counter_SIZE8_1)
+                                          0.526    1.817   11.151    2.342   0.1
+      add_32_aco (flex_counter_SIZE8_1_DW01_inc_0_DW01_inc_16)
+                                          0.000    0.000    1.807 1.81e-06   0.0
+    occ_err_edge (edge_det_2)             0.000    0.517    1.680    0.517   0.0
+      synchronize (sync_2)                0.000    0.345    1.066    0.345   0.0
+    input_counter_read (flex_counter_SIZE8_2)
+                                          0.000    1.552   11.090    1.552   0.1
+      add_32_aco (flex_counter_SIZE8_2_DW01_inc_0_DW01_inc_17)
+                                          0.000    0.000    1.807 1.81e-06   0.0
+    input_counter_write (flex_counter_SIZE8_3)
+                                          0.000    1.552   11.090    1.552   0.1
+      add_32_aco (flex_counter_SIZE8_3_DW01_inc_0_DW01_inc_18)
+                                          0.000    0.000    1.807 1.81e-06   0.0
+    weight_counter_read (flex_counter_SIZE4_0)
+                                          0.000    0.862    5.223    0.862   0.0
+    weight_counter_write (flex_counter_SIZE4_1)
+                                          0.000    0.862    5.223    0.862   0.0
+  subordinate (ahb_sub)                  21.138   37.706  185.044   58.845   2.1
+1

@@ -1,0 +1,15 @@
+CAPI=2:
+name: "u337mg096:ece337:sram_buffer_syn"
+
+filesets:
+    netlist:
+        files:
+            - "sram_buffer.v"
+        file_type: systemVerilogSource
+
+targets:
+    default:
+        filesets:
+            - netlist
+        toplevel: sram_buffer
+
