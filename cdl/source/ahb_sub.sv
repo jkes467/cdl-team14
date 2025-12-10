@@ -308,63 +308,7 @@ always_comb begin
     end
 end
 
-// //output logic
-// logic ready;
-
-// always_comb begin
-//     hrdata = rf_rdata;
-//     hresp  = 1'b0;
-//     ready  = 1'b1;
-
-//     if (rf_addr == 10'h18) begin
-//         if (burst_en == 1'b0) begin
-//             ready = 1'b0;
-//         end
-//         else begin
-//             ready = 1'b1;
-//         end
-
-//         hrdata = rf_rdata;
-//         hresp = 1'b0;
-//     end
-//     else if (rf_addr == 10'h20) begin
-//         hrdata = {32'b0, err_reg, 16'b0};
-//         if (err_reg[0] | err_reg[8]) begin
-//             hresp = 1'b1;
-//             ready = 1'b0;
-//         end
-//         else begin
-//             hresp = 1'b0;
-//             ready = 1'b1;
-//         end
-//     end
-//     else if (write_error | error_flag | burst_err) begin
-//         hresp = 1'b1;
-//         ready = 1'b0;
-//     end
-//     else begin
-//         hrdata = rf_rdata;
-//         hresp = 1'b0;
-//         ready = 1'b1;
-//     end
-// end
-
-// //hready logic
-
-// logic ready_q1, ready_q2;
-
-// always_ff @(posedge clk or negedge n_rst) begin
-//     if (!n_rst) begin
-//         ready_q1 <= 1'b1;
-//         ready_q2 <= 1'b1;
-//     end
-//     else begin
-//         ready_q1 <= ready;
-//         ready_q2 <= ready_q1;
-//     end
-// end
-
-// assign hready = ready_q1 & ready_q2;
+//output logic
 
 logic ready;
 logic any_error;
@@ -372,82 +316,58 @@ logic error_in_progress;
 logic [1:0] error_cnt;
 logic ready_q1, ready_q2;
 
-// combine raw error sources
-always_comb begin
-    any_error = write_error | error_flag | burst_err;
-    // if you also want err_reg bits to cause an AHB error stall, include this:
-    if (rf_addr == 10'h20 && (err_reg[0] | err_reg[8])) begin
-        any_error = 1'b1;
-    end
-end
+assign any_error = write_error | error_flag | burst_err | err_reg[0] | err_reg[8];
 
-// error FSM: when any_error seen, hold HREADY low for 2 cycles
+
 always_ff @(posedge clk or negedge n_rst) begin
     if (!n_rst) begin
         error_in_progress <= 1'b0;
-        error_cnt         <= 2'd0;
+        error_cnt <= 2'd0;
     end
     else begin
         if (!error_in_progress) begin
-            // start error response
             if (any_error) begin
                 error_in_progress <= 1'b1;
-                error_cnt         <= 2'd2;   // 2 data-phase wait cycles
+                error_cnt <= 2'd2;
             end
         end
         else begin
-            // already in error response
             if (error_cnt != 2'd0) begin
                 error_cnt <= error_cnt - 2'd1;
             end
             else begin
-                // done: release the bus
                 error_in_progress <= 1'b0;
             end
         end
     end
 end
 
-// main output mux
 always_comb begin
-    // defaults
-    hrdata = rf_rdata;
-    hresp  = 1'b0;
-    ready  = 1'b1;
+    hrdata = '0;
+    ready = 1'b1;
+    hresp = 1'b0;
 
-    // normal (non-error) behavior
-
-    // output register @0x18: stall while burst is active
-    if (rf_addr == 10'h18) begin
-        if (burst_en == 1'b0) begin
-            ready = 1'b0;
-        end
-        hrdata = rf_rdata;
-    end
-    // error/status register @0x20
-    else if (rf_addr == 10'h20) begin
-        hrdata = {32'b0, err_reg, 16'b0};
-        // you can "flag" error here, but HREADY timing comes from FSM
-        if (err_reg[0] | err_reg[8]) begin
-            hresp = 1'b1;
-        end
-    end
-
-    // ERROR FSM OVERRIDE: any_error caused error_in_progress
     if (error_in_progress) begin
-        hresp = 1'b1;  // during error response we report an error
+        hresp = 1'b1;
         if (error_cnt != 2'd0) begin
-            // hold HREADY low for the programmed number of cycles
             ready = 1'b0;
         end
         else begin
-            // final cycle done, allow HREADY high again
             ready = 1'b1;
         end
     end
+    else if (burst_en == 1'b0 && (error_cnt == 2'd0)) begin
+        ready = 1'b0;
+    end
+    else if (status_reg[1] && (error_cnt == 2'd0)) begin
+        ready = 1'b0;
+    end
+    if (status_reg[0]) begin
+        hrdata = rf_rdata;
+    end
+
 end
 
-// HREADY stretch: any low ready will make hready low for at least 2 cycles
 always_ff @(posedge clk or negedge n_rst) begin
     if (!n_rst) begin
         ready_q1 <= 1'b1;

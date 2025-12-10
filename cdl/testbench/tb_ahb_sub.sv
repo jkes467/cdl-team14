@@ -130,6 +130,26 @@ module tb_ahb_sub;
     end
     endtask
 
+    task ahb_single_write8(input [9:0] addr,input [7:0] data);
+    begin
+        @(posedge clk);
+        hsel <= 1'b1;
+        hwrite <= 1'b1;
+        haddr <= addr;
+        htrans <= HTRANS_NONSEQ;
+        hsize <= 2'b01;
+        hburst <= HBURST_SINGLE;
+        hwdata <= data;
+
+        wait_hready();
+
+        @(posedge clk);
+        hsel <=1'b0;
+        htrans <= HTRANS_IDLE;
+        hwrite <= 1'b0;
+    end
+    endtask
+
     // single read: valid read addresses 0x010,0x018,0x020,0x022,0x023,0x024
     task ahb_single_read(input [9:0] addr,input [1:0] size,output [63:0] data_out);
     begin
@@ -141,6 +161,27 @@ module tb_ahb_sub;
         hsize <= size;
         hburst <= HBURST_SINGLE;
 
+        wait_hready();
+
+        data_out=hrdata;
+
+        @(posedge clk);
+        hsel <= 1'b0;
+        htrans <= HTRANS_IDLE;
+    end
+    endtask
+
+    task ahb_single_read_busy(input [9:0] addr,input [1:0] size,output [63:0] data_out);
+    begin
+        @(posedge clk);
+        hsel <= 1'b1;
+        hwrite <= 1'b0;
+        haddr <= addr;
+        htrans <= HTRANS_BUSY;
+        hsize <= size;
+        hburst <= HBURST_SINGLE;
+        @(posedge clk);
+        htrans <= HTRANS_NONSEQ;
         wait_hready();
 
         data_out=hrdata;
@@ -220,6 +261,46 @@ module tb_ahb_sub;
     end
     endtask
 
+    task ahb_burst_write64_busy(input [2:0] burst_mode,input int beats);
+        logic [9:0] addr;
+    begin
+        addr=10'h000;
+
+        @(posedge clk);
+        hsel <= 1'b1;
+        hwrite <= 1'b1;
+        htrans <= HTRANS_NONSEQ;
+        hburst <= burst_mode;
+        hsize <= 2'b11;
+        haddr <= addr;
+        hwdata <= 64'h1000_0000_0000_0000;
+
+        wait_hready();
+
+        for(i = 1; i < beats; i = i + 1) begin
+            addr = addr + 10'h008;
+
+            @(posedge clk);
+            htrans <= HTRANS_BUSY;
+            haddr <= addr;
+            hwdata <= 64'h1000_0000_0000_0000+i;
+
+            @(posedge clk);
+            @(posedge clk);
+
+            htrans <= HTRANS_SEQ;
+            haddr <= addr;
+            hwdata <= 64'h1000_0000_0000_0000+i;
+            wait_hready();
+        end
+
+        @(posedge clk);
+        hsel <= 1'b0;
+        htrans <= HTRANS_IDLE;
+        hwrite <= 1'b0;
+    end
+    endtask
+
     task test_all_writes;
     begin
         ahb_single_write64(10'h000,64'h0001_0001_0001_0001);
@@ -228,9 +309,9 @@ module tb_ahb_sub;
 
         ahb_single_write64(10'h010,64'h0003_0003_0003_0003);
 
-        ahb_single_write64(10'h022,64'h0000_0000_5500_0000);
+        ahb_single_write8(10'h022,64'h0000_0000_5500_0000);
 
-        ahb_single_write64(10'h024,64'h0000_0000_0000_000F);
+        ahb_single_write8(10'h024,64'h0000_0000_0000_000F);
 
         ahb_single_write64(10'h018,64'h0002_0002_0002_0002);
     end
@@ -287,6 +368,8 @@ module tb_ahb_sub;
 
         test_all_reads();
         test_all_writes();
+
+        ahb_single_read_busy(10'h18,2'h11, rdata);
 
         repeat(10) @(posedge clk);
         $finish;
