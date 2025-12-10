@@ -53,7 +53,7 @@ add wave -noupdate /tb_ahb_sub/DUT/error_cnt
 add wave -noupdate /tb_ahb_sub/DUT/ready_q1
 add wave -noupdate /tb_ahb_sub/DUT/ready_q2
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {1690549 ps} 0}
+WaveRestoreCursors {{Cursor 1} {2585000 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -69,4 +69,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ps} {1895250 ps}
+WaveRestoreZoom {924513 ps} {2819763 ps}

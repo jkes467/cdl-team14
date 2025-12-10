@@ -19,7 +19,8 @@ module ahb_sub #(
     output logic [63:0] bias_reg,
     output logic [7:0] ctrl_reg,
     output logic wr_en_push,
-    output logic is_weight
+    output logic is_weight,
+    output logic [63:0] write_data
 
 );
 logic wr_en, rd_en;
@@ -193,7 +194,7 @@ logic [4:0] beats_left;
 
 
 // write logic
-logic [63:0] n_write_data, write_data;
+logic [63:0] n_write_data;
 logic n_wr_en;
 logic n_is_weight;
 logic [63:0] n_bias_reg;
