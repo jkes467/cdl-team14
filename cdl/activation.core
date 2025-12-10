@@ -7,8 +7,8 @@ filesets:
         files:
             - "source/activation.sv"
         file_type: systemVerilogSource
-        # depend:
-        #     - "fusesoc:core:name"
+        depend:
+            - "u337mg154:ece337:multiply_by_2:1.0.0"
 
     synth:
         depend:
