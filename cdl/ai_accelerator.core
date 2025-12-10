@@ -7,8 +7,14 @@ filesets:
         files:
             - "source/ai_accelerator.sv"
         file_type: systemVerilogSource
-        # depend:
-        #     - "fusesoc:core:name"
+        depend:
+            - "u337mg096:ece337:activation:1.0.0"
+            - "u337mg096:ece337:ahb_sub:1.0.0"
+            - "u337mg096:ece337:bias_adder:1.0.0"
+            - "u337mg096:ece337:systolic_array:1.0.0"
+            - "u337mg096:ece337:controller:1.0.0"
+            - "u337mg096:ece337:sram_buffer:1.0.0"
+
 
     synth:
         depend:
