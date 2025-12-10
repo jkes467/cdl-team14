@@ -724,6 +724,83 @@ module tb_systolic_array ();
         end
     endtask
 
+    task test_array_positive;
+        input int seed;
+        automatic logic signed [7:0] weight_ij;
+        automatic logic signed [7:0] input_ij;
+        automatic logic [63:0] expected;
+        automatic int byte_index;
+        automatic int col;
+        automatic int row;
+        automatic logic [63:0] og_inputs;
+        automatic logic signed [7:0] temp;
+        automatic logic [15:0] more_temp;
+        begin
+            for(int k = 0; k<10; k++) begin
+                // --------- generate 64 random weights
+                for (int j = 0; j < 64; j++) begin
+                    byte_index = j*8;
+                    weights[byte_index +: 8] = {$random(seed)} % 16;
+                    
+                end
+                // --------- load weights
+                // weights = {8{64'h0101_0101_0101_0101}};
+                load_weights(.weight(weights));
+                #100;
+                @(negedge clk);
+                for(int i = 0; i<8; i++) begin
+                    byte_index = i*8;
+                    input_value[byte_index +: 8] = {$random(seed)} % 16;
+                end
+                og_inputs = input_value;
+                float = 0;
+                load  = 0;
+                input_valid = 1;
+                @(negedge clk);
+                input_valid = 0;
+                input_value = 0;
+                @(posedge output_valid);
+    
+                // --------- Check each output byte
+                for (col = 0; col < 8; col++) begin
+                    
+                    expected = 0;
+                    more_temp = 0;
+                    // Multiply 8 rows contributing to this output column
+                    for (row = 0; row < 8; row++) begin
+                        weight_ij = weights[((col)*64 + (row*8)) +: 8];
+                        input_ij  = og_inputs[row*8 +: 8];
+                        temp = weight_ij * input_ij;
+                        // $display("weight:%h \n", weight_ij);
+                        // $display("input:%h \n", input_ij);
+                        // $display("temp:%h \n", temp);
+                        more_temp += temp;
+                    
+                    end
+                    expected[col*8 +:8] = more_temp[7:0];
+                    if (output_value[col*8 +: 8] !== expected[col*8 +:8]) begin
+                        if(expected[col*8 +: 8] >= 8'sd127 || expected[col*8 +: 8] <= -8'sd128) begin
+                            if(output_value[col*8 +: 8] != 127 || output_value[col*8 +: 8] != -128) begin
+                                total_failed++;
+                                $display("FAIL: col=%0d DUT=%0d expected=%0d",
+                                col,
+                                output_value[col*8 +: 8],
+                                expected[col*8 +: 8]);
+                            end
+                        end
+                        else begin
+                            total_failed++;
+                            $display("FAIL: col=%0d DUT=%0d expected=%0d",
+                                col,
+                                output_value[col*8 +: 8],
+                                expected[col*8 +: 8]);
+                        end
+                    end
+                end
+            end
+        end
+    endtask
+
 
     initial begin
         n_rst = 1;
