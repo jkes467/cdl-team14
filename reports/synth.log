@@ -31,20 +31,20 @@ Please use '-no_save' simv switch to avoid this.
             Inclusivity and Diversity" (Refer to article 000036315 at
                         https://solvnetplus.synopsys.com)
 Initializing...
-Initializing gui preferences from file  /home/ecegridfs/a/337mg209/.synopsys_dc_gui/preferences.tcl
-Current time:       Wed Dec 10 05:55:55 2025
-Hostname:           ececomp1.ecn.purdue.edu
+Initializing gui preferences from file  /home/ecegridfs/a/337mg154/.synopsys_dc_gui/preferences.tcl
+Current time:       Wed Dec 10 12:59:49 2025
+Hostname:           ececomp4.ecn.purdue.edu
 CPU Model:          AMD EPYC 7513 32-Core Processor
-CPU Details:        Cores = 128 : Sockets = 2 : Cache Size = 512 KB : Freq = 2.60 GHz
+CPU Details:        Cores = 128 : Sockets = 2 : Cache Size = 512 KB : Freq = 3.34 GHz
 OS:                 Linux 4.18.0-553.78.1.el8_10.x86_64
-RAM:                502 GB (Free  15 GB)
-Swap:                63 GB (Free  12 GB)
+RAM:                502 GB (Free  42 GB)
+Swap:                63 GB (Free  20 GB)
 Work Filesystem:    /home/ecegridfs/a mounted to ecegridfs.ecn.purdue.edu:/export/home/a
 Tmp Filesystem:     /tmp mounted to tmpfs
-Work Disk:          2968 GB (Free   4 GB)
-Tmp Disk:            19 GB (Free  14 GB)
+Work Disk:          2968 GB (Free   6 GB)
+Tmp Disk:            19 GB (Free  17 GB)
 
-CPU Load: 16%, Ram Free: 15 GB, Swap Free: 12 GB, Work Disk Free: 4 GB, Tmp Disk Free: 14 GB
+CPU Load: 21%, Ram Free: 42 GB, Swap Free: 20 GB, Work Disk Free: 6 GB, Tmp Disk Free: 17 GB
 ############################################
 #
 # Auto-generated project tcl file:
@@ -53,13 +53,13 @@ CPU Load: 16%, Ram Free: 15 GB, Swap Free: 12 GB, Work Disk Free: 4 GB, Tmp Disk
 #
 ############################################
 sh date
-Wed Dec 10 05:55:55 EST 2025
-set TOP_MODULE signed_multiplier
-signed_multiplier
+Wed Dec 10 12:59:49 EST 2025
+set TOP_MODULE activation
+activation
 set DC_SCRIPT synth.tcl
 synth.tcl
-set READ_SOURCES u337mg096_ece337_signed_multiplier_1.0.0-read-sources
-u337mg096_ece337_signed_multiplier_1.0.0-read-sources
+set READ_SOURCES u337mg096_ece337_activation_1.0.0-read-sources
+u337mg096_ece337_activation_1.0.0-read-sources
 set SCRIPT_DIR src/u337mg096_ece337_synfiles_0
 src/u337mg096_ece337_synfiles_0
 set REPORT_DIR reports
@@ -76,41 +76,62 @@ set link_library   [concat "*"  /home/ecegrid/a/ece337/summer24-refactor/tech/am
 ############################################
 source ${SCRIPT_DIR}/${DC_SCRIPT}
 Running PRESTO HDLC
-Compiling source file ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv
+Compiling source file ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv
 Presto compilation completed successfully.
 Loading db file '/home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db'
 Loading db file '/package/eda/synopsys/syn/W-2024.09-SP4/libraries/syn/dw_foundation.sldb'
+Running PRESTO HDLC
+Compiling source file ./src/u337mg096_ece337_activation_1.0.0/source/activation.sv
+Presto compilation completed successfully.
 Loading db file '/package/eda/synopsys/syn/W-2024.09-SP4/libraries/syn/gtech.db'
 Loading db file '/package/eda/synopsys/syn/W-2024.09-SP4/libraries/syn/standard.sldb'
   Loading link library 'osu05_stdcells'
   Loading link library 'gtech'
 Running PRESTO HDLC
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:38: signed to unsigned part selection occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:39: signed to unsigned part selection occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:40: signed to unsigned part selection occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:43: signed to unsigned part selection occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:44: signed to unsigned part selection occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:45: signed to unsigned part selection occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:49: unsigned to signed assignment occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:70: unsigned to signed assignment occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:71: unsigned to signed assignment occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:72: unsigned to signed assignment occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:73: unsigned to signed assignment occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:86: signed to unsigned conversion occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:99: signed to unsigned part selection occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:109: signed to unsigned part selection occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:120: signed to unsigned part selection occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:131: signed to unsigned part selection occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:142: signed to unsigned part selection occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:217: signed to unsigned part selection occurs. (VER-318)
-Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:249: unsigned to signed assignment occurs. (VER-318)
-Presto compilation completed successfully. (signed_multiplier)
-Module: signed_multiplier, Ports: 34, Input: 25, Output: 9, Inout: 0
-Module: signed_multiplier, Registers: 0, Async set/reset: 0, Sync set/reset: 0
-Information: Module signed_multiplier report end. (ELAB-965)
+
+Statistics for case statements in always block in file
+	'./src/u337mg096_ece337_activation_1.0.0/source/activation.sv'
+===========================================================
+|    Line    |  full/ parallel  |      block location     |
+===========================================================
+|     24     |    auto/auto     | always block at line 23 |
+===========================================================
+Presto compilation completed successfully. (activation)
+Module: activation, Ports: 134, Input: 69, Output: 65, Inout: 0
+Module: activation, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module activation report end. (ELAB-965)
 Elaborated 1 design.
-Current design is now 'signed_multiplier'.
-CPU Load: 16%, Ram Free: 15 GB, Swap Free: 12 GB, Work Disk Free: 4 GB, Tmp Disk Free: 14 GB
+Current design is now 'activation'.
+Information: Building the design 'multiply_by_2'. (HDL-193)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:37: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:38: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:39: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:42: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:43: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:44: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:48: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:69: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:70: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:71: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:72: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:86: signed to unsigned conversion occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:95: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:101: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:107: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:111: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:115: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:188: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv:220: unsigned to signed assignment occurs. (VER-318)
+Presto compilation completed successfully. (multiply_by_2)
+Module: multiply_by_2, Ports: 34, Input: 25, Output: 9, Inout: 0
+Module: multiply_by_2, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module multiply_by_2 report end. (ELAB-965)
+Information: Uniquified 8 instances of design 'multiply_by_2'. (OPT-1056)
+Warning: Can't find object 'U6356/value[0]' in design 'activation'. (UID-95)
+Error: Value for list '-from' must have 1 elements. (CMD-036)
+Warning: Can't find object 'bias_outputs[56]' in design 'activation'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+CPU Load: 21%, Ram Free: 42 GB, Swap Free: 20 GB, Work Disk Free: 6 GB, Tmp Disk Free: 17 GB
 Information: Checking out the license 'DesignWare'. (SEC-104)
 Information: Evaluating DesignWare library utilization. (UISN-27)
 
@@ -129,8 +150,8 @@ Information: Evaluating DesignWare library utilization. (UISN-27)
 | Design Information                                      | Value                                  |
 ====================================================================================================
 | Number of Scenarios                                     | 0                                      |
-| Leaf Cell Count                                         | 211                                    |
-| Number of User Hierarchies                              | 0                                      |
+| Leaf Cell Count                                         | 1533                                   |
+| Number of User Hierarchies                              | 8                                      |
 | Sequential Cell Count                                   | 0                                      |
 | Macro Count                                             | 0                                      |
 | Pad Count                                               | 0                                      |
@@ -138,20 +159,20 @@ Information: Evaluating DesignWare library utilization. (UISN-27)
 | Number of Path Groups                                   | 1                                      |
 | Number of VT Class                                      | 0                                      |
 | Number of Clocks                                        | 0                                      |
-| Number of Dont Touch Cells                              | 107                                    |
+| Number of Dont Touch Cells                              | 775                                    |
 | Number of Dont Touch Nets                               | 0                                      |
 | Number of Size Only Cells                               | 0                                      |
 | Design with Target Library Subset (with clock_path)     | false  (false )                        |
 | Design with UPF Data                                    | false                                  |
 ====================================================================================================
 
-Information: There are 18 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+Information: There are 283 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
 
 
 
   Beginning Pass 1 Mapping
   ------------------------
-  Processing 'signed_multiplier'
+  Processing 'multiply_by_2_0'
 Module: DW01_MUX, Ports: 4, Input: 3, Output: 1, Inout: 0
 Module: DW01_MUX, Registers: 0, Async set/reset: 0, Sync set/reset: 0
 Module: DW01_mmux_width2, Ports: 7, Input: 5, Output: 2, Inout: 0
@@ -172,102 +193,251 @@ Module: DW01_add_width8, Ports: 26, Input: 17, Output: 9, Inout: 0
 Module: DW01_add_width8, Registers: 0, Async set/reset: 0, Sync set/reset: 0
 Module: DW01_add_width9, Ports: 29, Input: 19, Output: 10, Inout: 0
 Module: DW01_add_width9, Registers: 0, Async set/reset: 0, Sync set/reset: 0
-Module: DW01_add_width5, Ports: 17, Input: 11, Output: 6, Inout: 0
-Module: DW01_add_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width4, Ports: 14, Input: 9, Output: 5, Inout: 0
+Module: DW01_add_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_sub_width4, Ports: 14, Input: 9, Output: 5, Inout: 0
+Module: DW01_sub_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
 Module: DW01_sub_width5, Ports: 17, Input: 11, Output: 6, Inout: 0
 Module: DW01_sub_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
-Module: DW01_inc_width3, Ports: 6, Input: 3, Output: 3, Inout: 0
-Module: DW01_inc_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width5, Ports: 17, Input: 11, Output: 6, Inout: 0
+Module: DW01_add_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
 Module: DW01_inc_width4, Ports: 8, Input: 4, Output: 4, Inout: 0
 Module: DW01_inc_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
 Module: DW01_dec_width4, Ports: 8, Input: 4, Output: 4, Inout: 0
 Module: DW01_dec_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
-Module: DW01_sub_width4, Ports: 14, Input: 9, Output: 5, Inout: 0
-Module: DW01_sub_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
 Module: DW01_NOT, Ports: 2, Input: 1, Output: 1, Inout: 0
 Module: DW01_NOT, Registers: 0, Async set/reset: 0, Sync set/reset: 0
 Module: DW01_cmp6_width4, Ports: 15, Input: 9, Output: 6, Inout: 0
 Module: DW01_cmp6_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
-Module: DW01_cmp6_width5, Ports: 17, Input: 11, Output: 6, Inout: 0
-Module: DW01_cmp6_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
 Module: DW01_cmp6_width16, Ports: 39, Input: 33, Output: 6, Inout: 0
 Module: DW01_cmp6_width16, Registers: 0, Async set/reset: 0, Sync set/reset: 0
-Module: DW01_incdec_width4, Ports: 9, Input: 5, Output: 4, Inout: 0
-Module: DW01_incdec_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
 Module: DW01_cmp2_width16, Ports: 36, Input: 34, Output: 2, Inout: 0
 Module: DW01_cmp2_width16, Registers: 0, Async set/reset: 0, Sync set/reset: 0
-Module: DW01_add_width4, Ports: 14, Input: 9, Output: 5, Inout: 0
-Module: DW01_add_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
-Module: DW01_incdec_width3, Ports: 7, Input: 4, Output: 3, Inout: 0
-Module: DW01_incdec_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
-Module: DW01_add_width3, Ports: 11, Input: 7, Output: 4, Inout: 0
-Module: DW01_add_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_incdec_width4, Ports: 9, Input: 5, Output: 4, Inout: 0
+Module: DW01_incdec_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
 Module: DW_rash_A_width4_SH_width5, Ports: 15, Input: 11, Output: 4, Inout: 0
 Module: DW_rash_A_width4_SH_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
-Module: DW01_cmp2_width5, Ports: 14, Input: 12, Output: 2, Inout: 0
-Module: DW01_cmp2_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
 Module: DW01_cmp2_width4, Ports: 12, Input: 10, Output: 2, Inout: 0
 Module: DW01_cmp2_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
-Information: Added key list 'DesignWare' to design 'signed_multiplier'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'multiply_by_2_0'. (DDB-72)
+  Processing 'activation'
+Module: DW01_cmp6_width7, Ports: 21, Input: 15, Output: 6, Inout: 0
+Module: DW01_cmp6_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
 
   Updating timing information
 Information: Updating design information... (UID-85)
-Information: Design 'signed_multiplier' has no optimization constraints set. (OPT-108)
+Information: Design 'activation' has no optimization constraints set. (OPT-108)
 
   Beginning Implementation Selection
   ----------------------------------
-  Processing 'signed_multiplier_DW01_cmp2_0_DW01_cmp2_1'
-  Processing 'signed_multiplier_DW01_sub_0_DW01_sub_2'
-  Processing 'signed_multiplier_DW01_sub_1_DW01_sub_3'
-  Processing 'signed_multiplier_DW01_add_0'
+  Processing 'activation_DW01_cmp6_0'
+  Processing 'activation_DW01_cmp6_1'
+  Processing 'activation_DW01_cmp6_2'
+  Processing 'activation_DW01_cmp6_3'
+  Processing 'activation_DW01_cmp6_4'
+  Processing 'activation_DW01_cmp6_5'
+  Processing 'activation_DW01_cmp6_6'
+  Processing 'activation_DW01_cmp6_7'
+  Processing 'multiply_by_2_0_DW01_cmp2_0_DW01_cmp2_11'
+  Processing 'multiply_by_2_0_DW01_sub_0_DW01_sub_7'
+  Processing 'multiply_by_2_0_DW01_sub_1_DW01_sub_8'
+  Processing 'multiply_by_2_0_DW01_add_0_DW01_add_1'
   Mapping 'DW_rightsh'
-  Processing 'signed_multiplier_DW01_sub_2_DW01_sub_4'
-  Processing 'signed_multiplier_DW01_cmp2_1_DW01_cmp2_2'
+  Processing 'multiply_by_2_0_DW01_sub_2_DW01_sub_9'
   Mapping 'DW_rightsh'
-  Processing 'signed_multiplier_DW01_sub_3_DW01_sub_5'
-  Processing 'signed_multiplier_DW01_cmp2_2_DW01_cmp2_3'
-  Processing 'signed_multiplier_DW01_sub_4_DW01_sub_6'
-  Processing 'signed_multiplier_DW01_sub_5_DW01_sub_7'
-  Processing 'signed_multiplier_DW01_sub_6_DW01_sub_8'
-  Processing 'signed_multiplier_DW01_sub_7_DW01_sub_9'
-  Processing 'signed_multiplier_DW01_sub_8_DW01_sub_10'
-  Processing 'signed_multiplier_DW01_add_1'
-  Processing 'signed_multiplier_DW01_cmp2_3_DW01_cmp2_4'
-  Processing 'signed_multiplier_DW01_add_2'
-  Processing 'signed_multiplier_DW01_add_3'
-  Processing 'signed_multiplier_DW01_add_4'
-  Processing 'signed_multiplier_DW01_add_5'
-  Processing 'signed_multiplier_DW01_add_6'
-  Processing 'signed_multiplier_DW01_add_7'
-  Processing 'signed_multiplier_DW01_add_8'
-  Processing 'signed_multiplier_DW01_add_9'
-  Processing 'signed_multiplier_DW01_add_10'
-  Processing 'signed_multiplier_DW01_add_11'
-  Processing 'signed_multiplier_DW01_add_12'
+  Processing 'multiply_by_2_0_DW01_sub_3_DW01_sub_10'
+  Processing 'multiply_by_2_0_DW01_cmp2_1_DW01_cmp2_12'
+  Processing 'multiply_by_2_0_DW01_add_1_DW01_add_2'
+  Processing 'multiply_by_2_0_DW01_add_2_DW01_add_3'
+  Processing 'multiply_by_2_0_DW01_add_3_DW01_add_4'
+  Processing 'multiply_by_2_0_DW01_add_4_DW01_add_5'
+  Processing 'multiply_by_2_0_DW01_add_5_DW01_add_6'
+  Processing 'multiply_by_2_0_DW01_add_6_DW01_add_7'
+  Processing 'multiply_by_2_0_DW01_add_7_DW01_add_8'
+  Processing 'multiply_by_2_0_DW01_add_8_DW01_add_9'
+  Processing 'multiply_by_2_0_DW01_add_9_DW01_add_10'
+  Processing 'multiply_by_2_0_DW01_add_10_DW01_add_11'
+  Processing 'multiply_by_2_0_DW01_add_11_DW01_add_12'
+  Processing 'multiply_by_2_1_DW01_cmp2_0_DW01_cmp2_13'
+  Processing 'multiply_by_2_1_DW01_sub_0_DW01_sub_11'
+  Processing 'multiply_by_2_1_DW01_sub_1_DW01_sub_12'
+  Processing 'multiply_by_2_1_DW01_add_0_DW01_add_13'
+  Mapping 'DW_rightsh'
+  Processing 'multiply_by_2_1_DW01_sub_2_DW01_sub_13'
+  Mapping 'DW_rightsh'
+  Processing 'multiply_by_2_1_DW01_sub_3_DW01_sub_14'
+  Processing 'multiply_by_2_1_DW01_cmp2_1_DW01_cmp2_14'
+  Processing 'multiply_by_2_1_DW01_add_1_DW01_add_14'
+  Processing 'multiply_by_2_1_DW01_add_2_DW01_add_15'
+  Processing 'multiply_by_2_1_DW01_add_3_DW01_add_16'
+  Processing 'multiply_by_2_1_DW01_add_4_DW01_add_17'
+  Processing 'multiply_by_2_1_DW01_add_5_DW01_add_18'
+  Processing 'multiply_by_2_1_DW01_add_6_DW01_add_19'
+  Processing 'multiply_by_2_1_DW01_add_7_DW01_add_20'
+  Processing 'multiply_by_2_1_DW01_add_8_DW01_add_21'
+  Processing 'multiply_by_2_1_DW01_add_9_DW01_add_22'
+  Processing 'multiply_by_2_1_DW01_add_10_DW01_add_23'
+  Processing 'multiply_by_2_1_DW01_add_11_DW01_add_24'
+  Processing 'multiply_by_2_2_DW01_cmp2_0_DW01_cmp2_15'
+  Processing 'multiply_by_2_2_DW01_sub_0_DW01_sub_15'
+  Processing 'multiply_by_2_2_DW01_sub_1_DW01_sub_16'
+  Processing 'multiply_by_2_2_DW01_add_0_DW01_add_25'
+  Mapping 'DW_rightsh'
+  Processing 'multiply_by_2_2_DW01_sub_2_DW01_sub_17'
+  Mapping 'DW_rightsh'
+  Processing 'multiply_by_2_2_DW01_sub_3_DW01_sub_18'
+  Processing 'multiply_by_2_2_DW01_cmp2_1_DW01_cmp2_16'
+  Processing 'multiply_by_2_2_DW01_add_1_DW01_add_26'
+  Processing 'multiply_by_2_2_DW01_add_2_DW01_add_27'
+  Processing 'multiply_by_2_2_DW01_add_3_DW01_add_28'
+  Processing 'multiply_by_2_2_DW01_add_4_DW01_add_29'
+  Processing 'multiply_by_2_2_DW01_add_5_DW01_add_30'
+  Processing 'multiply_by_2_2_DW01_add_6_DW01_add_31'
+  Processing 'multiply_by_2_2_DW01_add_7_DW01_add_32'
+  Processing 'multiply_by_2_2_DW01_add_8_DW01_add_33'
+  Processing 'multiply_by_2_2_DW01_add_9_DW01_add_34'
+  Processing 'multiply_by_2_2_DW01_add_10_DW01_add_35'
+  Processing 'multiply_by_2_2_DW01_add_11_DW01_add_36'
+  Processing 'multiply_by_2_3_DW01_cmp2_0_DW01_cmp2_17'
+  Processing 'multiply_by_2_3_DW01_sub_0_DW01_sub_19'
+  Processing 'multiply_by_2_3_DW01_sub_1_DW01_sub_20'
+  Processing 'multiply_by_2_3_DW01_add_0_DW01_add_37'
+  Mapping 'DW_rightsh'
+  Processing 'multiply_by_2_3_DW01_sub_2_DW01_sub_21'
+  Mapping 'DW_rightsh'
+  Processing 'multiply_by_2_3_DW01_sub_3_DW01_sub_22'
+  Processing 'multiply_by_2_3_DW01_cmp2_1_DW01_cmp2_18'
+  Processing 'multiply_by_2_3_DW01_add_1_DW01_add_38'
+  Processing 'multiply_by_2_3_DW01_add_2_DW01_add_39'
+  Processing 'multiply_by_2_3_DW01_add_3_DW01_add_40'
+  Processing 'multiply_by_2_3_DW01_add_4_DW01_add_41'
+  Processing 'multiply_by_2_3_DW01_add_5_DW01_add_42'
+  Processing 'multiply_by_2_3_DW01_add_6_DW01_add_43'
+  Processing 'multiply_by_2_3_DW01_add_7_DW01_add_44'
+  Processing 'multiply_by_2_3_DW01_add_8_DW01_add_45'
+  Processing 'multiply_by_2_3_DW01_add_9_DW01_add_46'
+  Processing 'multiply_by_2_3_DW01_add_10_DW01_add_47'
+  Processing 'multiply_by_2_3_DW01_add_11_DW01_add_48'
+  Processing 'multiply_by_2_4_DW01_cmp2_0_DW01_cmp2_19'
+  Processing 'multiply_by_2_4_DW01_sub_0_DW01_sub_23'
+  Processing 'multiply_by_2_4_DW01_sub_1_DW01_sub_24'
+  Processing 'multiply_by_2_4_DW01_add_0_DW01_add_49'
+  Mapping 'DW_rightsh'
+  Processing 'multiply_by_2_4_DW01_sub_2_DW01_sub_25'
+  Mapping 'DW_rightsh'
+  Processing 'multiply_by_2_4_DW01_sub_3_DW01_sub_26'
+  Processing 'multiply_by_2_4_DW01_cmp2_1_DW01_cmp2_20'
+  Processing 'multiply_by_2_4_DW01_add_1_DW01_add_50'
+  Processing 'multiply_by_2_4_DW01_add_2_DW01_add_51'
+  Processing 'multiply_by_2_4_DW01_add_3_DW01_add_52'
+  Processing 'multiply_by_2_4_DW01_add_4_DW01_add_53'
+  Processing 'multiply_by_2_4_DW01_add_5_DW01_add_54'
+  Processing 'multiply_by_2_4_DW01_add_6_DW01_add_55'
+  Processing 'multiply_by_2_4_DW01_add_7_DW01_add_56'
+  Processing 'multiply_by_2_4_DW01_add_8_DW01_add_57'
+  Processing 'multiply_by_2_4_DW01_add_9_DW01_add_58'
+  Processing 'multiply_by_2_4_DW01_add_10_DW01_add_59'
+  Processing 'multiply_by_2_4_DW01_add_11_DW01_add_60'
+  Processing 'multiply_by_2_5_DW01_cmp2_0_DW01_cmp2_21'
+  Processing 'multiply_by_2_5_DW01_sub_0_DW01_sub_27'
+  Processing 'multiply_by_2_5_DW01_sub_1_DW01_sub_28'
+  Processing 'multiply_by_2_5_DW01_add_0_DW01_add_61'
+  Mapping 'DW_rightsh'
+  Processing 'multiply_by_2_5_DW01_sub_2_DW01_sub_29'
+  Mapping 'DW_rightsh'
+  Processing 'multiply_by_2_5_DW01_sub_3_DW01_sub_30'
+  Processing 'multiply_by_2_5_DW01_cmp2_1_DW01_cmp2_22'
+  Processing 'multiply_by_2_5_DW01_add_1_DW01_add_62'
+  Processing 'multiply_by_2_5_DW01_add_2_DW01_add_63'
+  Processing 'multiply_by_2_5_DW01_add_3_DW01_add_64'
+  Processing 'multiply_by_2_5_DW01_add_4_DW01_add_65'
+  Processing 'multiply_by_2_5_DW01_add_5_DW01_add_66'
+  Processing 'multiply_by_2_5_DW01_add_6_DW01_add_67'
+  Processing 'multiply_by_2_5_DW01_add_7_DW01_add_68'
+  Processing 'multiply_by_2_5_DW01_add_8_DW01_add_69'
+  Processing 'multiply_by_2_5_DW01_add_9_DW01_add_70'
+  Processing 'multiply_by_2_5_DW01_add_10_DW01_add_71'
+  Processing 'multiply_by_2_5_DW01_add_11_DW01_add_72'
+  Processing 'multiply_by_2_6_DW01_cmp2_0_DW01_cmp2_23'
+  Processing 'multiply_by_2_6_DW01_sub_0_DW01_sub_31'
+  Processing 'multiply_by_2_6_DW01_sub_1_DW01_sub_32'
+  Processing 'multiply_by_2_6_DW01_add_0_DW01_add_73'
+  Mapping 'DW_rightsh'
+  Processing 'multiply_by_2_6_DW01_sub_2_DW01_sub_33'
+  Mapping 'DW_rightsh'
+  Processing 'multiply_by_2_6_DW01_sub_3_DW01_sub_34'
+  Processing 'multiply_by_2_6_DW01_cmp2_1_DW01_cmp2_24'
+  Processing 'multiply_by_2_6_DW01_add_1_DW01_add_74'
+  Processing 'multiply_by_2_6_DW01_add_2_DW01_add_75'
+  Processing 'multiply_by_2_6_DW01_add_3_DW01_add_76'
+  Processing 'multiply_by_2_6_DW01_add_4_DW01_add_77'
+  Processing 'multiply_by_2_6_DW01_add_5_DW01_add_78'
+  Processing 'multiply_by_2_6_DW01_add_6_DW01_add_79'
+  Processing 'multiply_by_2_6_DW01_add_7_DW01_add_80'
+  Processing 'multiply_by_2_6_DW01_add_8_DW01_add_81'
+  Processing 'multiply_by_2_6_DW01_add_9_DW01_add_82'
+  Processing 'multiply_by_2_6_DW01_add_10_DW01_add_83'
+  Processing 'multiply_by_2_6_DW01_add_11_DW01_add_84'
+  Processing 'multiply_by_2_7_DW01_cmp2_0_DW01_cmp2_25'
+  Processing 'multiply_by_2_7_DW01_sub_0_DW01_sub_35'
+  Processing 'multiply_by_2_7_DW01_sub_1_DW01_sub_36'
+  Processing 'multiply_by_2_7_DW01_add_0_DW01_add_85'
+  Mapping 'DW_rightsh'
+  Processing 'multiply_by_2_7_DW01_sub_2_DW01_sub_37'
+  Mapping 'DW_rightsh'
+  Processing 'multiply_by_2_7_DW01_sub_3_DW01_sub_38'
+  Processing 'multiply_by_2_7_DW01_cmp2_1_DW01_cmp2_26'
+  Processing 'multiply_by_2_7_DW01_add_1_DW01_add_86'
+  Processing 'multiply_by_2_7_DW01_add_2_DW01_add_87'
+  Processing 'multiply_by_2_7_DW01_add_3_DW01_add_88'
+  Processing 'multiply_by_2_7_DW01_add_4_DW01_add_89'
+  Processing 'multiply_by_2_7_DW01_add_5_DW01_add_90'
+  Processing 'multiply_by_2_7_DW01_add_6_DW01_add_91'
+  Processing 'multiply_by_2_7_DW01_add_7_DW01_add_92'
+  Processing 'multiply_by_2_7_DW01_add_8_DW01_add_93'
+  Processing 'multiply_by_2_7_DW01_add_9_DW01_add_94'
+  Processing 'multiply_by_2_7_DW01_add_10_DW01_add_95'
+  Processing 'multiply_by_2_7_DW01_add_11_DW01_add_96'
 
   Beginning Mapping Optimizations  (Medium effort)
   -------------------------------
-  Structuring 'signed_multiplier'
-  Mapping 'signed_multiplier'
+  Structuring 'multiply_by_2_6'
+  Mapping 'multiply_by_2_6'
+  Structuring 'multiply_by_2_5'
+  Mapping 'multiply_by_2_5'
+  Structuring 'multiply_by_2_4'
+  Mapping 'multiply_by_2_4'
+  Structuring 'multiply_by_2_3'
+  Mapping 'multiply_by_2_3'
+  Structuring 'multiply_by_2_2'
+  Mapping 'multiply_by_2_2'
+  Structuring 'multiply_by_2_1'
+  Mapping 'multiply_by_2_1'
+  Structuring 'multiply_by_2_0'
+  Mapping 'multiply_by_2_0'
+  Structuring 'multiply_by_2_7'
+  Mapping 'multiply_by_2_7'
+  Structuring 'activation'
+  Mapping 'activation'
 
                                   TOTAL                                      
    ELAPSED            WORST NEG   SETUP    DESIGN                            
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
   --------- --------- --------- --------- --------- -------------------------
-    0:00:02  220779.0      0.00       0.0      34.7                          
-    0:00:02  220779.0      0.00       0.0      34.7                          
-    0:00:02  220779.0      0.00       0.0      34.7                          
-    0:00:02  220779.0      0.00       0.0      34.7                          
-    0:00:02  220779.0      0.00       0.0      34.7                          
-    0:00:02  220779.0      0.00       0.0      34.7                          
-    0:00:02  220779.0      0.00       0.0      34.7                          
-    0:00:02  220779.0      0.00       0.0      34.7                          
-    0:00:02  220779.0      0.00       0.0      34.7                          
-    0:00:02  220995.0      0.00       0.0       7.5                          
-    0:00:02  221211.0      0.00       0.0       0.0                          
-    0:00:02  221211.0      0.00       0.0       0.0                          
-    0:00:02  221211.0      0.00       0.0       0.0                          
-    0:00:02  221211.0      0.00       0.0       0.0                          
+    0:00:06 1745622.0      0.00       0.0     277.9                          
+    0:00:06 1745622.0      0.00       0.0     277.9                          
+    0:00:06 1745622.0      0.00       0.0     277.9                          
+    0:00:06 1745622.0      0.00       0.0     277.9                          
+    0:00:06 1745622.0      0.00       0.0     277.9                          
+    0:00:06 1745622.0      0.00       0.0     277.9                          
+    0:00:06 1745622.0      0.00       0.0     277.9                          
+    0:00:06 1745622.0      0.00       0.0     277.9                          
+    0:00:06 1745622.0      0.00       0.0     277.9                          
+    0:00:06 1747350.0      0.00       0.0      60.2                          
+    0:00:06 1749078.0      0.00       0.0       0.0                          
+    0:00:06 1749078.0      0.00       0.0       0.0                          
+    0:00:06 1749078.0      0.00       0.0       0.0                          
+    0:00:06 1749078.0      0.00       0.0       0.0                          
 
 
 
@@ -278,11 +448,11 @@ Information: Design 'signed_multiplier' has no optimization constraints set. (OP
    ELAPSED            WORST NEG   SETUP    DESIGN                            
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
   --------- --------- --------- --------- --------- -------------------------
-    0:00:02  221211.0      0.00       0.0       0.0                          
-    0:00:02  221211.0      0.00       0.0       0.0                          
-    0:00:02  221211.0      0.00       0.0       0.0                          
-    0:00:02  221211.0      0.00       0.0       0.0                          
-    0:00:02  221211.0      0.00       0.0       0.0                          
+    0:00:06 1749078.0      0.00       0.0       0.0                          
+    0:00:06 1749078.0      0.00       0.0       0.0                          
+    0:00:06 1749078.0      0.00       0.0       0.0                          
+    0:00:06 1749078.0      0.00       0.0       0.0                          
+    0:00:06 1749078.0      0.00       0.0       0.0                          
 
 
   Beginning Area-Recovery Phase  (cleanup)
@@ -292,17 +462,17 @@ Information: Design 'signed_multiplier' has no optimization constraints set. (OP
    ELAPSED            WORST NEG   SETUP    DESIGN                            
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
   --------- --------- --------- --------- --------- -------------------------
-    0:00:02  221211.0      0.00       0.0       0.0                          
-    0:00:02  221211.0      0.00       0.0       0.0                          
-    0:00:02  221067.0      0.00       0.0       0.0                          
-    0:00:02  221067.0      0.00       0.0       0.0                          
-    0:00:02  221067.0      0.00       0.0       0.0                          
-    0:00:02  221067.0      0.00       0.0       0.0                          
-    0:00:02  221067.0      0.00       0.0       0.0                          
-    0:00:02  221067.0      0.00       0.0       0.0                          
-    0:00:02  221067.0      0.00       0.0       0.0                          
-    0:00:02  221067.0      0.00       0.0       0.0                          
-    0:00:02  221067.0      0.00       0.0       0.0                          
+    0:00:06 1749078.0      0.00       0.0       0.0                          
+    0:00:06 1749078.0      0.00       0.0       0.0                          
+    0:00:06 1747926.0      0.00       0.0       0.0                          
+    0:00:06 1747926.0      0.00       0.0       0.0                          
+    0:00:06 1747926.0      0.00       0.0       0.0                          
+    0:00:06 1747926.0      0.00       0.0       0.0                          
+    0:00:06 1747926.0      0.00       0.0       0.0                          
+    0:00:06 1747926.0      0.00       0.0       0.0                          
+    0:00:06 1747926.0      0.00       0.0       0.0                          
+    0:00:06 1747926.0      0.00       0.0       0.0                          
+    0:00:06 1747926.0      0.00       0.0       0.0                          
 Loading db file '/home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db'
 
 
@@ -311,7 +481,7 @@ Note: Symbol # after min delay cost means estimated hold TNS across all active s
 
   Optimization Complete
   ---------------------
-CPU Load: 16%, Ram Free: 15 GB, Swap Free: 12 GB, Work Disk Free: 4 GB, Tmp Disk Free: 14 GB
+CPU Load: 21%, Ram Free: 41 GB, Swap Free: 20 GB, Work Disk Free: 6 GB, Tmp Disk Free: 17 GB
 Information: Total number of MV cells in the design.
 ----------------------------------------------------------------------------------------------------
  MV Cells                                           Total Number                                   
@@ -331,69 +501,654 @@ Unmapped MV Cells
 0 Isolation Cells are unmapped 
 0 Retention Clamp Cells are unmapped 
 ----------------------------------------------------------------------------------------------------
-Writing verilog file '/home/ecegridfs/a/337mg209/cdl-team14/tmp/build/u337mg096_ece337_signed_multiplier_1.0.0/syn-design_compiler/signed_multiplier.v'.
+Writing verilog file '/home/ecegridfs/a/337mg154/temp/cdl-team14/tmp/build/u337mg096_ece337_activation_1.0.0/syn-design_compiler/activation.v'.
  
 ****************************************
 check_design summary:
 Version:     W-2024.09-SP4
-Date:        Wed Dec 10 05:55:58 2025
+Date:        Wed Dec 10 12:59:58 2025
 ****************************************
 
                    Name                                            Total
 --------------------------------------------------------------------------------
-Inputs/Outputs                                                     16
-    Unconnected ports (LINT-28)                                    10
-    Feedthrough (LINT-29)                                           6
+Inputs/Outputs                                                    129
+    Unconnected ports (LINT-28)                                    80
+    Feedthrough (LINT-29)                                          49
 
-Cells                                                              12
-    Connected to power or ground (LINT-32)                          8
-    Nets connected to multiple pins on same cell (LINT-33)          4
+Cells                                                             248
+    Connected to power or ground (LINT-32)                        200
+    Nets connected to multiple pins on same cell (LINT-33)         48
 --------------------------------------------------------------------------------
 
-Warning: In design 'signed_multiplier_DW01_add_6', port 'B[3]' is not connected to any nets. (LINT-28)
-Warning: In design 'signed_multiplier_DW01_add_6', port 'B[2]' is not connected to any nets. (LINT-28)
-Warning: In design 'signed_multiplier_DW01_add_6', port 'B[1]' is not connected to any nets. (LINT-28)
-Warning: In design 'signed_multiplier_DW01_add_6', port 'B[0]' is not connected to any nets. (LINT-28)
-Warning: In design 'signed_multiplier_DW01_add_6', port 'CI' is not connected to any nets. (LINT-28)
-Warning: In design 'signed_multiplier_DW01_add_6', port 'CO' is not connected to any nets. (LINT-28)
-Warning: In design 'signed_multiplier_DW01_add_10', port 'B[1]' is not connected to any nets. (LINT-28)
-Warning: In design 'signed_multiplier_DW01_add_10', port 'B[0]' is not connected to any nets. (LINT-28)
-Warning: In design 'signed_multiplier_DW01_add_10', port 'CI' is not connected to any nets. (LINT-28)
-Warning: In design 'signed_multiplier_DW01_add_10', port 'CO' is not connected to any nets. (LINT-28)
-Warning: In design 'signed_multiplier_DW01_add_6', input port 'A[3]' is connected directly to output port 'SUM[3]'. (LINT-29)
-Warning: In design 'signed_multiplier_DW01_add_6', input port 'A[2]' is connected directly to output port 'SUM[2]'. (LINT-29)
-Warning: In design 'signed_multiplier_DW01_add_6', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
-Warning: In design 'signed_multiplier_DW01_add_6', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
-Warning: In design 'signed_multiplier_DW01_add_10', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
-Warning: In design 'signed_multiplier_DW01_add_10', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
-Warning: In design 'signed_multiplier', a pin on submodule 'add_0_root_add_63_7' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'multiply_by_2_0_DW01_add_5_DW01_add_6', port 'B[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_0_DW01_add_5_DW01_add_6', port 'B[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_0_DW01_add_5_DW01_add_6', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_0_DW01_add_5_DW01_add_6', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_0_DW01_add_5_DW01_add_6', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_0_DW01_add_5_DW01_add_6', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_0_DW01_add_9_DW01_add_10', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_0_DW01_add_9_DW01_add_10', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_0_DW01_add_9_DW01_add_10', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_0_DW01_add_9_DW01_add_10', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_1_DW01_add_5_DW01_add_18', port 'B[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_1_DW01_add_5_DW01_add_18', port 'B[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_1_DW01_add_5_DW01_add_18', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_1_DW01_add_5_DW01_add_18', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_1_DW01_add_5_DW01_add_18', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_1_DW01_add_5_DW01_add_18', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_1_DW01_add_9_DW01_add_22', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_1_DW01_add_9_DW01_add_22', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_1_DW01_add_9_DW01_add_22', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_1_DW01_add_9_DW01_add_22', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_2_DW01_add_5_DW01_add_30', port 'B[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_2_DW01_add_5_DW01_add_30', port 'B[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_2_DW01_add_5_DW01_add_30', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_2_DW01_add_5_DW01_add_30', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_2_DW01_add_5_DW01_add_30', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_2_DW01_add_5_DW01_add_30', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_2_DW01_add_9_DW01_add_34', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_2_DW01_add_9_DW01_add_34', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_2_DW01_add_9_DW01_add_34', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_2_DW01_add_9_DW01_add_34', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_3_DW01_add_5_DW01_add_42', port 'B[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_3_DW01_add_5_DW01_add_42', port 'B[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_3_DW01_add_5_DW01_add_42', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_3_DW01_add_5_DW01_add_42', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_3_DW01_add_5_DW01_add_42', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_3_DW01_add_5_DW01_add_42', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_3_DW01_add_9_DW01_add_46', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_3_DW01_add_9_DW01_add_46', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_3_DW01_add_9_DW01_add_46', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_3_DW01_add_9_DW01_add_46', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_4_DW01_add_5_DW01_add_54', port 'B[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_4_DW01_add_5_DW01_add_54', port 'B[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_4_DW01_add_5_DW01_add_54', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_4_DW01_add_5_DW01_add_54', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_4_DW01_add_5_DW01_add_54', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_4_DW01_add_5_DW01_add_54', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_4_DW01_add_9_DW01_add_58', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_4_DW01_add_9_DW01_add_58', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_4_DW01_add_9_DW01_add_58', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_4_DW01_add_9_DW01_add_58', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_5_DW01_add_5_DW01_add_66', port 'B[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_5_DW01_add_5_DW01_add_66', port 'B[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_5_DW01_add_5_DW01_add_66', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_5_DW01_add_5_DW01_add_66', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_5_DW01_add_5_DW01_add_66', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_5_DW01_add_5_DW01_add_66', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_5_DW01_add_9_DW01_add_70', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_5_DW01_add_9_DW01_add_70', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_5_DW01_add_9_DW01_add_70', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_5_DW01_add_9_DW01_add_70', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_6_DW01_add_5_DW01_add_78', port 'B[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_6_DW01_add_5_DW01_add_78', port 'B[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_6_DW01_add_5_DW01_add_78', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_6_DW01_add_5_DW01_add_78', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_6_DW01_add_5_DW01_add_78', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_6_DW01_add_5_DW01_add_78', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_6_DW01_add_9_DW01_add_82', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_6_DW01_add_9_DW01_add_82', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_6_DW01_add_9_DW01_add_82', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_6_DW01_add_9_DW01_add_82', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_7_DW01_add_5_DW01_add_90', port 'B[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_7_DW01_add_5_DW01_add_90', port 'B[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_7_DW01_add_5_DW01_add_90', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_7_DW01_add_5_DW01_add_90', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_7_DW01_add_5_DW01_add_90', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_7_DW01_add_5_DW01_add_90', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_7_DW01_add_9_DW01_add_94', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_7_DW01_add_9_DW01_add_94', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_7_DW01_add_9_DW01_add_94', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'multiply_by_2_7_DW01_add_9_DW01_add_94', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'activation', input port 'input_valid' is connected directly to output port 'output_valid'. (LINT-29)
+Warning: In design 'multiply_by_2_0_DW01_add_5_DW01_add_6', input port 'A[3]' is connected directly to output port 'SUM[3]'. (LINT-29)
+Warning: In design 'multiply_by_2_0_DW01_add_5_DW01_add_6', input port 'A[2]' is connected directly to output port 'SUM[2]'. (LINT-29)
+Warning: In design 'multiply_by_2_0_DW01_add_5_DW01_add_6', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'multiply_by_2_0_DW01_add_5_DW01_add_6', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'multiply_by_2_0_DW01_add_9_DW01_add_10', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'multiply_by_2_0_DW01_add_9_DW01_add_10', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'multiply_by_2_1_DW01_add_5_DW01_add_18', input port 'A[3]' is connected directly to output port 'SUM[3]'. (LINT-29)
+Warning: In design 'multiply_by_2_1_DW01_add_5_DW01_add_18', input port 'A[2]' is connected directly to output port 'SUM[2]'. (LINT-29)
+Warning: In design 'multiply_by_2_1_DW01_add_5_DW01_add_18', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'multiply_by_2_1_DW01_add_5_DW01_add_18', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'multiply_by_2_1_DW01_add_9_DW01_add_22', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'multiply_by_2_1_DW01_add_9_DW01_add_22', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'multiply_by_2_2_DW01_add_5_DW01_add_30', input port 'A[3]' is connected directly to output port 'SUM[3]'. (LINT-29)
+Warning: In design 'multiply_by_2_2_DW01_add_5_DW01_add_30', input port 'A[2]' is connected directly to output port 'SUM[2]'. (LINT-29)
+Warning: In design 'multiply_by_2_2_DW01_add_5_DW01_add_30', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'multiply_by_2_2_DW01_add_5_DW01_add_30', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'multiply_by_2_2_DW01_add_9_DW01_add_34', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'multiply_by_2_2_DW01_add_9_DW01_add_34', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'multiply_by_2_3_DW01_add_5_DW01_add_42', input port 'A[3]' is connected directly to output port 'SUM[3]'. (LINT-29)
+Warning: In design 'multiply_by_2_3_DW01_add_5_DW01_add_42', input port 'A[2]' is connected directly to output port 'SUM[2]'. (LINT-29)
+Warning: In design 'multiply_by_2_3_DW01_add_5_DW01_add_42', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'multiply_by_2_3_DW01_add_5_DW01_add_42', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'multiply_by_2_3_DW01_add_9_DW01_add_46', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'multiply_by_2_3_DW01_add_9_DW01_add_46', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'multiply_by_2_4_DW01_add_5_DW01_add_54', input port 'A[3]' is connected directly to output port 'SUM[3]'. (LINT-29)
+Warning: In design 'multiply_by_2_4_DW01_add_5_DW01_add_54', input port 'A[2]' is connected directly to output port 'SUM[2]'. (LINT-29)
+Warning: In design 'multiply_by_2_4_DW01_add_5_DW01_add_54', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'multiply_by_2_4_DW01_add_5_DW01_add_54', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'multiply_by_2_4_DW01_add_9_DW01_add_58', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'multiply_by_2_4_DW01_add_9_DW01_add_58', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'multiply_by_2_5_DW01_add_5_DW01_add_66', input port 'A[3]' is connected directly to output port 'SUM[3]'. (LINT-29)
+Warning: In design 'multiply_by_2_5_DW01_add_5_DW01_add_66', input port 'A[2]' is connected directly to output port 'SUM[2]'. (LINT-29)
+Warning: In design 'multiply_by_2_5_DW01_add_5_DW01_add_66', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'multiply_by_2_5_DW01_add_5_DW01_add_66', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'multiply_by_2_5_DW01_add_9_DW01_add_70', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'multiply_by_2_5_DW01_add_9_DW01_add_70', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'multiply_by_2_6_DW01_add_5_DW01_add_78', input port 'A[3]' is connected directly to output port 'SUM[3]'. (LINT-29)
+Warning: In design 'multiply_by_2_6_DW01_add_5_DW01_add_78', input port 'A[2]' is connected directly to output port 'SUM[2]'. (LINT-29)
+Warning: In design 'multiply_by_2_6_DW01_add_5_DW01_add_78', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'multiply_by_2_6_DW01_add_5_DW01_add_78', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'multiply_by_2_6_DW01_add_9_DW01_add_82', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'multiply_by_2_6_DW01_add_9_DW01_add_82', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'multiply_by_2_7_DW01_add_5_DW01_add_90', input port 'A[3]' is connected directly to output port 'SUM[3]'. (LINT-29)
+Warning: In design 'multiply_by_2_7_DW01_add_5_DW01_add_90', input port 'A[2]' is connected directly to output port 'SUM[2]'. (LINT-29)
+Warning: In design 'multiply_by_2_7_DW01_add_5_DW01_add_90', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'multiply_by_2_7_DW01_add_5_DW01_add_90', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'multiply_by_2_7_DW01_add_9_DW01_add_94', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'multiply_by_2_7_DW01_add_9_DW01_add_94', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[7]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[6]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[5]' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[4]' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[3]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[2]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[1]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[0]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[7]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[6]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[5]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[4]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[3]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[2]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[1]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[0]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O70' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'float' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[7]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[6]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[5]' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[4]' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[3]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[2]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[1]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[0]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[7]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[6]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[5]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[4]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[3]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[2]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[1]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[0]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O158' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'float' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[7]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[6]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[5]' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[4]' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[3]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[2]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[1]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[0]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[7]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[6]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[5]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[4]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[3]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[2]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[1]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[0]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O2316' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'float' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[7]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[6]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[5]' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[4]' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[3]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[2]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[1]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[0]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[7]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[6]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[5]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[4]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[3]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[2]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[1]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[0]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3124' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'float' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[7]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[6]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[5]' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[4]' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[3]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[2]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[1]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[0]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[7]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[6]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[5]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[4]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[3]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[2]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[1]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[0]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O3932' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'float' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[7]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[6]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[5]' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[4]' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[3]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[2]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[1]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[0]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[7]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[6]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[5]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[4]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[3]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[2]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[1]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[0]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O4740' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'float' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[7]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[6]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[5]' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[4]' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[3]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[2]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[1]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[0]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[7]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[6]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[5]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[4]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[3]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[2]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[1]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[0]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O5548' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'float' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[7]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[6]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[5]' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[4]' is connected to logic 1. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[3]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[2]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[1]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'weight[0]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[7]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[6]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[5]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[4]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[3]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[2]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[1]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'cumulative[0]' is connected to logic 0. 
+Warning: In design 'activation', a pin on submodule 'O6356' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'float' is connected to logic 1. 
+Warning: In design 'multiply_by_2_7', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'B[3]' is connected to logic 0. 
-Warning: In design 'signed_multiplier', a pin on submodule 'add_0_root_add_63_7' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'multiply_by_2_7', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'B[2]' is connected to logic 0. 
-Warning: In design 'signed_multiplier', a pin on submodule 'add_0_root_add_63_7' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'multiply_by_2_7', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'B[1]' is connected to logic 0. 
-Warning: In design 'signed_multiplier', a pin on submodule 'add_0_root_add_63_7' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'multiply_by_2_7', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'B[0]' is connected to logic 0. 
-Warning: In design 'signed_multiplier', a pin on submodule 'add_0_root_add_63_7' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'multiply_by_2_7', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'CI' is connected to logic 0. 
-Warning: In design 'signed_multiplier', a pin on submodule 'add_2_root_add_63_7' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'multiply_by_2_7', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'B[1]' is connected to logic 0. 
-Warning: In design 'signed_multiplier', a pin on submodule 'add_2_root_add_63_7' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'multiply_by_2_7', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'B[0]' is connected to logic 0. 
-Warning: In design 'signed_multiplier', a pin on submodule 'add_2_root_add_63_7' is connected to logic 1 or logic 0. (LINT-32)
+Warning: In design 'multiply_by_2_7', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'CI' is connected to logic 0. 
-Warning: In design 'signed_multiplier', the same net is connected to more than one pin on submodule 'add_0_root_add_63_7'. (LINT-33)
-   Net 'n1120' is connected to pins 'B[3]', 'B[2]'', 'B[1]', 'B[0]'.
-Warning: In design 'signed_multiplier', the same net is connected to more than one pin on submodule 'add_2_root_add_63_7'. (LINT-33)
-   Net 'n441' is connected to pins 'A[15]', 'A[14]'', 'A[13]', 'A[12]', 'A[11]', 'A[10]', 'A[9]'.
-Warning: In design 'signed_multiplier', the same net is connected to more than one pin on submodule 'add_2_root_add_63_7'. (LINT-33)
-   Net 'n440' is connected to pins 'B[15]', 'B[14]'', 'B[13]', 'B[12]', 'B[11]'.
-Warning: In design 'signed_multiplier', the same net is connected to more than one pin on submodule 'add_2_root_add_63_7'. (LINT-33)
-   Net 'n1120' is connected to pins 'B[1]', 'B[0]''.
+Warning: In design 'multiply_by_2_0', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[3]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_0', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[2]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_0', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_0', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_0', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'multiply_by_2_0', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_0', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_0', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'multiply_by_2_1', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[3]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_1', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[2]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_1', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_1', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_1', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'multiply_by_2_1', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_1', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_1', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'multiply_by_2_2', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[3]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_2', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[2]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_2', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_2', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_2', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'multiply_by_2_2', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_2', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_2', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'multiply_by_2_3', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[3]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_3', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[2]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_3', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_3', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_3', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'multiply_by_2_3', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_3', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_3', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'multiply_by_2_4', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[3]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_4', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[2]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_4', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_4', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_4', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'multiply_by_2_4', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_4', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_4', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'multiply_by_2_5', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[3]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_5', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[2]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_5', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_5', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_5', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'multiply_by_2_5', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_5', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_5', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'multiply_by_2_6', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[3]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_6', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[2]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_6', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_6', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_6', a pin on submodule 'add_0_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'multiply_by_2_6', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_6', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'multiply_by_2_6', a pin on submodule 'add_2_root_add_62_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'activation', the same net is connected to more than one pin on submodule 'O70'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'weight[7]', 'weight[6]'', 'weight[3]', 'weight[2]', 'weight[1]', 'weight[0]', 'cumulative[7]', 'cumulative[6]', 'cumulative[5]', 'cumulative[4]', 'cumulative[3]', 'cumulative[2]', 'cumulative[1]', 'cumulative[0]'.
+Warning: In design 'activation', the same net is connected to more than one pin on submodule 'O70'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'weight[5]', 'weight[4]'', 'float'.
+Warning: In design 'activation', the same net is connected to more than one pin on submodule 'O158'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'weight[7]', 'weight[6]'', 'weight[3]', 'weight[2]', 'weight[1]', 'weight[0]', 'cumulative[7]', 'cumulative[6]', 'cumulative[5]', 'cumulative[4]', 'cumulative[3]', 'cumulative[2]', 'cumulative[1]', 'cumulative[0]'.
+Warning: In design 'activation', the same net is connected to more than one pin on submodule 'O158'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'weight[5]', 'weight[4]'', 'float'.
+Warning: In design 'activation', the same net is connected to more than one pin on submodule 'O2316'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'weight[7]', 'weight[6]'', 'weight[3]', 'weight[2]', 'weight[1]', 'weight[0]', 'cumulative[7]', 'cumulative[6]', 'cumulative[5]', 'cumulative[4]', 'cumulative[3]', 'cumulative[2]', 'cumulative[1]', 'cumulative[0]'.
+Warning: In design 'activation', the same net is connected to more than one pin on submodule 'O2316'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'weight[5]', 'weight[4]'', 'float'.
+Warning: In design 'activation', the same net is connected to more than one pin on submodule 'O3124'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'weight[7]', 'weight[6]'', 'weight[3]', 'weight[2]', 'weight[1]', 'weight[0]', 'cumulative[7]', 'cumulative[6]', 'cumulative[5]', 'cumulative[4]', 'cumulative[3]', 'cumulative[2]', 'cumulative[1]', 'cumulative[0]'.
+Warning: In design 'activation', the same net is connected to more than one pin on submodule 'O3124'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'weight[5]', 'weight[4]'', 'float'.
+Warning: In design 'activation', the same net is connected to more than one pin on submodule 'O3932'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'weight[7]', 'weight[6]'', 'weight[3]', 'weight[2]', 'weight[1]', 'weight[0]', 'cumulative[7]', 'cumulative[6]', 'cumulative[5]', 'cumulative[4]', 'cumulative[3]', 'cumulative[2]', 'cumulative[1]', 'cumulative[0]'.
+Warning: In design 'activation', the same net is connected to more than one pin on submodule 'O3932'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'weight[5]', 'weight[4]'', 'float'.
+Warning: In design 'activation', the same net is connected to more than one pin on submodule 'O4740'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'weight[7]', 'weight[6]'', 'weight[3]', 'weight[2]', 'weight[1]', 'weight[0]', 'cumulative[7]', 'cumulative[6]', 'cumulative[5]', 'cumulative[4]', 'cumulative[3]', 'cumulative[2]', 'cumulative[1]', 'cumulative[0]'.
+Warning: In design 'activation', the same net is connected to more than one pin on submodule 'O4740'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'weight[5]', 'weight[4]'', 'float'.
+Warning: In design 'activation', the same net is connected to more than one pin on submodule 'O5548'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'weight[7]', 'weight[6]'', 'weight[3]', 'weight[2]', 'weight[1]', 'weight[0]', 'cumulative[7]', 'cumulative[6]', 'cumulative[5]', 'cumulative[4]', 'cumulative[3]', 'cumulative[2]', 'cumulative[1]', 'cumulative[0]'.
+Warning: In design 'activation', the same net is connected to more than one pin on submodule 'O5548'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'weight[5]', 'weight[4]'', 'float'.
+Warning: In design 'activation', the same net is connected to more than one pin on submodule 'O6356'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'weight[7]', 'weight[6]'', 'weight[3]', 'weight[2]', 'weight[1]', 'weight[0]', 'cumulative[7]', 'cumulative[6]', 'cumulative[5]', 'cumulative[4]', 'cumulative[3]', 'cumulative[2]', 'cumulative[1]', 'cumulative[0]'.
+Warning: In design 'activation', the same net is connected to more than one pin on submodule 'O6356'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'weight[5]', 'weight[4]'', 'float'.
+Warning: In design 'multiply_by_2_7', the same net is connected to more than one pin on submodule 'add_0_root_add_62_7'. (LINT-33)
+   Net 'n625' is connected to pins 'B[3]', 'B[2]'', 'B[1]', 'B[0]'.
+Warning: In design 'multiply_by_2_7', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n2' is connected to pins 'A[15]', 'A[14]'', 'A[13]', 'A[12]', 'A[11]', 'A[10]', 'A[9]'.
+Warning: In design 'multiply_by_2_7', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n1' is connected to pins 'B[15]', 'B[14]'', 'B[13]', 'B[12]', 'B[11]'.
+Warning: In design 'multiply_by_2_7', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n625' is connected to pins 'B[1]', 'B[0]''.
+Warning: In design 'multiply_by_2_0', the same net is connected to more than one pin on submodule 'add_0_root_add_62_7'. (LINT-33)
+   Net 'n625' is connected to pins 'B[3]', 'B[2]'', 'B[1]', 'B[0]'.
+Warning: In design 'multiply_by_2_0', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n2' is connected to pins 'A[15]', 'A[14]'', 'A[13]', 'A[12]', 'A[11]', 'A[10]', 'A[9]'.
+Warning: In design 'multiply_by_2_0', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n1' is connected to pins 'B[15]', 'B[14]'', 'B[13]', 'B[12]', 'B[11]'.
+Warning: In design 'multiply_by_2_0', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n625' is connected to pins 'B[1]', 'B[0]''.
+Warning: In design 'multiply_by_2_1', the same net is connected to more than one pin on submodule 'add_0_root_add_62_7'. (LINT-33)
+   Net 'n625' is connected to pins 'B[3]', 'B[2]'', 'B[1]', 'B[0]'.
+Warning: In design 'multiply_by_2_1', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n2' is connected to pins 'A[15]', 'A[14]'', 'A[13]', 'A[12]', 'A[11]', 'A[10]', 'A[9]'.
+Warning: In design 'multiply_by_2_1', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n1' is connected to pins 'B[15]', 'B[14]'', 'B[13]', 'B[12]', 'B[11]'.
+Warning: In design 'multiply_by_2_1', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n625' is connected to pins 'B[1]', 'B[0]''.
+Warning: In design 'multiply_by_2_2', the same net is connected to more than one pin on submodule 'add_0_root_add_62_7'. (LINT-33)
+   Net 'n625' is connected to pins 'B[3]', 'B[2]'', 'B[1]', 'B[0]'.
+Warning: In design 'multiply_by_2_2', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n2' is connected to pins 'A[15]', 'A[14]'', 'A[13]', 'A[12]', 'A[11]', 'A[10]', 'A[9]'.
+Warning: In design 'multiply_by_2_2', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n1' is connected to pins 'B[15]', 'B[14]'', 'B[13]', 'B[12]', 'B[11]'.
+Warning: In design 'multiply_by_2_2', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n625' is connected to pins 'B[1]', 'B[0]''.
+Warning: In design 'multiply_by_2_3', the same net is connected to more than one pin on submodule 'add_0_root_add_62_7'. (LINT-33)
+   Net 'n625' is connected to pins 'B[3]', 'B[2]'', 'B[1]', 'B[0]'.
+Warning: In design 'multiply_by_2_3', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n2' is connected to pins 'A[15]', 'A[14]'', 'A[13]', 'A[12]', 'A[11]', 'A[10]', 'A[9]'.
+Warning: In design 'multiply_by_2_3', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n1' is connected to pins 'B[15]', 'B[14]'', 'B[13]', 'B[12]', 'B[11]'.
+Warning: In design 'multiply_by_2_3', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n625' is connected to pins 'B[1]', 'B[0]''.
+Warning: In design 'multiply_by_2_4', the same net is connected to more than one pin on submodule 'add_0_root_add_62_7'. (LINT-33)
+   Net 'n625' is connected to pins 'B[3]', 'B[2]'', 'B[1]', 'B[0]'.
+Warning: In design 'multiply_by_2_4', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n2' is connected to pins 'A[15]', 'A[14]'', 'A[13]', 'A[12]', 'A[11]', 'A[10]', 'A[9]'.
+Warning: In design 'multiply_by_2_4', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n1' is connected to pins 'B[15]', 'B[14]'', 'B[13]', 'B[12]', 'B[11]'.
+Warning: In design 'multiply_by_2_4', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n625' is connected to pins 'B[1]', 'B[0]''.
+Warning: In design 'multiply_by_2_5', the same net is connected to more than one pin on submodule 'add_0_root_add_62_7'. (LINT-33)
+   Net 'n625' is connected to pins 'B[3]', 'B[2]'', 'B[1]', 'B[0]'.
+Warning: In design 'multiply_by_2_5', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n2' is connected to pins 'A[15]', 'A[14]'', 'A[13]', 'A[12]', 'A[11]', 'A[10]', 'A[9]'.
+Warning: In design 'multiply_by_2_5', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n1' is connected to pins 'B[15]', 'B[14]'', 'B[13]', 'B[12]', 'B[11]'.
+Warning: In design 'multiply_by_2_5', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n625' is connected to pins 'B[1]', 'B[0]''.
+Warning: In design 'multiply_by_2_6', the same net is connected to more than one pin on submodule 'add_0_root_add_62_7'. (LINT-33)
+   Net 'n625' is connected to pins 'B[3]', 'B[2]'', 'B[1]', 'B[0]'.
+Warning: In design 'multiply_by_2_6', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n2' is connected to pins 'A[15]', 'A[14]'', 'A[13]', 'A[12]', 'A[11]', 'A[10]', 'A[9]'.
+Warning: In design 'multiply_by_2_6', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n1' is connected to pins 'B[15]', 'B[14]'', 'B[13]', 'B[12]', 'B[11]'.
+Warning: In design 'multiply_by_2_6', the same net is connected to more than one pin on submodule 'add_2_root_add_62_7'. (LINT-33)
+   Net 'n625' is connected to pins 'B[1]', 'B[0]''.
 
-Memory usage for this session 147 Mbytes.
-Memory usage for this session including child processes 147 Mbytes.
-CPU usage for this session 5 seconds ( 0.00 hours ).
-Elapsed time for this session 7 seconds ( 0.00 hours ).
+Memory usage for this session 160 Mbytes.
+Memory usage for this session including child processes 160 Mbytes.
+CPU usage for this session 10 seconds ( 0.00 hours ).
+Elapsed time for this session 12 seconds ( 0.00 hours ).
 
 Thank you...

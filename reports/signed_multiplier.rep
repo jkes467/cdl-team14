@@ -7,87 +7,83 @@ Report : timing
         -max_paths 1
 Design : signed_multiplier
 Version: W-2024.09-SP4
-Date   : Wed Dec 10 05:55:58 2025
+Date   : Wed Dec 10 12:57:04 2025
 ****************************************
 
 Operating Conditions: typical   Library: osu05_stdcells
 Wire Load Model Mode: top
 
   Startpoint: weight[0] (input port)
-  Endpoint: out[5] (output port)
-  Path Group: (none)
+  Endpoint: out[6] (output port)
+  Path Group: default
   Path Type: max
 
   Point                                                   Incr       Path
   --------------------------------------------------------------------------
   input external delay                                    0.00       0.00 r
   weight[0] (in)                                          0.00       0.00 r
-  U1138/Y (NAND2X1)                                       0.17       0.17 f
-  U1137/Y (OR2X1)                                         0.33       0.49 f
-  U1136/Y (OAI21X1)                                       0.32       0.82 r
-  U1134/Y (NOR2X1)                                        0.28       1.10 f
-  U877/Y (INVX1)                                          0.16       1.26 r
-  U876/Y (AND2X1)                                         0.21       1.47 r
-  U874/Y (MUX2X1)                                         0.27       1.74 f
-  add_2_root_add_63_7/A[3] (signed_multiplier_DW01_add_10)
-                                                          0.00       1.74 f
-  add_2_root_add_63_7/U1_3/YC (FAX1)                      0.45       2.19 f
-  add_2_root_add_63_7/U1_4/YC (FAX1)                      0.45       2.64 f
-  add_2_root_add_63_7/U1_5/YS (FAX1)                      0.63       3.28 f
-  add_2_root_add_63_7/SUM[5] (signed_multiplier_DW01_add_10)
-                                                          0.00       3.28 f
-  add_0_root_add_63_7/A[5] (signed_multiplier_DW01_add_6)
-                                                          0.00       3.28 f
-  add_0_root_add_63_7/U1_5/YC (FAX1)                      0.46       3.74 f
-  add_0_root_add_63_7/U1_6/YC (FAX1)                      0.45       4.19 f
-  add_0_root_add_63_7/U1_7/YS (FAX1)                      0.41       4.60 r
-  add_0_root_add_63_7/SUM[7] (signed_multiplier_DW01_add_6)
-                                                          0.00       4.60 r
-  U795/Y (INVX1)                                          0.11       4.71 f
-  U793/Y (MUX2X1)                                         0.27       4.98 r
-  U792/Y (INVX1)                                          0.78       5.76 f
-  U675/Y (AND2X1)                                         0.52       6.28 f
-  U669/Y (MUX2X1)                                         0.15       6.43 r
-  U668/Y (NOR2X1)                                         0.30       6.73 f
-  U667/Y (INVX1)                                          0.38       7.11 r
-  U644/Y (OAI21X1)                                        0.08       7.19 f
-  U643/Y (OAI21X1)                                        0.21       7.40 r
-  U622/Y (AOI22X1)                                        0.24       7.64 f
-  U616/Y (OAI21X1)                                        0.24       7.88 r
-  U614/Y (NOR2X1)                                         0.90       8.78 f
-  U613/Y (INVX1)                                          0.42       9.20 r
-  U612/Y (NAND2X1)                                        0.09       9.29 f
-  U611/Y (AOI21X1)                                        0.11       9.40 r
-  U610/Y (NAND3X1)                                        0.14       9.55 f
-  U609/Y (INVX1)                                          0.18       9.73 r
-  U585/Y (NAND3X1)                                        0.09       9.82 f
-  U577/Y (INVX1)                                          0.12       9.93 r
-  U574/Y (MUX2X1)                                         0.11      10.05 f
-  U573/Y (OAI21X1)                                        0.27      10.31 r
-  U572/Y (INVX1)                                          0.27      10.59 f
-  U540/Y (AND2X1)                                         0.48      11.07 f
-  U534/Y (OAI21X1)                                        0.18      11.25 r
-  U532/Y (OAI21X1)                                        0.19      11.43 f
-  U531/Y (AND2X1)                                         0.53      11.96 f
-  U511/Y (OAI21X1)                                        0.21      12.17 r
-  U510/Y (OAI21X1)                                        0.11      12.28 f
-  U509/Y (AOI22X1)                                        0.14      12.42 r
-  U508/Y (OAI21X1)                                        0.21      12.62 f
-  U490/Y (NOR2X1)                                         0.20      12.82 r
-  U489/Y (NAND2X1)                                        0.19      13.02 f
-  U488/Y (INVX1)                                          0.29      13.30 r
-  U460/Y (NAND3X1)                                        0.10      13.40 f
-  U444/Y (OAI21X1)                                        0.18      13.58 r
-  U443/Y (INVX1)                                          0.11      13.69 f
-  U442/Y (OAI21X1)                                        0.13      13.82 r
-  U441/Y (MUX2X1)                                         0.11      13.93 f
-  U440/Y (OAI21X1)                                        0.15      14.08 r
-  U439/Y (AOI21X1)                                        0.13      14.21 f
-  U438/Y (OAI21X1)                                        0.08      14.30 r
-  out[5] (out)                                            0.00      14.30 r
-  data arrival time                                                 14.30
+  U623/Y (NOR3X1)                                         0.11       0.11 f
+  U702/Y (NAND2X1)                                        0.21       0.33 r
+  U525/Y (INVX2)                                          0.21       0.54 f
+  U595/Y (AND2X2)                                         0.24       0.78 f
+  U706/Y (NAND2X1)                                        0.14       0.92 r
+  U580/Y (INVX1)                                          0.23       1.15 f
+  U691/Y (NOR2X1)                                         0.16       1.31 r
+  U783/Y (NAND2X1)                                        0.21       1.52 f
+  U822/Y (XOR2X1)                                         0.19       1.71 f
+  U823/Y (OAI21X1)                                        0.19       1.90 r
+  U666/Y (XNOR2X1)                                        0.33       2.23 r
+  U638/Y (XOR2X1)                                         0.25       2.48 f
+  U637/Y (XNOR2X1)                                        0.22       2.70 f
+  add_3_root_add_0_root_add_76_7/B[10] (signed_multiplier_DW01_add_17)
+                                                          0.00       2.70 f
+  add_3_root_add_0_root_add_76_7/U19/Y (NOR2X1)           0.15       2.85 r
+  add_3_root_add_0_root_add_76_7/U67/Y (INVX1)            0.11       2.96 f
+  add_3_root_add_0_root_add_76_7/U17/Y (NAND2X1)          0.16       3.11 r
+  add_3_root_add_0_root_add_76_7/U15/Y (XOR2X1)           0.22       3.33 f
+  add_3_root_add_0_root_add_76_7/SUM[10] (signed_multiplier_DW01_add_17)
+                                                          0.00       3.33 f
+  add_1_root_add_0_root_add_76_7/A[10] (signed_multiplier_DW01_add_30)
+                                                          0.00       3.33 f
+  add_1_root_add_0_root_add_76_7/U6/YC (HAX1)             0.30       3.63 f
+  add_1_root_add_0_root_add_76_7/U5/YC (HAX1)             0.27       3.90 f
+  add_1_root_add_0_root_add_76_7/U4/YC (HAX1)             0.27       4.17 f
+  add_1_root_add_0_root_add_76_7/U3/YS (HAX1)             0.34       4.51 f
+  add_1_root_add_0_root_add_76_7/SUM[13] (signed_multiplier_DW01_add_30)
+                                                          0.00       4.51 f
+  add_0_root_add_0_root_add_76_7/B[13] (signed_multiplier_DW01_add_19)
+                                                          0.00       4.51 f
+  add_0_root_add_0_root_add_76_7/U128/Y (INVX2)           0.12       4.63 r
+  add_0_root_add_0_root_add_76_7/U102/Y (NOR2X1)          0.16       4.79 f
+  add_0_root_add_0_root_add_76_7/U101/Y (AND2X2)          0.23       5.02 f
+  add_0_root_add_0_root_add_76_7/U108/Y (INVX1)           0.09       5.11 r
+  add_0_root_add_0_root_add_76_7/U104/Y (NAND2X1)         0.07       5.18 f
+  add_0_root_add_0_root_add_76_7/U106/Y (NAND2X1)         0.26       5.43 r
+  add_0_root_add_0_root_add_76_7/SUM[14] (signed_multiplier_DW01_add_19)
+                                                          0.00       5.43 r
+  U598/Y (NOR2X1)                                         0.20       5.64 f
+  U597/Y (AND2X2)                                         0.24       5.88 f
+  U1047/Y (XOR2X1)                                        0.20       6.08 f
+  U1048/Y (OAI22X1)                                       0.17       6.25 r
+  U1049/Y (XOR2X1)                                        0.29       6.54 f
+  U550/Y (NAND2X1)                                        0.16       6.71 r
+  U1052/Y (OAI21X1)                                       0.10       6.80 f
+  U1053/Y (NOR2X1)                                        0.10       6.90 r
+  U1054/Y (OAI21X1)                                       0.25       7.15 f
+  U1195/Y (NAND2X1)                                       0.63       7.78 r
+  U1330/Y (OAI22X1)                                       0.15       7.93 f
+  U1331/Y (AOI21X1)                                       0.07       8.00 r
+  out[6] (out)                                            0.00       8.00 r
+  data arrival time                                                  8.00
+
+  max_delay                                               8.00       8.00
+  output external delay                                   0.00       8.00
+  data required time                                                 8.00
   --------------------------------------------------------------------------
-  (Path is unconstrained)
+  data required time                                                 8.00
+  data arrival time                                                 -8.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
 
 
 1
@@ -96,29 +92,29 @@ Wire Load Model Mode: top
 Report : area
 Design : signed_multiplier
 Version: W-2024.09-SP4
-Date   : Wed Dec 10 05:55:58 2025
+Date   : Wed Dec 10 12:57:04 2025
 ****************************************
 
 Library(s) Used:
 
     osu05_stdcells (File: /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db)
 
-Number of ports:                          134
-Number of nets:                           889
-Number of cells:                          754
-Number of combinational cells:            749
+Number of ports:                          234
+Number of nets:                          1217
+Number of cells:                         1047
+Number of combinational cells:           1024
 Number of sequential cells:                 0
 Number of macros/black boxes:               0
-Number of buf/inv:                        173
-Number of references:                      16
+Number of buf/inv:                        264
+Number of references:                      26
 
-Combinational area:             221067.000000
-Buf/Inv area:                    25056.000000
+Combinational area:             274437.000000
+Buf/Inv area:                    39888.000000
 Noncombinational area:               0.000000
 Macro/Black Box area:                0.000000
 Net Interconnect area:      undefined  (No wire load specified)
 
-Total cell area:                221067.000000
+Total cell area:                274437.000000
 Total area:                 undefined
 1
 Loading db file '/home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db'
@@ -132,7 +128,7 @@ Report : power
         -analysis_effort low
 Design : signed_multiplier
 Version: W-2024.09-SP4
-Date   : Wed Dec 10 05:55:58 2025
+Date   : Wed Dec 10 12:57:04 2025
 ****************************************
 
 
@@ -158,9 +154,13 @@ Power-specific unit information :
                                        Switch   Int      Leak     Total
 Hierarchy                              Power    Power    Power    Power    %
 --------------------------------------------------------------------------------
-signed_multiplier                       104.380  103.894   68.880  208.275 100.0
-  add_2_root_add_63_7 (signed_multiplier_DW01_add_10)
-                                          6.076    7.061    5.033   13.137   6.3
-  add_0_root_add_63_7 (signed_multiplier_DW01_add_6)
-                                          4.993    8.973    4.305   13.966   6.7
+signed_multiplier                       138.464  139.152   82.330  277.616 100.0
+  add_1_root_add_0_root_add_76_7 (signed_multiplier_DW01_add_30)
+                                          6.481    7.220    4.461   13.701   4.9
+  add_3_root_add_0_root_add_76_7 (signed_multiplier_DW01_add_17)
+                                          8.066    8.865    4.306   16.932   6.1
+  add_0_root_add_0_root_add_76_7 (signed_multiplier_DW01_add_19)
+                                         15.442   14.669    6.490   30.111  10.8
+  add_2_root_add_0_root_add_76_7 (signed_multiplier_DW01_add_20)
+                                          4.978    5.140    3.351   10.118   3.6
 1

@@ -1,0 +1,15 @@
+CAPI=2:
+name: "u337mg096:ece337:bias_adder_syn"
+
+filesets:
+    netlist:
+        files:
+            - "bias_adder.v"
+        file_type: systemVerilogSource
+
+targets:
+    default:
+        filesets:
+            - netlist
+        toplevel: bias_adder
+

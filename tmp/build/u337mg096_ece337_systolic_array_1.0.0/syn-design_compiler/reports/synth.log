@@ -1,0 +1,606 @@
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid this.
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version W-2024.09-SP4 for linux64 - Feb 26, 2025 
+
+                    Copyright (c) 1988 - 2025 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+Initializing gui preferences from file  /home/ecegridfs/a/337mg154/.synopsys_dc_gui/preferences.tcl
+Current time:       Wed Dec 10 13:00:28 2025
+Hostname:           ececomp4.ecn.purdue.edu
+CPU Model:          AMD EPYC 7513 32-Core Processor
+CPU Details:        Cores = 128 : Sockets = 2 : Cache Size = 512 KB : Freq = 2.60 GHz
+OS:                 Linux 4.18.0-553.78.1.el8_10.x86_64
+RAM:                502 GB (Free  42 GB)
+Swap:                63 GB (Free  20 GB)
+Work Filesystem:    /home/ecegridfs/a mounted to ecegridfs.ecn.purdue.edu:/export/home/a
+Tmp Filesystem:     /tmp mounted to tmpfs
+Work Disk:          2968 GB (Free   6 GB)
+Tmp Disk:            19 GB (Free  17 GB)
+
+CPU Load: 21%, Ram Free: 42 GB, Swap Free: 20 GB, Work Disk Free: 6 GB, Tmp Disk Free: 17 GB
+############################################
+#
+# Auto-generated project tcl file:
+#  * sets up variable
+#  * runs customized script
+#
+############################################
+sh date
+Wed Dec 10 13:00:28 EST 2025
+set TOP_MODULE systolic_array
+systolic_array
+set DC_SCRIPT synth.tcl
+synth.tcl
+set READ_SOURCES u337mg096_ece337_systolic_array_1.0.0-read-sources
+u337mg096_ece337_systolic_array_1.0.0-read-sources
+set SCRIPT_DIR src/u337mg096_ece337_synfiles_0
+src/u337mg096_ece337_synfiles_0
+set REPORT_DIR reports
+reports
+sh mkdir -p ${REPORT_DIR}
+set target_library /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db
+/home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db
+set link_library   [concat "*"  /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db dw_foundation.sldb]
+* /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db dw_foundation.sldb
+############################################
+#
+# Run custom script
+#
+############################################
+source ${SCRIPT_DIR}/${DC_SCRIPT}
+Running PRESTO HDLC
+Compiling source file ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv
+Presto compilation completed successfully.
+Loading db file '/home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db'
+Loading db file '/package/eda/synopsys/syn/W-2024.09-SP4/libraries/syn/dw_foundation.sldb'
+Running PRESTO HDLC
+Compiling source file ./src/u337mg096_ece337_PE_1.0.0/source/PE.sv
+Presto compilation completed successfully.
+Running PRESTO HDLC
+Compiling source file ./src/u337mg096_ece337_systolic_array_1.0.0/source/systolic_array.sv
+Presto compilation completed successfully.
+Loading db file '/package/eda/synopsys/syn/W-2024.09-SP4/libraries/syn/gtech.db'
+Loading db file '/package/eda/synopsys/syn/W-2024.09-SP4/libraries/syn/standard.sldb'
+  Loading link library 'osu05_stdcells'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Inferred memory devices in process in routine 'systolic_array' in file
+	 ./src/u337mg096_ece337_systolic_array_1.0.0/source/systolic_array.sv'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|  output_valid_reg   | Flip-flop |   1   |  N  | N  | None  | Async | N  |  99  |
+|       x1_reg        | Flip-flop |   8   |  Y  | N  | None  | Async | N  |  99  |
+|       x2_reg        | Flip-flop |  16   |  Y  | N  | None  | Async | N  |  99  |
+|       x3_reg        | Flip-flop |  24   |  Y  | N  | None  | Async | N  |  99  |
+|       x4_reg        | Flip-flop |  32   |  Y  | N  | None  | Async | N  |  99  |
+|       x5_reg        | Flip-flop |  40   |  Y  | N  | None  | Async | N  |  99  |
+|       x6_reg        | Flip-flop |  48   |  Y  | N  | None  | Async | N  |  99  |
+|       x7_reg        | Flip-flop |  56   |  Y  | N  | None  | Async | N  |  99  |
+|       a6_reg        | Flip-flop |   8   |  Y  | N  | None  | Async | N  |  99  |
+|       a5_reg        | Flip-flop |  16   |  Y  | N  | None  | Async | N  |  99  |
+|       a4_reg        | Flip-flop |  24   |  Y  | N  | None  | Async | N  |  99  |
+|       a3_reg        | Flip-flop |  32   |  Y  | N  | None  | Async | N  |  99  |
+|       a2_reg        | Flip-flop |  40   |  Y  | N  | None  | Async | N  |  99  |
+|       a1_reg        | Flip-flop |  48   |  Y  | N  | None  | Async | N  |  99  |
+|       a0_reg        | Flip-flop |  56   |  Y  | N  | None  | Async | N  |  99  |
+|       v1_reg        | Flip-flop |   1   |  N  | N  | None  | Async | N  |  99  |
+|       v2_reg        | Flip-flop |   2   |  Y  | N  | None  | Async | N  |  99  |
+|       v3_reg        | Flip-flop |   3   |  Y  | N  | None  | Async | N  |  99  |
+|       v4_reg        | Flip-flop |   4   |  Y  | N  | None  | Async | N  |  99  |
+|       v5_reg        | Flip-flop |   5   |  Y  | N  | None  | Async | N  |  99  |
+|       v6_reg        | Flip-flop |   6   |  Y  | N  | None  | Async | N  |  99  |
+|       v7_reg        | Flip-flop |   7   |  Y  | N  | None  | Async | N  |  99  |
+==================================================================================
+Presto compilation completed successfully. (systolic_array)
+Module: systolic_array, Ports: 142, Input: 76, Output: 66, Inout: 0
+Module: systolic_array, Registers: 477, Async set/reset: 477, Sync set/reset: 0
+Information: Module systolic_array report end. (ELAB-965)
+Elaborated 1 design.
+Current design is now 'systolic_array'.
+Information: Building the design 'PE'. (HDL-193)
+
+Inferred memory devices in process in routine 'PE' in file
+	 ./src/u337mg096_ece337_PE_1.0.0/source/PE.sv'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|  output_valid_reg   | Flip-flop |   1   |  N  | N  | None  | Async | N  |  23  |
+|     weight_reg      | Flip-flop |   8   |  Y  | N  | None  | Async | N  |  23  |
+|      value_reg      | Flip-flop |   8   |  Y  | N  | None  | Async | N  |  23  |
+|     sum_out_reg     | Flip-flop |   8   |  Y  | N  | None  | Async | N  |  23  |
+==================================================================================
+Presto compilation completed successfully. (PE)
+Module: PE, Ports: 47, Input: 29, Output: 18, Inout: 0
+Module: PE, Registers: 25, Async set/reset: 25, Sync set/reset: 0
+Information: Module PE report end. (ELAB-965)
+Information: Building the design 'signed_multiplier'. (HDL-193)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:32: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:43: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:44: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:45: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:48: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:49: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:50: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:62: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:67: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:68: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:69: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:70: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:71: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:72: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:73: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:74: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:90: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:91: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:92: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:93: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:119: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:129: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:140: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:151: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:162: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:237: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:269: unsigned to signed assignment occurs. (VER-318)
+Presto compilation completed successfully. (signed_multiplier)
+Module: signed_multiplier, Ports: 34, Input: 25, Output: 9, Inout: 0
+Module: signed_multiplier, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module signed_multiplier report end. (ELAB-965)
+Information: Uniquified 64 instances of design 'PE'. (OPT-1056)
+Information: Uniquified 64 instances of design 'signed_multiplier'. (OPT-1056)
+Warning: Can't find object 'U6356/value[0]' in design 'systolic_array'. (UID-95)
+Error: Value for list '-from' must have 1 elements. (CMD-036)
+Warning: Can't find object 'bias_outputs[56]' in design 'systolic_array'. (UID-95)
+Error: Value for list '-to' must have 1 elements. (CMD-036)
+CPU Load: 21%, Ram Free: 42 GB, Swap Free: 20 GB, Work Disk Free: 6 GB, Tmp Disk Free: 17 GB
+Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | W-2024.09-DWBB_202409.4 |     *     |
+| Licensed DW Building Blocks        | W-2024.09-DWBB_202409.4 |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler                                                                   |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 17255                                  |
+| Number of User Hierarchies                              | 128                                    |
+| Sequential Cell Count                                   | 2077                                   |
+| Macro Count                                             | 0                                      |
+| Pad Count                                               | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 1                                      |
+| Number of VT Class                                      | 0                                      |
+| Number of Clocks                                        | 0                                      |
+| Number of Dont Touch Cells                              | 7874                                   |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with Target Library Subset (with clock_path)     | false  (false )                        |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+
+Information: There are 1367 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'signed_multiplier_0'
+Module: DW01_MUX, Ports: 4, Input: 3, Output: 1, Inout: 0
+Module: DW01_MUX, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_mmux_width2, Ports: 7, Input: 5, Output: 2, Inout: 0
+Module: DW01_mmux_width2, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_mmux_width3, Ports: 10, Input: 7, Output: 3, Inout: 0
+Module: DW01_mmux_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_mmux_width4, Ports: 13, Input: 9, Output: 4, Inout: 0
+Module: DW01_mmux_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_mmux_width5, Ports: 16, Input: 11, Output: 5, Inout: 0
+Module: DW01_mmux_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_sub_width16, Ports: 50, Input: 33, Output: 17, Inout: 0
+Module: DW01_sub_width16, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_NAND2, Ports: 3, Input: 2, Output: 1, Inout: 0
+Module: DW01_NAND2, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_sub_width8, Ports: 26, Input: 17, Output: 9, Inout: 0
+Module: DW01_sub_width8, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width16, Ports: 50, Input: 33, Output: 17, Inout: 0
+Module: DW01_add_width16, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width7, Ports: 23, Input: 15, Output: 8, Inout: 0
+Module: DW01_add_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width8, Ports: 26, Input: 17, Output: 9, Inout: 0
+Module: DW01_add_width8, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width9, Ports: 29, Input: 19, Output: 10, Inout: 0
+Module: DW01_add_width9, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width5, Ports: 17, Input: 11, Output: 6, Inout: 0
+Module: DW01_add_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_sub_width5, Ports: 17, Input: 11, Output: 6, Inout: 0
+Module: DW01_sub_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_inc_width4, Ports: 8, Input: 4, Output: 4, Inout: 0
+Module: DW01_inc_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_dec_width4, Ports: 8, Input: 4, Output: 4, Inout: 0
+Module: DW01_dec_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_sub_width4, Ports: 14, Input: 9, Output: 5, Inout: 0
+Module: DW01_sub_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_NOT, Ports: 2, Input: 1, Output: 1, Inout: 0
+Module: DW01_NOT, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp6_width4, Ports: 15, Input: 9, Output: 6, Inout: 0
+Module: DW01_cmp6_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp6_width5, Ports: 17, Input: 11, Output: 6, Inout: 0
+Module: DW01_cmp6_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp6_width16, Ports: 39, Input: 33, Output: 6, Inout: 0
+Module: DW01_cmp6_width16, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp2_width16, Ports: 36, Input: 34, Output: 2, Inout: 0
+Module: DW01_cmp2_width16, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_incdec_width4, Ports: 9, Input: 5, Output: 4, Inout: 0
+Module: DW01_incdec_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width4, Ports: 14, Input: 9, Output: 5, Inout: 0
+Module: DW01_add_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW_rash_A_width4_SH_width5, Ports: 15, Input: 11, Output: 4, Inout: 0
+Module: DW_rash_A_width4_SH_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp2_width4, Ports: 12, Input: 10, Output: 2, Inout: 0
+Module: DW01_cmp2_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp2_width5, Ports: 14, Input: 12, Output: 2, Inout: 0
+Module: DW01_cmp2_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Added key list 'DesignWare' to design 'signed_multiplier_0'. (DDB-72)
+  Processing 'PE_0'
+  Processing 'systolic_array'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'systolic_array' has no optimization constraints set. (OPT-108)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'signed_multiplier_0_DW01_cmp2_0_DW01_cmp2_1'
+  Processing 'signed_multiplier_0_DW01_sub_0_DW01_sub_1'
+  Processing 'signed_multiplier_0_DW01_sub_1_DW01_sub_2'
+  Processing 'signed_multiplier_0_DW01_add_0'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_0_DW01_sub_2_DW01_sub_3'
+  Processing 'signed_multiplier_0_DW01_cmp2_1_DW01_cmp2_2'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_0_DW01_sub_3_DW01_sub_4'
+  Processing 'signed_multiplier_0_DW01_cmp2_2_DW01_cmp2_3'
+  Processing 'signed_multiplier_0_DW01_sub_4_DW01_sub_5'
+  Processing 'signed_multiplier_0_DW01_sub_5_DW01_sub_6'
+  Processing 'signed_multiplier_0_DW01_sub_6_DW01_sub_7'
+  Processing 'signed_multiplier_0_DW01_sub_7_DW01_sub_8'
+  Processing 'signed_multiplier_0_DW01_sub_8_DW01_sub_9'
+  Processing 'signed_multiplier_0_DW01_add_1'
+  Processing 'signed_multiplier_0_DW01_cmp2_3_DW01_cmp2_4'
+  Processing 'signed_multiplier_0_DW01_add_2'
+  Processing 'signed_multiplier_0_DW01_add_3'
+  Processing 'signed_multiplier_0_DW01_add_4'
+  Processing 'signed_multiplier_0_DW01_add_5'
+  Processing 'signed_multiplier_0_DW01_sub_9_DW01_sub_10'
+  Processing 'signed_multiplier_0_DW01_add_6'
+  Processing 'signed_multiplier_0_DW01_add_7'
+  Processing 'signed_multiplier_0_DW01_add_8'
+  Processing 'signed_multiplier_0_DW01_add_9'
+  Processing 'signed_multiplier_0_DW01_add_10'
+  Processing 'signed_multiplier_0_DW01_add_11'
+  Processing 'signed_multiplier_0_DW01_add_12'
+  Processing 'signed_multiplier_0_DW01_sub_10_DW01_sub_11'
+  Processing 'signed_multiplier_0_DW01_sub_11_DW01_sub_12'
+  Processing 'signed_multiplier_1_DW01_cmp2_0_DW01_cmp2_5'
+  Processing 'signed_multiplier_1_DW01_sub_0_DW01_sub_13'
+  Processing 'signed_multiplier_1_DW01_sub_1_DW01_sub_14'
+  Processing 'signed_multiplier_1_DW01_add_0_DW01_add_13'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_1_DW01_sub_2_DW01_sub_15'
+  Processing 'signed_multiplier_1_DW01_cmp2_1_DW01_cmp2_6'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_1_DW01_sub_3_DW01_sub_16'
+  Processing 'signed_multiplier_1_DW01_cmp2_2_DW01_cmp2_7'
+  Processing 'signed_multiplier_1_DW01_sub_4_DW01_sub_17'
+  Processing 'signed_multiplier_1_DW01_sub_5_DW01_sub_18'
+  Processing 'signed_multiplier_1_DW01_sub_6_DW01_sub_19'
+  Processing 'signed_multiplier_1_DW01_sub_7_DW01_sub_20'
+  Processing 'signed_multiplier_1_DW01_sub_8_DW01_sub_21'
+  Processing 'signed_multiplier_1_DW01_add_1_DW01_add_14'
+  Processing 'signed_multiplier_1_DW01_cmp2_3_DW01_cmp2_8'
+  Processing 'signed_multiplier_1_DW01_add_2_DW01_add_15'
+  Processing 'signed_multiplier_1_DW01_add_3_DW01_add_16'
+  Processing 'signed_multiplier_1_DW01_add_4_DW01_add_17'
+  Processing 'signed_multiplier_1_DW01_add_5_DW01_add_18'
+  Processing 'signed_multiplier_1_DW01_sub_9_DW01_sub_22'
+  Processing 'signed_multiplier_1_DW01_add_6_DW01_add_19'
+  Processing 'signed_multiplier_1_DW01_add_7_DW01_add_20'
+  Processing 'signed_multiplier_1_DW01_add_8_DW01_add_21'
+  Processing 'signed_multiplier_1_DW01_add_9_DW01_add_22'
+  Processing 'signed_multiplier_1_DW01_add_10_DW01_add_23'
+  Processing 'signed_multiplier_1_DW01_add_11_DW01_add_24'
+  Processing 'signed_multiplier_1_DW01_add_12_DW01_add_25'
+  Processing 'signed_multiplier_1_DW01_sub_10_DW01_sub_23'
+  Processing 'signed_multiplier_1_DW01_sub_11_DW01_sub_24'
+  Processing 'signed_multiplier_2_DW01_cmp2_0_DW01_cmp2_9'
+  Processing 'signed_multiplier_2_DW01_sub_0_DW01_sub_25'
+  Processing 'signed_multiplier_2_DW01_sub_1_DW01_sub_26'
+  Processing 'signed_multiplier_2_DW01_add_0_DW01_add_26'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_2_DW01_sub_2_DW01_sub_27'
+  Processing 'signed_multiplier_2_DW01_cmp2_1_DW01_cmp2_10'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_2_DW01_sub_3_DW01_sub_28'
+  Processing 'signed_multiplier_2_DW01_cmp2_2_DW01_cmp2_11'
+  Processing 'signed_multiplier_2_DW01_sub_4_DW01_sub_29'
+  Processing 'signed_multiplier_2_DW01_sub_5_DW01_sub_30'
+  Processing 'signed_multiplier_2_DW01_sub_6_DW01_sub_31'
+  Processing 'signed_multiplier_2_DW01_sub_7_DW01_sub_32'
+  Processing 'signed_multiplier_2_DW01_sub_8_DW01_sub_33'
+  Processing 'signed_multiplier_2_DW01_add_1_DW01_add_27'
+  Processing 'signed_multiplier_2_DW01_cmp2_3_DW01_cmp2_12'
+  Processing 'signed_multiplier_2_DW01_add_2_DW01_add_28'
+  Processing 'signed_multiplier_2_DW01_add_3_DW01_add_29'
+  Processing 'signed_multiplier_2_DW01_add_4_DW01_add_30'
+  Processing 'signed_multiplier_2_DW01_add_5_DW01_add_31'
+  Processing 'signed_multiplier_2_DW01_sub_9_DW01_sub_34'
+  Processing 'signed_multiplier_2_DW01_add_6_DW01_add_32'
+  Processing 'signed_multiplier_2_DW01_add_7_DW01_add_33'
+  Processing 'signed_multiplier_2_DW01_add_8_DW01_add_34'
+  Processing 'signed_multiplier_2_DW01_add_9_DW01_add_35'
+  Processing 'signed_multiplier_2_DW01_add_10_DW01_add_36'
+  Processing 'signed_multiplier_2_DW01_add_11_DW01_add_37'
+  Processing 'signed_multiplier_2_DW01_add_12_DW01_add_38'
+  Processing 'signed_multiplier_2_DW01_sub_10_DW01_sub_35'
+  Processing 'signed_multiplier_2_DW01_sub_11_DW01_sub_36'
+  Processing 'signed_multiplier_3_DW01_cmp2_0_DW01_cmp2_13'
+  Processing 'signed_multiplier_3_DW01_sub_0_DW01_sub_37'
+  Processing 'signed_multiplier_3_DW01_sub_1_DW01_sub_38'
+  Processing 'signed_multiplier_3_DW01_add_0_DW01_add_39'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_3_DW01_sub_2_DW01_sub_39'
+  Processing 'signed_multiplier_3_DW01_cmp2_1_DW01_cmp2_14'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_3_DW01_sub_3_DW01_sub_40'
+  Processing 'signed_multiplier_3_DW01_cmp2_2_DW01_cmp2_15'
+  Processing 'signed_multiplier_3_DW01_sub_4_DW01_sub_41'
+  Processing 'signed_multiplier_3_DW01_sub_5_DW01_sub_42'
+  Processing 'signed_multiplier_3_DW01_sub_6_DW01_sub_43'
+  Processing 'signed_multiplier_3_DW01_sub_7_DW01_sub_44'
+  Processing 'signed_multiplier_3_DW01_sub_8_DW01_sub_45'
+  Processing 'signed_multiplier_3_DW01_add_1_DW01_add_40'
+  Processing 'signed_multiplier_3_DW01_cmp2_3_DW01_cmp2_16'
+  Processing 'signed_multiplier_3_DW01_add_2_DW01_add_41'
+  Processing 'signed_multiplier_3_DW01_add_3_DW01_add_42'
+  Processing 'signed_multiplier_3_DW01_add_4_DW01_add_43'
+  Processing 'signed_multiplier_3_DW01_add_5_DW01_add_44'
+  Processing 'signed_multiplier_3_DW01_sub_9_DW01_sub_46'
+  Processing 'signed_multiplier_3_DW01_add_6_DW01_add_45'
+  Processing 'signed_multiplier_3_DW01_add_7_DW01_add_46'
+  Processing 'signed_multiplier_3_DW01_add_8_DW01_add_47'
+  Processing 'signed_multiplier_3_DW01_add_9_DW01_add_48'
+  Processing 'signed_multiplier_3_DW01_add_10_DW01_add_49'
+  Processing 'signed_multiplier_3_DW01_add_11_DW01_add_50'
+  Processing 'signed_multiplier_3_DW01_add_12_DW01_add_51'
+  Processing 'signed_multiplier_3_DW01_sub_10_DW01_sub_47'
+  Processing 'signed_multiplier_3_DW01_sub_11_DW01_sub_48'
+  Processing 'signed_multiplier_4_DW01_cmp2_0_DW01_cmp2_17'
+  Processing 'signed_multiplier_4_DW01_sub_0_DW01_sub_49'
+  Processing 'signed_multiplier_4_DW01_sub_1_DW01_sub_50'
+  Processing 'signed_multiplier_4_DW01_add_0_DW01_add_52'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_4_DW01_sub_2_DW01_sub_51'
+  Processing 'signed_multiplier_4_DW01_cmp2_1_DW01_cmp2_18'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_4_DW01_sub_3_DW01_sub_52'
+  Processing 'signed_multiplier_4_DW01_cmp2_2_DW01_cmp2_19'
+  Processing 'signed_multiplier_4_DW01_sub_4_DW01_sub_53'
+  Processing 'signed_multiplier_4_DW01_sub_5_DW01_sub_54'
+  Processing 'signed_multiplier_4_DW01_sub_6_DW01_sub_55'
+  Processing 'signed_multiplier_4_DW01_sub_7_DW01_sub_56'
+  Processing 'signed_multiplier_4_DW01_sub_8_DW01_sub_57'
+  Processing 'signed_multiplier_4_DW01_add_1_DW01_add_53'
+  Processing 'signed_multiplier_4_DW01_cmp2_3_DW01_cmp2_20'
+  Processing 'signed_multiplier_4_DW01_add_2_DW01_add_54'
+  Processing 'signed_multiplier_4_DW01_add_3_DW01_add_55'
+  Processing 'signed_multiplier_4_DW01_add_4_DW01_add_56'
+  Processing 'signed_multiplier_4_DW01_add_5_DW01_add_57'
+  Processing 'signed_multiplier_4_DW01_sub_9_DW01_sub_58'
+  Processing 'signed_multiplier_4_DW01_add_6_DW01_add_58'
+  Processing 'signed_multiplier_4_DW01_add_7_DW01_add_59'
+  Processing 'signed_multiplier_4_DW01_add_8_DW01_add_60'
+  Processing 'signed_multiplier_4_DW01_add_9_DW01_add_61'
+  Processing 'signed_multiplier_4_DW01_add_10_DW01_add_62'
+  Processing 'signed_multiplier_4_DW01_add_11_DW01_add_63'
+  Processing 'signed_multiplier_4_DW01_add_12_DW01_add_64'
+  Processing 'signed_multiplier_4_DW01_sub_10_DW01_sub_59'
+  Processing 'signed_multiplier_4_DW01_sub_11_DW01_sub_60'
+  Processing 'signed_multiplier_5_DW01_cmp2_0_DW01_cmp2_21'
+  Processing 'signed_multiplier_5_DW01_sub_0_DW01_sub_61'
+  Processing 'signed_multiplier_5_DW01_sub_1_DW01_sub_62'
+  Processing 'signed_multiplier_5_DW01_add_0_DW01_add_65'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_5_DW01_sub_2_DW01_sub_63'
+  Processing 'signed_multiplier_5_DW01_cmp2_1_DW01_cmp2_22'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_5_DW01_sub_3_DW01_sub_64'
+  Processing 'signed_multiplier_5_DW01_cmp2_2_DW01_cmp2_23'
+  Processing 'signed_multiplier_5_DW01_sub_4_DW01_sub_65'
+  Processing 'signed_multiplier_5_DW01_sub_5_DW01_sub_66'
+  Processing 'signed_multiplier_5_DW01_sub_6_DW01_sub_67'
+  Processing 'signed_multiplier_5_DW01_sub_7_DW01_sub_68'
+  Processing 'signed_multiplier_5_DW01_sub_8_DW01_sub_69'
+  Processing 'signed_multiplier_5_DW01_add_1_DW01_add_66'
+  Processing 'signed_multiplier_5_DW01_cmp2_3_DW01_cmp2_24'
+  Processing 'signed_multiplier_5_DW01_add_2_DW01_add_67'
+  Processing 'signed_multiplier_5_DW01_add_3_DW01_add_68'
+  Processing 'signed_multiplier_5_DW01_add_4_DW01_add_69'
+  Processing 'signed_multiplier_5_DW01_add_5_DW01_add_70'
+  Processing 'signed_multiplier_5_DW01_sub_9_DW01_sub_70'
+  Processing 'signed_multiplier_5_DW01_add_6_DW01_add_71'
+  Processing 'signed_multiplier_5_DW01_add_7_DW01_add_72'
+  Processing 'signed_multiplier_5_DW01_add_8_DW01_add_73'
+  Processing 'signed_multiplier_5_DW01_add_9_DW01_add_74'
+  Processing 'signed_multiplier_5_DW01_add_10_DW01_add_75'
+  Processing 'signed_multiplier_5_DW01_add_11_DW01_add_76'
+  Processing 'signed_multiplier_5_DW01_add_12_DW01_add_77'
+  Processing 'signed_multiplier_5_DW01_sub_10_DW01_sub_71'
+  Processing 'signed_multiplier_5_DW01_sub_11_DW01_sub_72'
+  Processing 'signed_multiplier_6_DW01_cmp2_0_DW01_cmp2_25'
+  Processing 'signed_multiplier_6_DW01_sub_0_DW01_sub_73'
+  Processing 'signed_multiplier_6_DW01_sub_1_DW01_sub_74'
+  Processing 'signed_multiplier_6_DW01_add_0_DW01_add_78'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_6_DW01_sub_2_DW01_sub_75'
+  Processing 'signed_multiplier_6_DW01_cmp2_1_DW01_cmp2_26'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_6_DW01_sub_3_DW01_sub_76'
+  Processing 'signed_multiplier_6_DW01_cmp2_2_DW01_cmp2_27'
+  Processing 'signed_multiplier_6_DW01_sub_4_DW01_sub_77'
+  Processing 'signed_multiplier_6_DW01_sub_5_DW01_sub_78'
+  Processing 'signed_multiplier_6_DW01_sub_6_DW01_sub_79'
+  Processing 'signed_multiplier_6_DW01_sub_7_DW01_sub_80'
+  Processing 'signed_multiplier_6_DW01_sub_8_DW01_sub_81'
+  Processing 'signed_multiplier_6_DW01_add_1_DW01_add_79'
+  Processing 'signed_multiplier_6_DW01_cmp2_3_DW01_cmp2_28'
+  Processing 'signed_multiplier_6_DW01_add_2_DW01_add_80'
+  Processing 'signed_multiplier_6_DW01_add_3_DW01_add_81'
+  Processing 'signed_multiplier_6_DW01_add_4_DW01_add_82'
+  Processing 'signed_multiplier_6_DW01_add_5_DW01_add_83'
+  Processing 'signed_multiplier_6_DW01_sub_9_DW01_sub_82'
+  Processing 'signed_multiplier_6_DW01_add_6_DW01_add_84'
+  Processing 'signed_multiplier_6_DW01_add_7_DW01_add_85'
+  Processing 'signed_multiplier_6_DW01_add_8_DW01_add_86'
+  Processing 'signed_multiplier_6_DW01_add_9_DW01_add_87'
+  Processing 'signed_multiplier_6_DW01_add_10_DW01_add_88'
+  Processing 'signed_multiplier_6_DW01_add_11_DW01_add_89'
+  Processing 'signed_multiplier_6_DW01_add_12_DW01_add_90'
+  Processing 'signed_multiplier_6_DW01_sub_10_DW01_sub_83'
+  Processing 'signed_multiplier_6_DW01_sub_11_DW01_sub_84'
+  Processing 'signed_multiplier_7_DW01_cmp2_0_DW01_cmp2_29'
+  Processing 'signed_multiplier_7_DW01_sub_0_DW01_sub_85'
+  Processing 'signed_multiplier_7_DW01_sub_1_DW01_sub_86'
+  Processing 'signed_multiplier_7_DW01_add_0_DW01_add_91'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_7_DW01_sub_2_DW01_sub_87'
+  Processing 'signed_multiplier_7_DW01_cmp2_1_DW01_cmp2_30'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_7_DW01_sub_3_DW01_sub_88'
+  Processing 'signed_multiplier_7_DW01_cmp2_2_DW01_cmp2_31'
+  Processing 'signed_multiplier_7_DW01_sub_4_DW01_sub_89'
+  Processing 'signed_multiplier_7_DW01_sub_5_DW01_sub_90'
+  Processing 'signed_multiplier_7_DW01_sub_6_DW01_sub_91'
+  Processing 'signed_multiplier_7_DW01_sub_7_DW01_sub_92'
+  Processing 'signed_multiplier_7_DW01_sub_8_DW01_sub_93'
+  Processing 'signed_multiplier_7_DW01_add_1_DW01_add_92'
+  Processing 'signed_multiplier_7_DW01_cmp2_3_DW01_cmp2_32'
+  Processing 'signed_multiplier_7_DW01_add_2_DW01_add_93'
+  Processing 'signed_multiplier_7_DW01_add_3_DW01_add_94'
+  Processing 'signed_multiplier_7_DW01_add_4_DW01_add_95'
+  Processing 'signed_multiplier_7_DW01_add_5_DW01_add_96'
+  Processing 'signed_multiplier_7_DW01_sub_9_DW01_sub_94'
+  Processing 'signed_multiplier_7_DW01_add_6_DW01_add_97'
+  Processing 'signed_multiplier_7_DW01_add_7_DW01_add_98'
+  Processing 'signed_multiplier_7_DW01_add_8_DW01_add_99'
+  Processing 'signed_multiplier_7_DW01_add_9_DW01_add_100'
+  Processing 'signed_multiplier_7_DW01_add_10_DW01_add_101'
+  Processing 'signed_multiplier_7_DW01_add_11_DW01_add_102'
+  Processing 'signed_multiplier_7_DW01_add_12_DW01_add_103'
+  Processing 'signed_multiplier_7_DW01_sub_10_DW01_sub_95'
+  Processing 'signed_multiplier_7_DW01_sub_11_DW01_sub_96'
+  Processing 'signed_multiplier_8_DW01_cmp2_0_DW01_cmp2_33'
+  Processing 'signed_multiplier_8_DW01_sub_0_DW01_sub_97'
+  Processing 'signed_multiplier_8_DW01_sub_1_DW01_sub_98'
+  Processing 'signed_multiplier_8_DW01_add_0_DW01_add_104'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_8_DW01_sub_2_DW01_sub_99'
+  Processing 'signed_multiplier_8_DW01_cmp2_1_DW01_cmp2_34'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_8_DW01_sub_3_DW01_sub_100'
+  Processing 'signed_multiplier_8_DW01_cmp2_2_DW01_cmp2_35'
+  Processing 'signed_multiplier_8_DW01_sub_4_DW01_sub_101'
+  Processing 'signed_multiplier_8_DW01_sub_5_DW01_sub_102'
+  Processing 'signed_multiplier_8_DW01_sub_6_DW01_sub_103'
+  Processing 'signed_multiplier_8_DW01_sub_7_DW01_sub_104'
+  Processing 'signed_multiplier_8_DW01_sub_8_DW01_sub_105'
+  Processing 'signed_multiplier_8_DW01_add_1_DW01_add_105'
+  Processing 'signed_multiplier_8_DW01_cmp2_3_DW01_cmp2_36'
+  Processing 'signed_multiplier_8_DW01_add_2_DW01_add_106'
+  Processing 'signed_multiplier_8_DW01_add_3_DW01_add_107'
+  Processing 'signed_multiplier_8_DW01_add_4_DW01_add_108'
+  Processing 'signed_multiplier_8_DW01_add_5_DW01_add_109'
+  Processing 'signed_multiplier_8_DW01_sub_9_DW01_sub_106'
+  Processing 'signed_multiplier_8_DW01_add_6_DW01_add_110'
+  Processing 'signed_multiplier_8_DW01_add_7_DW01_add_111'
+  Processing 'signed_multiplier_8_DW01_add_8_DW01_add_112'
+  Processing 'signed_multiplier_8_DW01_add_9_DW01_add_113'
+  Processing 'signed_multiplier_8_DW01_add_10_DW01_add_114'
+  Processing 'signed_multiplier_8_DW01_add_11_DW01_add_115'
+  Processing 'signed_multiplier_8_DW01_add_12_DW01_add_116'
+  Processing 'signed_multiplier_8_DW01_sub_10_DW01_sub_107'
+  Processing 'signed_multiplier_8_DW01_sub_11_DW01_sub_108'
+  Processing 'signed_multiplier_9_DW01_cmp2_0_DW01_cmp2_37'
+  Processing 'signed_multiplier_9_DW01_sub_0_DW01_sub_109'
+  Processing 'signed_multiplier_9_DW01_sub_1_DW01_sub_110'
+  Processing 'signed_multiplier_9_DW01_add_0_DW01_add_117'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_9_DW01_sub_2_DW01_sub_111'
+  Processing 'signed_multiplier_9_DW01_cmp2_1_DW01_cmp2_38'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_9_DW01_sub_3_DW01_sub_112'
+  Processing 'signed_multiplier_9_DW01_cmp2_2_DW01_cmp2_39'
+  Processing 'signed_multiplier_9_DW01_sub_4_DW01_sub_113'
+  Processing 'signed_multiplier_9_DW01_sub_5_DW01_sub_114'
+  Processing 'signed_multiplier_9_DW01_sub_6_DW01_sub_115'
+  Processing 'signed_multiplier_9_DW01_sub_7_DW01_sub_116'
+  Processing 'signed_multiplier_9_DW01_sub_8_DW01_sub_117'
+  Processing 'signed_multiplier_9_DW01_add_1_DW01_add_118'
+  Processing 'signed_multiplier_9_DW01_cmp2_3_DW01_cmp2_40'
+  Processing 'signed_multiplier_9_DW01_add_2_DW01_add_119'
+  Processing 'signed_multiplier_9_DW01_add_3_DW01_add_120'
+  Processing 'signed_multiplier_9_DW01_add_4_DW01_add_121'
+  Processing 'signed_multiplier_9_DW01_add_5_DW01_add_122'
+  Processing 'signed_multiplier_9_DW01_sub_9_DW01_sub_118'
+  Processing 'signed_multiplier_9_DW01_add_6_DW01_add_123'
+  Processing 'signed_multiplier_9_DW01_add_7_DW01_add_124'
+  Processing 'signed_multiplier_9_DW01_add_8_DW01_add_125'
+  Processing 'signed_multiplier_9_DW01_add_9_DW01_add_126'
+  Processing 'signed_multiplier_9_DW01_add_10_DW01_add_127'
+  Processing 'signed_multiplier_9_DW01_add_11_DW01_add_128'
+  Processing 'signed_multiplier_9_DW01_add_12_DW01_add_129'
+  Processing 'signed_multiplier_9_DW01_sub_10_DW01_sub_119'
+  Processing 'signed_multiplier_9_DW01_sub_11_DW01_sub_120'
+  Processing 'signed_multiplier_10_DW01_cmp2_0_DW01_cmp2_41'
+  Processing 'signed_multiplier_10_DW01_sub_0_DW01_sub_121'
+  Processing 'signed_multiplier_10_DW01_sub_1_DW01_sub_122'
+  Processing 'signed_multiplier_10_DW01_add_0_DW01_add_130'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_10_DW01_sub_2_DW01_sub_123'
+  Processing 'signed_multiplier_10_DW01_cmp2_1_DW01_cmp2_42'
+  Mapping 'DW_rightsh'
