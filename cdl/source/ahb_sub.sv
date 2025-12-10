@@ -70,103 +70,16 @@ always_comb begin
         10'h000 : begin
             if (hsize == 2'b11) size_ok = 1'b1;
         end
-        10'h001 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h002 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h003 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h004 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h005 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h006 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h007 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
         10'h008 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h009 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h00a : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h00b : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h00c : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h00d : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h00e : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h00f : begin
             if (hsize == 2'b11) size_ok = 1'b1;
         end
         10'h010 : begin
             if (hsize == 2'b11) size_ok = 1'b1;
         end
-        10'h011 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h012 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h013 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h014 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h015 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h016 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h017 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
         10'h018 : begin
             if (hsize == 2'b11) size_ok = 1'b1;
         end
-        10'h019 : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h01a : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h01b : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h01c : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h01d : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h01e : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
-        10'h01f : begin
-            if (hsize == 2'b11) size_ok = 1'b1;
-        end
         10'h020 : begin
-            if (hsize == 2'b01) size_ok = 1'b1;
-        end
-        10'h021 : begin
             if (hsize == 2'b01) size_ok = 1'b1;
         end
         10'h022 : begin
