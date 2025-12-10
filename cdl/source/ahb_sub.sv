@@ -305,42 +305,103 @@ end
 
 //output logic
 
-logic ready;
 logic handshake_n;
 logic any_error;
-logic error_in_progress;
-logic [1:0] error_cnt;
-logic ready_q1, ready_q2;
 
-// combine error sources
+
 assign any_error = write_error | error_flag | burst_err | err_reg[0] | err_reg[8];
 
-// 2-cycle error FSM
+typedef enum logic [1:0] {ERR_IDLE, ERR_FIRST, ERR_SECOND, ERR_LAST} err_state_t;
+
+err_state_t err_state, err_state_n;
+
+always_ff @(posedge clk or negedge n_rst) begin
+    if (!n_rst) begin
+        err_state <= ERR_IDLE;
+    end
+    else begin
+        err_state <= err_state_n;
+    end
+end
+
+always_comb begin
+    err_state_n = err_state;
+
+    case (err_state)
+        ERR_IDLE: begin
+            if (any_error) begin
+                err_state_n = ERR_FIRST;
+            end
+        end
+
+        ERR_FIRST: begin
+            if (any_error) begin
+                err_state_n = ERR_SECOND;
+            end
+            else begin
+                err_state_n = ERR_LAST;
+            end
+        end
+
+        ERR_SECOND: begin
+            if (!any_error) begin
+                err_state_n = ERR_IDLE;
+            end
+        end
+
+        ERR_LAST: begin
+            if (any_error) begin
+                err_state_n = ERR_SECOND;
+            end
+            else begin
+                err_state_n = ERR_IDLE;
+            end
+        end
+
+        default: begin
+            err_state_n = ERR_IDLE;
+        end
+    endcase
+end
+
+always_comb begin
+    hresp  = 1'b0;
+    hready = 1'b1;
+
+    case (err_state)
+        ERR_IDLE: begin
+            hresp  = 1'b0;
+            hready = 1'b1;
+        end
+
+        ERR_FIRST: begin
+            hresp  = 1'b1;
+            hready = 1'b0;
+        end
+
+        ERR_SECOND: begin
+            hresp  = 1'b1;
+            hready = 1'b0;
+        end
+
+        ERR_LAST: begin
+            hresp  = 1'b1;
+            hready = 1'b0;
+        end
+
+        default: begin
+            hresp  = 1'b0;
+            hready = 1'b1;
+        end
+    endcase
+end
+
 always_ff @(posedge clk or negedge n_rst) begin
     if(!n_rst) begin
-        error_in_progress <= 1'b0;
-        error_cnt <= 2'd0;
         handshake <= 1'b0;
     end
     else begin
         handshake <= handshake_n;
-        if(!error_in_progress) begin
-            // start error response when any_error goes high
-            if(any_error) begin
-                error_in_progress <= 1'b1;
-                error_cnt <= 2'd2;   // hold for 2 cycles
-            end
-        end
-        else begin
-            // already in error response
-            if(error_cnt != 2'd0) begin
-                error_cnt <= error_cnt - 2'd1;
-            end
-            else begin
-                // done, release bus
-                error_in_progress <= 1'b0;
-            end
-        end
     end
 end
 
@@ -352,37 +413,5 @@ always_comb begin
     end
 end
 
-// main combinational outputs before HREADY pipeline
-always_comb begin
-    // default: no error, ready
-    hrdata = rf_rdata;
-    hresp  = 1'b0;
-    ready  = 1'b1;
-
-    // override during error response
-    if(error_in_progress) begin
-        hresp = 1'b1;
-        if(error_cnt != 2'd0) begin
-            ready = 1'b0;   // stall for these 2 cycles
-        end
-        else begin
-            ready = 1'b1;   // last cycle, allow HREADY high again
-        end
-    end
-end
-
-// HREADY stretching: ensures at least 2 cycles low when ready goes low
-always_ff @(posedge clk or negedge n_rst) begin
-    if(!n_rst) begin
-        ready_q1 <= 1'b1;
-        ready_q2 <= 1'b1;
-    end
-    else begin
-        ready_q1 <= ready;
-        ready_q2 <= ready_q1;
-    end
-end
-
-assign hready = ready_q1 & ready_q2;
 
 endmodule
