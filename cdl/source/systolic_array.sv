@@ -56,9 +56,9 @@ endgenerate
         PE final_row_column4(.clk(clk), .n_rst(n_rst), .input_value(column_layers[(64*(7))+31:(64*(7))+24]), .cumulative(row_layers[(64*(7))+39:(64*(7))+32]), .sum_out(indirect_outputs[39:32]), .pass_value(column_layers[(64*(7))+39:(64*(7))+32]), .load(load[4]), .float(float), .input_valid(valid_signals[39]),.input_weight(input_value[63:56]), .output_valid(valid_signals[47]), .overflow(sub_overflow[60]));
         PE final_row_column5(.clk(clk), .n_rst(n_rst), .input_value(column_layers[(64*(7))+39:(64*(7))+32]), .cumulative(row_layers[(64*(7))+47:(64*(7))+40]), .sum_out(indirect_outputs[47:40]), .pass_value(column_layers[(64*(7))+47:(64*(7))+40]), .load(load[5]), .float(float), .input_valid(valid_signals[47]),.input_weight(input_value[63:56]), .output_valid(valid_signals[55]), .overflow(sub_overflow[61]));
         PE final_row_column6(.clk(clk), .n_rst(n_rst), .input_value(column_layers[(64*(7))+47:(64*(7))+40]), .cumulative(row_layers[(64*(7))+55:(64*(7))+48]), .sum_out(indirect_outputs[55:48]), .pass_value(column_layers[(64*(7))+55:(64*(7))+48]), .load(load[6]), .float(float), .input_valid(valid_signals[55]),.input_weight(input_value[63:56]), .output_valid(valid_signals[63]), .overflow(sub_overflow[62]));
-        PE final_row_column7(.clk(clk), .n_rst(n_rst), .input_value(column_layers[(64*(7))+55:(64*(7))+48]), .cumulative(row_layers[(64*(7))+63:(64*(7))+56]), .sum_out(indirect_outputs[63:56]), .pass_value(column_layers[(64*(7))+63:(64*(7))+56]), .load(load[7]), .float(float), .input_valid(valid_signals[63]),.input_weight(input_value[63:56]), .output_valid(next_output_valid), .overflow(sub_overflow[63]));
+        PE final_row_column7(.clk(clk), .n_rst(n_rst), .input_value(column_layers[(64*(7))+55:(64*(7))+48]), .cumulative(row_layers[(64*(7))+63:(64*(7))+56]), .sum_out(indirect_outputs[63:56]), .pass_value(column_layers[(64*7)+63:(64*7)+56]), .load(load[7]), .float(float), .input_valid(valid_signals[63]),.input_weight(input_value[63:56]), .output_valid(next_output_valid), .overflow(sub_overflow[63]));
 
-assign overflow = sub_overflow > 0 ? 1:0;
+assign overflow = |sub_overflow;
 // input delay registers
 logic [7:0] x1;
 logic [15:0] x2;

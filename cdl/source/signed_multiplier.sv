@@ -28,11 +28,16 @@ module signed_multiplier(
     logic [3:0] man_cumulative, man_weight, man_value, man_out;
     logic [3:0] man_product;
 
+    logic signed [15:0] extended_cumulative;
+    assign extended_cumulative = {{8{cumulative[7]}}, cumulative};
+
     // signs
+    
     assign sign_cumulative = cumulative[7];
     assign sign_weight = weight[7];
     assign sign_value = value[7];
     assign sign_product = sign_value ^ sign_weight;
+    
     
     // exponents
     assign exponent_cumulative = cumulative[6:3];
@@ -40,9 +45,17 @@ module signed_multiplier(
     assign exponent_value = value[6:3];
     
     // implicit 1 in front of mantissa
-    assign man_cumulative = {1'b1, cumulative[2:0]};
+    assign man_cumulative = exponent_cumulative == 0?{1'b0, cumulative[2:0]}:{1'b1, cumulative[2:0]};
     assign man_weight = {1'b1, weight[2:0]};
     assign man_value = {1'b1, value[2:0]};
+
+
+    
+    // absolute values
+    logic [15:0] abs_weight, abs_value;
+    assign abs_weight = sign_weight ? -{{8{weight[7]}}, weight} : {{8{weight[7]}}, weight};
+    assign abs_value  = sign_value  ? -{{8{value[7]}}, value}  : {{8{value[7]}}, value};
+
 
 
     // sign extend
@@ -51,17 +64,24 @@ module signed_multiplier(
         if(!float) begin
 
             // partials ials that are "ands" of a value bit and all the weight bits. creates shifted versions to add
-            partial0 = value[0] ? (extended_weight) : 16'sd0;
-            partial1 = value[1] ? (extended_weight << 1) : 16'sd0;
-            partial2 = value[2] ? (extended_weight << 2) : 16'sd0;
-            partial3 = value[3] ? (extended_weight << 3) : 16'sd0;
-            partial4 = value[4] ? (extended_weight << 4) : 16'sd0;
-            partial5 = value[5] ? (extended_weight << 5) : 16'sd0;
-            partial6 = value[6] ? (extended_weight << 6) : 16'sd0;
-            partial7 = value[7] ? (extended_weight << 7) : 16'sd0;
+           partial0 = abs_value[0] ? (abs_weight << 0) : 16'sd0;
+           partial1 = abs_value[1] ? (abs_weight << 1) : 16'sd0;
+           partial2 = abs_value[2] ? (abs_weight << 2) : 16'sd0;
+           partial3 = abs_value[3] ? (abs_weight << 3) : 16'sd0;
+           partial4 = abs_value[4] ? (abs_weight << 4) : 16'sd0;
+           partial5 = abs_value[5] ? (abs_weight << 5) : 16'sd0;
+           partial6 = abs_value[6] ? (abs_weight << 6) : 16'sd0;
+           partial7 = abs_value[7] ? (abs_weight << 7) : 16'sd0;
 
             product = partial0 + partial1 + partial2 + partial3 +
             partial4 + partial5 + partial6 + partial7;
+
+            if (sign_product) begin
+                product = -product;
+            end
+            else begin
+                product = product;
+            end
         
         end
         else begin
@@ -83,7 +103,7 @@ module signed_multiplier(
 
     always_comb begin
         if(!float) begin
-            sum_extended = product + {{8{cumulative[7]}}, cumulative};
+            sum_extended = product + extended_cumulative;
             exponent_product = 0;
             man_product = 0;
         end
@@ -134,7 +154,7 @@ module signed_multiplier(
             end
             else begin
                 if(exponent_weight <= 4'd6 || exponent_value <= 4'd6) begin
-                    exponent_product = 5'd10;
+                    exponent_product = 5'd00;
                     man_product = 0;
                 end
                 else begin
@@ -205,12 +225,12 @@ module signed_multiplier(
     // saturate
     always_comb begin
         if(!float) begin
-            if (sum_extended >= 16'sd127 && (!sum_extended[15])) begin
-                out = 8'sh7F;
+            if (sum_extended > 16'sd127) begin
+                out = 8'sh7F;   
                 overflow = 1;
             end
-            else if (sum_extended <= -16'sd128 && sum_extended[15]) begin
-                out = 8'sh80;
+            else if (sum_extended > 16'sd128) begin
+                out = 8'sh80;   
                 overflow = 1;
             end
             else begin
@@ -223,7 +243,7 @@ module signed_multiplier(
         else begin
             if (man_sum[4]) begin
                 overflow = 1;
-                man_out = {1'b1,man_sum[3:1] + 1};
+                man_out = {1'b1,man_sum[3:1]};
                 e_out = final_exp + 1;
             end 
             else if (man_sum[3]) begin
@@ -244,7 +264,7 @@ module signed_multiplier(
             else begin
                 overflow = 0;
                 man_out = {1'b1,3'b0};
-                e_out = final_exp - 3;
+                e_out = 0;
             end
             out = {s_out, e_out, man_out[2:0]};
 
