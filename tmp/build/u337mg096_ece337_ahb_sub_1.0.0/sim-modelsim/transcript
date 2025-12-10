@@ -15,7 +15,7 @@ Reading pref.tclError: tag "Error" isn't defined in text widget
 //  18 U.S.C. Section 1905.
 //
 vsim -gui -vopt -voptargs="+acc" -t ps -do "waves/ahb_sub.do" -do "set PrefSource(OpenOnFinish) 0 ; set PrefMain(LinePrefix) "" ; set PrefMain(colorizeTranscript) 1" -onfinish stop -coverage tb_ahb_sub 
-Start time: 09:30:00 on Dec 10,2025
+Start time: 09:45:15 on Dec 10,2025
 ** Note: (vsim-3812) Design is being optimized...
 ** Note: (vopt-143) Recognized 2 FSMs in module "ahb_sub(fast)".
 ** Warning: src/u337mg096_ece337_ahb_sub_1.0.0/testbench/tb_ahb_sub.sv(109): (vopt-2685) [TFMPC] - Too few port connections for 'DUT'.  Expected 22, found 21.
@@ -26,28 +26,11 @@ Loading work.tb_ahb_sub(fast)
 Loading work.ahb_model_updated(fast)
 Loading work.ahb_sub(fast)
 do waves/ahb_sub.do
-** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_ahb_sub/DUT/burst_active'.
-Executing ONERROR command at macro ./waves/ahb_sub.do line 76
-** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_ahb_sub/DUT/ready'.
-Executing ONERROR command at macro ./waves/ahb_sub.do line 88
-** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_ahb_sub/DUT/error_in_progress'.
-Executing ONERROR command at macro ./waves/ahb_sub.do line 90
-** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_ahb_sub/DUT/error_cnt'.
-Executing ONERROR command at macro ./waves/ahb_sub.do line 91
-** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_ahb_sub/DUT/ready_q1'.
-Executing ONERROR command at macro ./waves/ahb_sub.do line 92
-** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_ahb_sub/DUT/ready_q2'.
-Executing ONERROR command at macro ./waves/ahb_sub.do line 93
 set PrefSource(OpenOnFinish) 0 
 0
  set PrefMain(LinePrefix) "" 
  set PrefMain(colorizeTranscript) 1
 1
-add wave -position 23 sim:/tb_ahb_sub/test_busy_in_burst/*
-add wave -position 23 sim:/tb_ahb_sub/test_busy_in_burst/*
-add wave -position end sim:/tb_ahb_sub/DUT/*
-add wave -position 2 sim:/tb_ahb_sub/BFM/*
-add wave -position 1 sim:/tb_ahb_sub/*
 run -all
 ** Error: Incorrect 'hrdata' response from subordinate device during transaction (transaction 6).
    Expected 3333333333333333, got 2222222222222222.
@@ -70,6 +53,3 @@ run -all
 ** Note: $finish    : src/u337mg096_ece337_ahb_sub_1.0.0/testbench/tb_ahb_sub.sv(468)
    Time: 555 ns  Iteration: 1  Instance: /tb_ahb_sub
 Break in Module tb_ahb_sub at src/u337mg096_ece337_ahb_sub_1.0.0/testbench/tb_ahb_sub.sv line 468
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/ecegridfs/a/337mg096/cdl-team14/cdl/waves/ahb_sub.do
-End time: 09:36:52 on Dec 10,2025, Elapsed time: 0:06:52
-Errors: 6, Warnings: 2

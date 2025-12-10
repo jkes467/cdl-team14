@@ -32,32 +32,32 @@ logic [63:0] rf_wdata;
 logic burst_err;
 logic burst_en;
 
-localparam [1:0] HTRANS_IDLE   = 2'b00;
-localparam [1:0] HTRANS_BUSY   = 2'b01;
+localparam [1:0] HTRANS_IDLE = 2'b00;
+localparam [1:0] HTRANS_BUSY = 2'b01;
 localparam [1:0] HTRANS_NONSEQ = 2'b10;
-localparam [1:0] HTRANS_SEQ    = 2'b11;
+localparam [1:0] HTRANS_SEQ = 2'b11;
 
 localparam [2:0] HBURST_SINGLE = 3'b000;
-localparam [2:0] HBURST_INCR   = 3'b001;
-localparam [2:0] HBURST_WRAP4  = 3'b010;
-localparam [2:0] HBURST_INCR4  = 3'b011;
-localparam [2:0] HBURST_WRAP8  = 3'b100;
-localparam [2:0] HBURST_INCR8  = 3'b101;
+localparam [2:0] HBURST_INCR = 3'b001;
+localparam [2:0] HBURST_WRAP4 = 3'b010;
+localparam [2:0] HBURST_INCR4 = 3'b011;
+localparam [2:0] HBURST_WRAP8 = 3'b100;
+localparam [2:0] HBURST_INCR8 = 3'b101;
 localparam [2:0] HBURST_WRAP16 = 3'b110;
 localparam [2:0] HBURST_INCR16 = 3'b111;
 
-localparam [3:0] BC_IDLE   = 4'd0;
+localparam [3:0] BC_IDLE = 4'd0;
 localparam [3:0] BC_SINGLE = 4'd1;
-localparam [3:0] BC_INCR   = 4'd2;
-localparam [3:0] BC_WRAP4  = 4'd3;
-localparam [3:0] BC_INCR4  = 4'd4;
-localparam [3:0] BC_WRAP8  = 4'd5;
-localparam [3:0] BC_INCR8  = 4'd6;
+localparam [3:0] BC_INCR = 4'd2;
+localparam [3:0] BC_WRAP4 = 4'd3;
+localparam [3:0] BC_INCR4 = 4'd4;
+localparam [3:0] BC_WRAP8 = 4'd5;
+localparam [3:0] BC_INCR8 = 4'd6;
 localparam [3:0] BC_WRAP16 = 4'd7;
 localparam [3:0] BC_INCR16 = 4'd8;
 
 logic [3:0] burst_state, burst_state_n;
-logic [4:0] beats_left,  beats_left_n;
+logic [4:0] beats_left, beats_left_n;
 
 logic size_ok;
 logic trans_valid;
@@ -67,31 +67,31 @@ always_comb begin
     size_ok = 1'b0;
 
     case (haddr)
-        10'h000: begin
-            if (hsize == 2'b11) size_ok = 1'b1;   // 64-bit
-        end
-        10'h008: begin
+        10'h000 : begin
             if (hsize == 2'b11) size_ok = 1'b1;
         end
-        10'h010: begin
+        10'h008 : begin
             if (hsize == 2'b11) size_ok = 1'b1;
         end
-        10'h018: begin
+        10'h010 : begin
             if (hsize == 2'b11) size_ok = 1'b1;
         end
-        10'h020: begin
-            if (hsize == 2'b01) size_ok = 1'b1;   // 16-bit
+        10'h018 : begin
+            if (hsize == 2'b11) size_ok = 1'b1;
         end
-        10'h022: begin
-            if (hsize == 2'b00) size_ok = 1'b1;   // 8-bit
+        10'h020 : begin
+            if (hsize == 2'b01) size_ok = 1'b1;
         end
-        10'h023: begin
+        10'h022 : begin
             if (hsize == 2'b00) size_ok = 1'b1;
         end
-        10'h024: begin
+        10'h023 : begin
             if (hsize == 2'b00) size_ok = 1'b1;
         end
-        default: begin
+        10'h024 : begin
+            if (hsize == 2'b00) size_ok = 1'b1;
+        end
+        default : begin
             size_ok = 1'b0;
         end
     endcase
@@ -103,17 +103,17 @@ always_comb begin
     htrans_err = 1'b0;
 
     case (burst_state)
-        BC_IDLE: begin
+        BC_IDLE : begin
             if (hsel && htrans == HTRANS_SEQ) begin
                 htrans_err = 1'b1;
             end
         end
 
-        BC_SINGLE: begin
+        BC_SINGLE : begin
             htrans_err = 1'b0;
         end
 
-        default: begin
+        default : begin
             if (hsel) begin
                 if (htrans == HTRANS_NONSEQ) begin
                     htrans_err = 1'b1;
@@ -126,26 +126,23 @@ end
 always_ff @(posedge clk or negedge n_rst) begin
     if (!n_rst) begin
         burst_state <= BC_IDLE;
-        beats_left  <= 5'd0;
-        burst_en    <= 1'b1;
+        beats_left <= 5'd0;
+        burst_en <= 1'b1;
 
-        rf_addr     <= 10'd0;
-        rf_wdata    <= 64'd0;
-        wr_en       <= 1'b0;
-        rd_en       <= 1'b0;
-        burst_err   <= 1'b0;
+        rf_addr <= 10'd0;
+        rf_wdata <= 64'd0;
+        wr_en <= 1'b0;
+        rd_en <= 1'b0;
+        burst_err <= 1'b0;
     end
     else begin
-        // defaults for this cycle
-        wr_en     <= 1'b0;
-        rd_en     <= 1'b0;
+        wr_en <= 1'b0;
+        rd_en <= 1'b0;
         burst_err <= 1'b0;
 
-        // update FSM state and counters
         burst_state <= burst_state_n;
-        beats_left  <= beats_left_n;
+        beats_left <= beats_left_n;
 
-        // burst_en: 1 only when IDLE, 0 in any active state
         if (burst_state_n == BC_IDLE) begin
             burst_en <= 1'b1;
         end
@@ -153,145 +150,118 @@ always_ff @(posedge clk or negedge n_rst) begin
             burst_en <= 1'b0;
         end
 
-        // latch address/data on valid address phase
         if (trans_valid) begin
             rf_addr <= haddr;
 
             if (size_ok && !htrans_err) begin
                 if (hwrite) begin
-                    wr_en    <= 1'b1;
+                    wr_en <= 1'b1;
                     rf_wdata <= hwdata;
                 end
                 else begin
-                    rd_en    <= 1'b1;
+                    rd_en <= 1'b1;
                 end
             end
             else begin
-                // size error OR protocol (htrans) error
                 burst_err <= 1'b1;
             end
         end
     end
 end
 
-// ---------------------------------------------------------
-// Next-state logic (driven by htrans / hburst)
-//  - HTRANS_BUSY: hold state & beats_left (no progress)
-// ---------------------------------------------------------
 always_comb begin
     burst_state_n = burst_state;
-    beats_left_n  = beats_left;
+    beats_left_n = beats_left;
 
     case (burst_state)
 
-        // -------------------------------------------------
-        // IDLE: wait for a NONSEQ + hsel to start a burst
-        // -------------------------------------------------
-        BC_IDLE: begin
+        BC_IDLE : begin
             beats_left_n = 5'd0;
 
-            // only NONSEQ starts a burst; BUSY/SEQ are ignored here
             if (hsel && (htrans == HTRANS_NONSEQ)) begin
                 case (hburst)
-                    HBURST_SINGLE: begin
+                    HBURST_SINGLE : begin
                         burst_state_n = BC_SINGLE;
-                        beats_left_n  = 5'd0;
+                        beats_left_n = 5'd0;
                     end
 
-                    HBURST_INCR: begin
+                    HBURST_INCR : begin
                         burst_state_n = BC_INCR;
-                        beats_left_n  = 5'd0;   // open-ended
+                        beats_left_n = 5'd0;
                     end
 
-                    HBURST_WRAP4: begin
+                    HBURST_WRAP4 : begin
                         burst_state_n = BC_WRAP4;
-                        beats_left_n  = 5'd4;
+                        beats_left_n = 5'd4;
                     end
 
-                    HBURST_INCR4: begin
+                    HBURST_INCR4 : begin
                         burst_state_n = BC_INCR4;
-                        beats_left_n  = 5'd4;
+                        beats_left_n = 5'd4;
                     end
 
-                    HBURST_WRAP8: begin
+                    HBURST_WRAP8 : begin
                         burst_state_n = BC_WRAP8;
-                        beats_left_n  = 5'd8;
+                        beats_left_n = 5'd8;
                     end
 
-                    HBURST_INCR8: begin
+                    HBURST_INCR8 : begin
                         burst_state_n = BC_INCR8;
-                        beats_left_n  = 5'd8;
+                        beats_left_n = 5'd8;
                     end
 
                     HBURST_WRAP16: begin
                         burst_state_n = BC_WRAP16;
-                        beats_left_n  = 5'd16;
+                        beats_left_n = 5'd16;
                     end
 
-                    HBURST_INCR16: begin
+                    HBURST_INCR16 : begin
                         burst_state_n = BC_INCR16;
-                        beats_left_n  = 5'd16;
+                        beats_left_n = 5'd16;
                     end
 
-                    default: begin
+                    default : begin
                         burst_state_n = BC_IDLE;
-                        beats_left_n  = 5'd0;
+                        beats_left_n = 5'd0;
                     end
                 endcase
             end
-            // if HTRANS_BUSY here: we just stay in BC_IDLE with beats_left_n=0
         end
 
-        // -------------------------------------------------
-        // SINGLE: one beat, then back to IDLE
-        //  - BUSY does NOT occur meaningfully here; if it did, we just hold
-        // -------------------------------------------------
         BC_SINGLE: begin
             if (!hsel || htrans == HTRANS_IDLE) begin
                 burst_state_n = BC_IDLE;
-                beats_left_n  = 5'd0;
+                beats_left_n = 5'd0;
             end
             else if (htrans == HTRANS_NONSEQ || htrans == HTRANS_SEQ) begin
-                // treat the single transfer as done after one real beat
                 burst_state_n = BC_IDLE;
-                beats_left_n  = 5'd0;
+                beats_left_n = 5'd0;
             end
             else if (htrans == HTRANS_BUSY) begin
-                // hold state and beats_left; no progress on BUSY
                 burst_state_n = BC_SINGLE;
-                beats_left_n  = beats_left;
+                beats_left_n = beats_left;
             end
         end
 
-        // -------------------------------------------------
-        // INCR: open-ended burst; BUSY just pauses
-        // -------------------------------------------------
-        BC_INCR: begin
+        BC_INCR : begin
             if (!hsel || htrans == HTRANS_IDLE) begin
                 burst_state_n = BC_IDLE;
-                beats_left_n  = 5'd0;
+                beats_left_n = 5'd0;
             end
             else if (htrans == HTRANS_SEQ || htrans == HTRANS_NONSEQ) begin
-                // still in INCR; we don't track a fixed length
                 burst_state_n = BC_INCR;
-                beats_left_n  = beats_left;   // usually 0 for INCR
+                beats_left_n = beats_left;
             end
             else if (htrans == HTRANS_BUSY) begin
-                // explicit: hold state & beats_left on BUSY
                 burst_state_n = BC_INCR;
-                beats_left_n  = beats_left;
+                beats_left_n = beats_left;
             end
         end
 
-        // -------------------------------------------------
-        // Fixed-length bursts: 4/8/16 beats (WRAP/INCR share behavior)
-        //  - Only SEQ (and possibly NONSEQ on some controllers) decrements
-        //  - BUSY: hold state, do not change beats_left
-        // -------------------------------------------------
-        BC_WRAP4: begin
+        BC_WRAP4 : begin
             if (!hsel || htrans == HTRANS_IDLE) begin
                 burst_state_n = BC_IDLE;
-                beats_left_n  = 5'd0;
+                beats_left_n = 5'd0;
             end
             else if (htrans == HTRANS_SEQ) begin
                 if (beats_left > 5'd1) begin
@@ -299,21 +269,20 @@ always_comb begin
                     burst_state_n = BC_WRAP4;
                 end
                 else begin
-                    beats_left_n  = 5'd0;
+                    beats_left_n = 5'd0;
                     burst_state_n = BC_IDLE;
                 end
             end
             else if (htrans == HTRANS_BUSY) begin
-                // HOLD: no decrement on BUSY
                 burst_state_n = BC_WRAP4;
-                beats_left_n  = beats_left;
+                beats_left_n = beats_left;
             end
         end
 
-        BC_INCR4: begin
+        BC_INCR4 : begin
             if (!hsel || htrans == HTRANS_IDLE) begin
                 burst_state_n = BC_IDLE;
-                beats_left_n  = 5'd0;
+                beats_left_n = 5'd0;
             end
             else if (htrans == HTRANS_SEQ) begin
                 if (beats_left > 5'd1) begin
@@ -321,20 +290,20 @@ always_comb begin
                     burst_state_n = BC_INCR4;
                 end
                 else begin
-                    beats_left_n  = 5'd0;
+                    beats_left_n = 5'd0;
                     burst_state_n = BC_IDLE;
                 end
             end
             else if (htrans == HTRANS_BUSY) begin
                 burst_state_n = BC_INCR4;
-                beats_left_n  = beats_left;
+                beats_left_n = beats_left;
             end
         end
 
-        BC_WRAP8: begin
+        BC_WRAP8 : begin
             if (!hsel || htrans == HTRANS_IDLE) begin
                 burst_state_n = BC_IDLE;
-                beats_left_n  = 5'd0;
+                beats_left_n = 5'd0;
             end
             else if (htrans == HTRANS_SEQ) begin
                 if (beats_left > 5'd1) begin
@@ -342,20 +311,20 @@ always_comb begin
                     burst_state_n = BC_WRAP8;
                 end
                 else begin
-                    beats_left_n  = 5'd0;
+                    beats_left_n = 5'd0;
                     burst_state_n = BC_IDLE;
                 end
             end
             else if (htrans == HTRANS_BUSY) begin
                 burst_state_n = BC_WRAP8;
-                beats_left_n  = beats_left;
+                beats_left_n = beats_left;
             end
         end
 
-        BC_INCR8: begin
+        BC_INCR8 : begin
             if (!hsel || htrans == HTRANS_IDLE) begin
                 burst_state_n = BC_IDLE;
-                beats_left_n  = 5'd0;
+                beats_left_n = 5'd0;
             end
             else if (htrans == HTRANS_SEQ) begin
                 if (beats_left > 5'd1) begin
@@ -363,20 +332,20 @@ always_comb begin
                     burst_state_n = BC_INCR8;
                 end
                 else begin
-                    beats_left_n  = 5'd0;
+                    beats_left_n = 5'd0;
                     burst_state_n = BC_IDLE;
                 end
             end
             else if (htrans == HTRANS_BUSY) begin
                 burst_state_n = BC_INCR8;
-                beats_left_n  = beats_left;
+                beats_left_n = beats_left;
             end
         end
 
-        BC_WRAP16: begin
+        BC_WRAP16 : begin
             if (!hsel || htrans == HTRANS_IDLE) begin
                 burst_state_n = BC_IDLE;
-                beats_left_n  = 5'd0;
+                beats_left_n = 5'd0;
             end
             else if (htrans == HTRANS_SEQ) begin
                 if (beats_left > 5'd1) begin
@@ -384,20 +353,20 @@ always_comb begin
                     burst_state_n = BC_WRAP16;
                 end
                 else begin
-                    beats_left_n  = 5'd0;
+                    beats_left_n = 5'd0;
                     burst_state_n = BC_IDLE;
                 end
             end
             else if (htrans == HTRANS_BUSY) begin
                 burst_state_n = BC_WRAP16;
-                beats_left_n  = beats_left;
+                beats_left_n = beats_left;
             end
         end
 
-        BC_INCR16: begin
+        BC_INCR16 : begin
             if (!hsel || htrans == HTRANS_IDLE) begin
                 burst_state_n = BC_IDLE;
-                beats_left_n  = 5'd0;
+                beats_left_n = 5'd0;
             end
             else if (htrans == HTRANS_SEQ) begin
                 if (beats_left > 5'd1) begin
@@ -405,19 +374,19 @@ always_comb begin
                     burst_state_n = BC_INCR16;
                 end
                 else begin
-                    beats_left_n  = 5'd0;
+                    beats_left_n = 5'd0;
                     burst_state_n = BC_IDLE;
                 end
             end
             else if (htrans == HTRANS_BUSY) begin
                 burst_state_n = BC_INCR16;
-                beats_left_n  = beats_left;
+                beats_left_n = beats_left;
             end
         end
 
-        default: begin
+        default : begin
             burst_state_n = BC_IDLE;
-            beats_left_n  = 5'd0;
+            beats_left_n = 5'd0;
         end
 
     endcase
@@ -500,10 +469,10 @@ assign act_mode = act_reg[2:0];
 
 // read logic
 logic [63:0] rf_rdata;
-logic        error_flag;
+logic error_flag;
 
 always_comb begin
-    rf_rdata   = 64'd0;
+    rf_rdata = 64'd0;
     error_flag = 1'b0;
 
     if (rd_en) begin
@@ -560,13 +529,13 @@ always_comb begin
     err_state_n = err_state;
 
     case (err_state)
-        ERR_IDLE: begin
+        ERR_IDLE : begin
             if (any_error) begin
                 err_state_n = ERR_FIRST;
             end
         end
 
-        ERR_FIRST: begin
+        ERR_FIRST : begin
             if (any_error) begin
                 err_state_n = ERR_SECOND;
             end
@@ -575,13 +544,13 @@ always_comb begin
             end
         end
 
-        ERR_SECOND: begin
+        ERR_SECOND : begin
             if (!any_error) begin
                 err_state_n = ERR_IDLE;
             end
         end
 
-        ERR_LAST: begin
+        ERR_LAST : begin
             if (any_error) begin
                 err_state_n = ERR_SECOND;
             end
@@ -590,39 +559,39 @@ always_comb begin
             end
         end
 
-        default: begin
+        default : begin
             err_state_n = ERR_IDLE;
         end
     endcase
 end
 
 always_comb begin
-    hresp  = 1'b0;
+    hresp = 1'b0;
     hready = 1'b1;
 
     case (err_state)
-        ERR_IDLE: begin
-            hresp  = 1'b0;
+        ERR_IDLE : begin
+            hresp = 1'b0;
             hready = 1'b1;
         end
 
-        ERR_FIRST: begin
-            hresp  = 1'b1;
+        ERR_FIRST : begin
+            hresp = 1'b1;
             hready = 1'b0;
         end
 
-        ERR_SECOND: begin
-            hresp  = 1'b1;
+        ERR_SECOND : begin
+            hresp = 1'b1;
             hready = 1'b0;
         end
 
-        ERR_LAST: begin
-            hresp  = 1'b1;
+        ERR_LAST : begin
+            hresp = 1'b1;
             hready = 1'b0;
         end
 
-        default: begin
-            hresp  = 1'b0;
+        default : begin
+            hresp = 1'b0;
             hready = 1'b1;
         end
     endcase
