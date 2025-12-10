@@ -12,6 +12,11 @@ module ai_accelerator #(
     output logic [63:0] hrdata,
     output logic hresp,
     output logic hready
+    output logic wen, ren,
+    input logic [31:0] rdata,
+    output logic [31:0] wdata,
+    output logic [9:0] addr,
+    input logic [1:0] sram_state
 );
 
 logic [7:0] status_reg, error_reg, ctrl_reg;

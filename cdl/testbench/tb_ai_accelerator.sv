@@ -42,10 +42,26 @@ module tb_ai_accelerator ();
     logic [63:0] hrdata;
     logic hresp;
     logic hready;
-    ai_accelerator #() DUT (.clk(clk), .n_rst(n_rst), .hsel(hsel), .haddr(haddr), .htrans(htrans), .hsize(hsize), .hwrite(hwrite), .hwdata(hwdata), .hburst(hburst), .hrdata(hrdata), .hresp(hresp), .hready(hready));
+    logic wen, ren;
+    logic [31:0] rdata, wdata;
+    logic [9:0] addr;
+    logic [1:0] sram_state;
+
+
+    ai_accelerator #() DUT (.clk(clk), .n_rst(n_rst), .hsel(hsel), .haddr(haddr), .htrans(htrans), .hsize(hsize), .hwrite(hwrite), .hwdata(hwdata), .hburst(hburst), .hrdata(hrdata), .hresp(hresp), .hready(hready), .address(addr), .read_enable(ren), .write_enable(wen), .write_data(wdata), .read_data(rdata), .sram_state(sram_state));
 
     ahb_model_updated #(.DATA_WIDTH(8), .ADDR_WIDTH(10)) BUS(.clk(clk), .hsel(hsel), .haddr(haddr), .htrans(htrans), .hsize(hsize), .hwrite(hwrite), .hwdata(hwdata), .hburst(hburst), .hrdata(hrdata), .hresp(hresp), .hready(hready));
     
+    sram1024x32_wrapper sram (
+        .clk(clk),
+        .n_rst(n_rst),
+        .address(addr),
+        .read_enable(ren),
+        .write_enable(wen),
+        .write_data(wdata),
+        .read_data(rdata),
+        .sram_state(sram_state)
+    );
     
     // Supporting Tasks
     task reset_model;
