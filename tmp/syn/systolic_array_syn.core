@@ -1,0 +1,15 @@
+CAPI=2:
+name: "u337mg096:ece337:systolic_array_syn"
+
+filesets:
+    netlist:
+        files:
+            - "systolic_array.v"
+        file_type: systemVerilogSource
+
+targets:
+    default:
+        filesets:
+            - netlist
+        toplevel: systolic_array
+

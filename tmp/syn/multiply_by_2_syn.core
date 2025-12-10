@@ -1,0 +1,15 @@
+CAPI=2:
+name: "u337mg096:ece337:multiply_by_2_syn"
+
+filesets:
+    netlist:
+        files:
+            - "multiply_by_2.v"
+        file_type: systemVerilogSource
+
+targets:
+    default:
+        filesets:
+            - netlist
+        toplevel: multiply_by_2
+

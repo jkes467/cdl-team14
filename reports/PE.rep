@@ -1,0 +1,181 @@
+Information: Updating design information... (UID-85)
+Warning: Breaking the timing path through pin 'weight_reg[0]/Q' due to user timing constraints. (TIM-175)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : PE
+Version: W-2024.09-SP4
+Date   : Wed Dec 10 13:11:25 2025
+****************************************
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: weight_reg[0]/Q
+              (internal path startpoint)
+  Endpoint: overflow (output port)
+  Path Group: default
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  input external delay                                    0.00       0.00 r
+  weight_reg[0]/Q (DFFSR)                                 0.00       0.00 r
+  s0/weight[0] (signed_multiplier)                        0.00       0.00 r
+  s0/U39/Y (INVX2)                                        0.14       0.14 f
+  s0/U130/Y (NAND2X1)                                     0.17       0.31 r
+  s0/U55/Y (AND2X1)                                       0.15       0.46 r
+  s0/U131/Y (MUX2X1)                                      0.10       0.56 f
+  s0/U33/Y (AND2X2)                                       0.26       0.82 f
+  s0/U51/Y (INVX4)                                        0.13       0.96 r
+  s0/U267/Y (NOR2X1)                                      0.22       1.18 f
+  s0/add_3_root_add_0_root_add_76_7/B[4] (signed_multiplier_DW01_add_18)
+                                                          0.00       1.18 f
+  s0/add_3_root_add_0_root_add_76_7/U41/Y (OR2X1)         0.26       1.44 f
+  s0/add_3_root_add_0_root_add_76_7/U25/Y (NAND2X1)       0.18       1.62 r
+  s0/add_3_root_add_0_root_add_76_7/U21/Y (XNOR2X1)       0.21       1.83 r
+  s0/add_3_root_add_0_root_add_76_7/SUM[4] (signed_multiplier_DW01_add_18)
+                                                          0.00       1.83 r
+  s0/add_1_root_add_0_root_add_76_7/A[4] (signed_multiplier_DW01_add_19)
+                                                          0.00       1.83 r
+  s0/add_1_root_add_0_root_add_76_7/U21/Y (NOR2X1)        0.24       2.06 f
+  s0/add_1_root_add_0_root_add_76_7/U20/Y (INVX2)         0.10       2.16 r
+  s0/add_1_root_add_0_root_add_76_7/U19/Y (NAND2X1)       0.12       2.28 f
+  s0/add_1_root_add_0_root_add_76_7/U17/Y (XOR2X1)        0.20       2.48 r
+  s0/add_1_root_add_0_root_add_76_7/SUM[4] (signed_multiplier_DW01_add_19)
+                                                          0.00       2.48 r
+  s0/add_0_root_add_0_root_add_76_7/B[4] (signed_multiplier_DW01_add_20)
+                                                          0.00       2.48 r
+  s0/add_0_root_add_0_root_add_76_7/U63/Y (OR2X2)         0.29       2.78 r
+  s0/add_0_root_add_0_root_add_76_7/U36/Y (NAND2X1)       0.12       2.90 f
+  s0/add_0_root_add_0_root_add_76_7/U32/Y (XNOR2X1)       0.32       3.22 r
+  s0/add_0_root_add_0_root_add_76_7/SUM[4] (signed_multiplier_DW01_add_20)
+                                                          0.00       3.22 r
+  s0/U27/Y (OR2X1)                                        0.40       3.62 r
+  s0/U29/Y (OR2X1)                                        0.31       3.93 r
+  s0/U30/Y (OR2X1)                                        0.29       4.21 r
+  s0/U57/Y (AND2X1)                                       0.15       4.36 r
+  s0/U329/Y (AOI22X1)                                     0.15       4.51 f
+  s0/U330/Y (NAND3X1)                                     0.26       4.77 r
+  s0/U69/Y (INVX4)                                        0.22       4.99 f
+  s0/U345/Y (NAND3X1)                                     0.20       5.19 r
+  s0/U346/Y (OAI21X1)                                     0.11       5.30 f
+  s0/U351/Y (OAI21X1)                                     0.14       5.44 r
+  s0/U352/Y (NAND2X1)                                     0.24       5.68 f
+  s0/U64/Y (OR2X2)                                        0.23       5.91 f
+  s0/U379/Y (NAND3X1)                                     0.13       6.04 r
+  s0/U380/Y (AOI22X1)                                     0.16       6.20 f
+  s0/U385/Y (NAND2X1)                                     0.34       6.54 r
+  s0/U70/Y (INVX4)                                        0.27       6.81 f
+  s0/U424/Y (AOI21X1)                                     0.11       6.92 r
+  s0/U425/Y (OAI21X1)                                     0.15       7.07 f
+  s0/U426/Y (INVX2)                                       0.12       7.20 r
+  s0/U427/Y (NAND3X1)                                     0.11       7.31 f
+  s0/U428/Y (INVX2)                                       0.11       7.42 r
+  s0/U429/Y (NAND2X1)                                     0.10       7.52 f
+  s0/U66/Y (INVX1)                                        0.10       7.61 r
+  s0/U62/Y (NOR2X1)                                       0.14       7.76 f
+  s0/U437/Y (MUX2X1)                                      0.23       7.99 r
+  s0/U467/Y (INVX2)                                       0.19       8.18 f
+  s0/U491/Y (OAI21X1)                                     0.24       8.42 r
+  s0/U516/Y (OAI21X1)                                     0.09       8.51 f
+  s0/U517/Y (OAI21X1)                                     0.24       8.75 r
+  s0/U524/Y (OAI21X1)                                     0.13       8.88 f
+  s0/U614/Y (OAI21X1)                                     0.10       8.99 r
+  s0/overflow (signed_multiplier)                         0.00       8.99 r
+  overflow (out)                                          0.00       8.99 r
+  data arrival time                                                  8.99
+
+  max_delay                                               9.00       9.00
+  output external delay                                   0.00       9.00
+  data required time                                                 9.00
+  --------------------------------------------------------------------------
+  data required time                                                 9.00
+  data arrival time                                                 -8.99
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.01
+
+
+1
+ 
+****************************************
+Report : area
+Design : PE
+Version: W-2024.09-SP4
+Date   : Wed Dec 10 13:11:25 2025
+****************************************
+
+Library(s) Used:
+
+    osu05_stdcells (File: /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db)
+
+Number of ports:                          281
+Number of nets:                          1110
+Number of cells:                          891
+Number of combinational cells:            817
+Number of sequential cells:                25
+Number of macros/black boxes:               0
+Number of buf/inv:                        214
+Number of references:                       4
+
+Combinational area:             236358.000000
+Buf/Inv area:                    31320.000000
+Noncombinational area:           39600.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                275958.000000
+Total area:                 undefined
+1
+Loading db file '/home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : PE
+Version: W-2024.09-SP4
+Date   : Wed Dec 10 13:11:25 2025
+****************************************
+
+
+Library(s) Used:
+
+    osu05_stdcells (File: /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db)
+
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 5    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+PE                                       23.450   30.472   85.343   53.922 100.0
+  s0 (signed_multiplier)                 22.137   22.235   71.007   44.373  82.3
+    add_0_root_add_0_root_add_76_7 (signed_multiplier_DW01_add_20)
+                                          0.355    0.321    5.659    0.676   1.3
+    add_1_root_add_0_root_add_76_7 (signed_multiplier_DW01_add_19)
+                                          0.155    0.163    3.519    0.318   0.6
+    add_3_root_add_0_root_add_76_7 (signed_multiplier_DW01_add_18)
+                                          0.120    0.135    3.138    0.255   0.5
+    add_2_root_add_0_root_add_76_7 (signed_multiplier_DW01_add_17)
+                                          0.124    0.123    3.363    0.247   0.5
+1

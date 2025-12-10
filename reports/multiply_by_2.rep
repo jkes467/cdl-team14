@@ -1,0 +1,159 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : multiply_by_2
+Version: W-2024.09-SP4
+Date   : Wed Dec 10 13:16:12 2025
+****************************************
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: value[1] (input port)
+  Endpoint: out[6] (output port)
+  Path Group: default
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  value[1] (in)                            0.00       0.00 r
+  U415/Y (AND2X2)                          0.18       0.18 r
+  U556/Y (NAND2X1)                         0.12       0.29 f
+  U557/Y (OAI21X1)                         0.20       0.50 r
+  U568/Y (INVX2)                           0.08       0.57 f
+  U569/Y (OAI21X1)                         0.18       0.76 r
+  U411/Y (INVX2)                           0.17       0.93 f
+  U570/Y (NAND2X1)                         0.29       1.22 r
+  U577/Y (INVX2)                           0.08       1.30 f
+  U579/Y (NAND2X1)                         0.18       1.48 r
+  U580/Y (INVX2)                           0.09       1.56 f
+  U581/Y (AOI22X1)                         0.11       1.67 r
+  U582/Y (OAI21X1)                         0.11       1.78 f
+  U583/Y (INVX2)                           0.10       1.88 r
+  U584/Y (NAND2X1)                         0.09       1.97 f
+  U585/Y (MUX2X1)                          0.44       2.41 r
+  U586/Y (INVX2)                           0.39       2.80 f
+  U670/Y (XOR2X1)                          0.30       3.09 r
+  U672/Y (INVX2)                           0.11       3.21 f
+  U673/Y (NAND2X1)                         0.18       3.39 r
+  U703/Y (INVX2)                           0.15       3.54 f
+  U712/Y (OAI21X1)                         0.15       3.69 r
+  U713/Y (INVX2)                           0.12       3.81 f
+  U715/Y (OAI21X1)                         0.17       3.98 r
+  U734/Y (OAI21X1)                         0.09       4.07 f
+  U735/Y (NAND2X1)                         0.23       4.31 r
+  U431/Y (INVX4)                           0.25       4.56 f
+  U746/Y (MUX2X1)                          0.34       4.89 r
+  U747/Y (INVX2)                           0.19       5.09 f
+  U800/Y (NAND2X1)                         0.20       5.29 r
+  U801/Y (INVX2)                           0.09       5.38 f
+  U803/Y (OAI21X1)                         0.22       5.59 r
+  U806/Y (NAND2X1)                         0.16       5.75 f
+  U816/Y (NAND2X1)                         0.20       5.96 r
+  U817/Y (NAND2X1)                         0.16       6.11 f
+  U818/Y (INVX2)                           0.15       6.26 r
+  U844/Y (AOI22X1)                         0.09       6.35 f
+  U845/Y (OAI21X1)                         0.12       6.47 r
+  U846/Y (OAI21X1)                         0.09       6.56 f
+  U847/Y (OAI21X1)                         0.28       6.84 r
+  U863/Y (INVX2)                           0.17       7.01 f
+  U876/Y (NAND3X1)                         0.34       7.34 r
+  U911/Y (INVX2)                           0.10       7.44 f
+  U912/Y (MUX2X1)                          0.14       7.58 r
+  U913/Y (NAND3X1)                         0.13       7.72 f
+  U931/Y (OAI21X1)                         0.15       7.87 r
+  U932/Y (AOI21X1)                         0.09       7.95 f
+  out[6] (out)                             0.00       7.95 f
+  data arrival time                                   7.95
+
+  max_delay                                8.00       8.00
+  output external delay                    0.00       8.00
+  data required time                                  8.00
+  -----------------------------------------------------------
+  data required time                                  8.00
+  data arrival time                                  -7.95
+  -----------------------------------------------------------
+  slack (MET)                                         0.05
+
+
+1
+ 
+****************************************
+Report : area
+Design : multiply_by_2
+Version: W-2024.09-SP4
+Date   : Wed Dec 10 13:16:12 2025
+****************************************
+
+Library(s) Used:
+
+    osu05_stdcells (File: /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db)
+
+Number of ports:                          184
+Number of nets:                           915
+Number of cells:                          716
+Number of combinational cells:            701
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                        177
+Number of references:                      21
+
+Combinational area:             227961.000000
+Buf/Inv area:                    25776.000000
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                227961.000000
+Total area:                 undefined
+1
+Loading db file '/home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated primary inputs. (PWR-414)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : multiply_by_2
+Version: W-2024.09-SP4
+Date   : Wed Dec 10 13:16:12 2025
+****************************************
+
+
+Library(s) Used:
+
+    osu05_stdcells (File: /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db)
+
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 5    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+multiply_by_2                           125.525  120.370   70.479  245.895 100.0
+  add_0_root_add_0_root_add_62_7 (multiply_by_2_DW01_add_13)
+                                         12.253   12.509    6.045   24.762  10.1
+  add_1_root_add_0_root_add_62_7 (multiply_by_2_DW01_add_6_DW01_add_7)
+                                          8.332    9.382    5.033   17.714   7.2
+  add_2_root_add_0_root_add_62_7 (multiply_by_2_DW01_add_7_DW01_add_8)
+                                          6.284    5.709    3.941   11.993   4.9
+1
