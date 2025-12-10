@@ -1,26 +1,25 @@
 CAPI=2:
-name: "u337mg096:ece337:controller:1.0.0"
+name: "u337mg096:ece337:edge_det:1.0.0"
 description: ""
 
 filesets:
     rtl:
         files:
-            - "source/controller.sv"
+            - "source/edge_det.sv"
         file_type: systemVerilogSource
-        depend:
-            - "u337mg096:ece337:edge_det"
-            - "u337mg096:ece337:flex_counter"
+        # depend:
+        #     - "fusesoc:core:name"
 
     synth:
         depend:
             - "ece337:tech:AMI_05_LIB"
-            - "u337mg096:ece337:controller_syn"
+            - "u337mg096:ece337:edge_det_syn"
 
     tb:
         files:
-            - "testbench/tb_controller.sv"
-            - "waves/controller.do": { file_type: user }
-            - "waves/controller.gtkw": { file_type: user }
+            - "testbench/tb_edge_det.sv"
+            - "waves/edge_det.do": { file_type: user }
+            - "waves/edge_det.gtkw": { file_type: user }
             # - "data/file.txt": { file_type: user }
         file_type: systemVerilogSource
 
@@ -32,21 +31,21 @@ targets:
     default: &default
         filesets:
             - rtl
-        toplevel: controller
+        toplevel: edge_det
 
     sim: &sim
         <<: *default
         default_tool: verilator
         filesets_append:
             - tb
-        toplevel: tb_controller
+        toplevel: tb_edge_det
         tools:
             modelsim:
                 vsim_options:
                     - -vopt
                     - -voptargs='+acc'
                     - -t ps
-                    - -do waves/controller.do
+                    - -do waves/edge_det.do
                     - -onfinish stop
                     - -do "set PrefSource(OpenOnFinish) 0 ; set PrefMain(LinePrefix) \"\" ; set PrefMain(colorizeTranscript) 1"
                     - -coverage
@@ -79,7 +78,7 @@ targets:
         filesets_append:
             - synfiles
         default_tool: design_compiler
-        toplevel: controller
+        toplevel: edge_det
         tools:
             design_compiler:
                 script_dir: "src/u337mg096_ece337_synfiles_0"
