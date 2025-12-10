@@ -42,7 +42,13 @@ module tb_ai_accelerator ();
     logic [63:0] hrdata;
     logic hresp;
     logic hready;
-    ai_accelerator #() DUT (.clk(clk), .n_rst(n_rst), .hsel(hsel), .haddr(haddr), .htrans(htrans), .hsize(hsize), .hwrite(hwrite), .hwdata(hwdata), .hburst(hburst), .hrdata(hrdata), .hresp(hresp), .hready(hready));
+    logic wen, ren;
+    logic [31:0] rdata, wdata;
+    logic [9:0] addr;
+    logic [1:0] sram_state;
+
+
+    ai_accelerator #() DUT (.clk(clk), .n_rst(n_rst), .hsel(hsel), .haddr(haddr), .htrans(htrans), .hsize(hsize), .hwrite(hwrite), .hwdata(hwdata), .hburst(hburst), .hrdata(hrdata), .hresp(hresp), .hready(hready), .address(addr), .read_enable(ren), .write_enable(wen), .write_data(wdata), .read_data(rdata), .sram_state(sram_state));
 
     task wait_hready;
     begin
@@ -195,6 +201,100 @@ module tb_ai_accelerator ();
 
 
     
+    sram1024x32_wrapper sram (
+        .clk(clk),
+        .n_rst(n_rst),
+        .address(addr),
+        .read_enable(ren),
+        .write_enable(wen),
+        .write_data(wdata),
+        .read_data(rdata),
+        .sram_state(sram_state)
+    );
+    
+    // Supporting Tasks
+    task reset_model;
+        BFM.reset_model();
+    endtask
+
+    // Read from a register without checking the value
+    task enqueue_poll ( input logic [3:0] addr, input logic [1:0] size );
+    logic [31:0] data [];
+        begin
+            data = new [1];
+            data[0] = {32'hXXXX};
+            //              Fields: hsel,  R/W, addr, data, exp err,         size, burst, chk prdata or not
+            BFM.enqueue_transaction(1'b1, 1'b0, addr, data,    1'b0, {1'b0, size},  3'b0,            1'b0);
+        end
+    endtask
+
+    // Read from a register until a requested value is observed
+    task poll_until ( input logic [3:0] addr, input logic [1:0] size, input logic [31:0] data);
+        int iters;
+        begin
+            for (iters = 0; iters < TIMEOUT; iters++) begin
+                enqueue_poll(addr, size);
+                execute_transactions(1);
+                if(BFM.get_last_read() == data) break;
+            end
+            if(iters >= TIMEOUT) begin
+                $error("Bus polling timeout hit.");
+            end
+        end
+    endtask
+
+    // Read Transaction, verifying a specific value is read
+    task enqueue_read ( input logic [3:0] addr, input logic [1:0] size, input logic [31:0] exp_read );
+        logic [31:0] data [];
+        begin
+            data = new [1];
+            data[0] = exp_read;
+            BFM.enqueue_transaction(1'b1, 1'b0, addr, data, 1'b0, {1'b0, size}, 3'b0, 1'b1);
+        end
+    endtask
+
+    // Write Transaction
+    task enqueue_write ( input logic [3:0] addr, input logic [1:0] size, input logic [31:0] wdata );
+        logic [31:0] data [];
+        begin
+            data = new [1];
+            data[0] = wdata;
+            BFM.enqueue_transaction(1'b1, 1'b1, addr, data, 1'b0, {2'b0, size}, 3'b0, 1'b0);
+        end
+    endtask
+
+    // Write Transaction Intended for a different subordinate from yours
+    task enqueue_fakewrite ( input logic [3:0] addr, input logic [1:0] size, input logic [31:0] wdata );
+        logic [31:0] data [];
+        begin
+            data = new [1];
+            data[0] = wdata;
+            BFM.enqueue_transaction(1'b0, 1'b1, addr, data, 1'b0, {1'b0, size}, 3'b0, 1'b0);
+        end
+    endtask
+
+    // Create a burst read of size based on the burst type.
+    // If INCR, burst size dependent on dynamic array size
+    task enqueue_burst_read ( input logic [3:0] base_addr, input logic [1:0] size, input logic [2:0] burst, input logic [31:0] data [] );
+        BFM.enqueue_transaction(1'b1, 1'b0, base_addr, data, 1'b0, {1'b0, size}, burst, 1'b1);
+    endtask
+
+    // Create a burst write of size based on the burst type.
+    task enqueue_burst_write ( input logic [3:0] base_addr, input logic [1:0] size, input logic [2:0] burst, input logic [31:0] data [] );
+        BFM.enqueue_transaction(1'b1, 1'b1, base_addr, data, 1'b0, {1'b0, size}, burst, 1'b1);
+    endtask
+
+    // Run n transactions, where a k-beat burst counts as k transactions.
+    task execute_transactions (input int num_transactions);
+        BFM.run_transactions(num_transactions);
+    endtask
+
+    // Finish the current transaction
+    task finish_transactions();
+        BFM.wait_done();
+    endtask
+
+
     initial begin
         n_rst = 1;
     

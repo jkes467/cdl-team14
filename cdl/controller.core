@@ -7,8 +7,9 @@ filesets:
         files:
             - "source/controller.sv"
         file_type: systemVerilogSource
-        # depend:
-        #     - "fusesoc:core:name"
+        depend:
+            - "u337mg096:ece337:edge_det"
+            - "u337mg096:ece337:flex_counter"
 
     synth:
         depend:

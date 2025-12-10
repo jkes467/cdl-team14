@@ -28,6 +28,8 @@ filesets:
             - "waves/ai_accelerator.gtkw": { file_type: user }
             # - "data/file.txt": { file_type: user }
         file_type: systemVerilogSource
+        depend:
+            - "ece337:course-lib:sram1024x32_wrapper"
 
     synfiles:
         depend:

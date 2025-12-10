@@ -1,25 +1,25 @@
 CAPI=2:
-name: "u337mg096:ece337:activation:1.0.0"
+name: "u337mg096:ece337:flex_counter:1.0.0"
 description: ""
 
 filesets:
     rtl:
         files:
-            - "source/activation.sv"
+            - "source/flex_counter.sv"
         file_type: systemVerilogSource
-        depend:
-            - "u337mg096:ece337:multiply_by_2:1.0.0"
+        # depend:
+        #     - "fusesoc:core:name"
 
     synth:
         depend:
             - "ece337:tech:AMI_05_LIB"
-            - "u337mg096:ece337:activation_syn"
+            - "u337mg096:ece337:flex_counter_syn"
 
     tb:
         files:
-            - "testbench/tb_activation.sv"
-            - "waves/activation.do": { file_type: user }
-            - "waves/activation.gtkw": { file_type: user }
+            - "testbench/tb_flex_counter.sv"
+            - "waves/flex_counter.do": { file_type: user }
+            - "waves/flex_counter.gtkw": { file_type: user }
             # - "data/file.txt": { file_type: user }
         file_type: systemVerilogSource
 
@@ -31,21 +31,21 @@ targets:
     default: &default
         filesets:
             - rtl
-        toplevel: activation
+        toplevel: flex_counter
 
     sim: &sim
         <<: *default
         default_tool: verilator
         filesets_append:
             - tb
-        toplevel: tb_activation
+        toplevel: tb_flex_counter
         tools:
             modelsim:
                 vsim_options:
                     - -vopt
                     - -voptargs='+acc'
                     - -t ps
-                    - -do waves/activation.do
+                    - -do waves/flex_counter.do
                     - -onfinish stop
                     - -do "set PrefSource(OpenOnFinish) 0 ; set PrefMain(LinePrefix) \"\" ; set PrefMain(colorizeTranscript) 1"
                     - -coverage
@@ -78,7 +78,7 @@ targets:
         filesets_append:
             - synfiles
         default_tool: design_compiler
-        toplevel: activation
+        toplevel: flex_counter
         tools:
             design_compiler:
                 script_dir: "src/u337mg096_ece337_synfiles_0"
