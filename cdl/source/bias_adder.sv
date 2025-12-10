@@ -6,7 +6,10 @@ module bias_adder #(
     input logic signed [63:0] array_outputs,
     input logic signed [63:0] bias,
     input logic float,
-    output logic signed [63:0] bias_outputs
+    input logic input_valid,
+    output logic output_valid,
+    output logic signed [63:0] bias_outputs,
+    output logic overflow
 );
 
 logic [63:0] int_out;
@@ -20,7 +23,7 @@ always_comb begin
         bias_outputs = float_out;
     end
 end
-
+assign overflow = overflow_float > 0 ? 1:0;
 signed_multiplier A70(  .weight(8'h38), .value(array_outputs[7:0]  ), .cumulative(bias[7:0]  ), .float(1'b1), .out(float_out[7:0]  ), .overflow(overflow_float[0]));
 signed_multiplier A158( .weight(8'h38), .value(array_outputs[15:8] ), .cumulative(bias[15:8] ), .float(1'b1), .out(float_out[15:8] ), .overflow(overflow_float[1]));
 signed_multiplier A2316(.weight(8'h38), .value(array_outputs[23:16]), .cumulative(bias[23:16]), .float(1'b1), .out(float_out[23:16]), .overflow(overflow_float[2]));

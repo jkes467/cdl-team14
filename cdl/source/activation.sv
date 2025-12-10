@@ -6,12 +6,14 @@ module activation #(
     input logic [63:0] biased_inputs,
     input logic [2:0] activation_mode,
     input logic float,
+    input logic input_valid,
+    output logic output_valid,
     output logic [63:0] activated_outputs
 );
 logic [63:0] leaky_out;
 logic [7:0] nan_overflow;
 
-
+assign output_valid = input_valid;
 genvar g;
 generate
     for(g = 0; g < 8; g = g + 1) begin : ACTIVATION_GEN

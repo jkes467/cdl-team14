@@ -120,9 +120,9 @@ endtask
     real real_out;
     begin
         for(int i = 0; i<1000; i++) begin
-            weight =     $random(seed) % 10;
-            value =      $random(seed) % 10;
-            cumulative = $random(seed) % 10;
+            weight =     $random(seed);
+            value =      $random(seed);
+            cumulative = $random(seed);
             float = 0;
             #10;
             // fp8_to_real(.fp8(w), .val(real_weight));
