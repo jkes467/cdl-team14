@@ -23,19 +23,11 @@ INCS := -I$(MODEL_TECH)/../include
 
 VSIM ?= $(MODEL_TECH)/vsim
 
-<<<<<<< HEAD:tmp/build/u337mg096_ece337_ahb_sub_1.0.0/sim-modelsim/Makefile
-TOPLEVEL      := tb_ahb_sub
-VPI_MODULES   := 
-PARAMETERS    ?= 
-PLUSARGS      ?= 
-VSIM_OPTIONS  ?= -vopt -voptargs='+acc' -t ps -do waves/ahb_sub.do -onfinish stop -do "set PrefSource(OpenOnFinish) 0 ; set PrefMain(LinePrefix) \"\" ; set PrefMain(colorizeTranscript) 1" -coverage
-=======
 TOPLEVEL      := tb_ai_accelerator
 VPI_MODULES   := 
 PARAMETERS    ?= 
 PLUSARGS      ?= 
 VSIM_OPTIONS  ?= -vopt -voptargs='+acc' -t ps -do waves/ai_accelerator.do -onfinish stop -do "set PrefSource(OpenOnFinish) 0 ; set PrefMain(LinePrefix) \"\" ; set PrefMain(colorizeTranscript) 1" -coverage
->>>>>>> dbd67e16d68f2510918970ac855df94e8f0861fc:tmp/build/u337mg096_ece337_ai_accelerator_1.0.0/sim-modelsim/Makefile
 EXTRA_OPTIONS ?= $(VSIM_OPTIONS) $(addprefix -g,$(PARAMETERS)) $(addprefix +,$(PLUSARGS))
 
 all: work $(VPI_MODULES)

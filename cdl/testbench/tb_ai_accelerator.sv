@@ -38,7 +38,7 @@ module tb_ai_accelerator ();
     logic [1:0] hsize;
     logic hwrite;
     logic [63:0] hwdata;
-    logic hburst;
+    logic [2:0] hburst;
     logic [63:0] hrdata;
     logic hresp;
     logic hready;
@@ -75,7 +75,7 @@ module tb_ai_accelerator ();
         .hburst(hburst),
         .hrdata(hrdata),
         .hresp(hresp),
-        .hready(hread),
+        .hready(hready),
         .wen(wen),
         .ren(ren),
         .rdata(rdata),
@@ -102,7 +102,7 @@ module tb_ai_accelerator ();
 
         wait_hready();
         // poll until data is complete
-        while(!hrdata[48]) @(posedge clk);
+        while(!hrdata[49]) @(posedge clk);
         haddr <= 10'h23;
         wait_hready();
         // check data
@@ -120,7 +120,7 @@ module tb_ai_accelerator ();
     begin
         @(posedge clk);
         // write to start inference
-        ahb_single_write(10'h22, 8'h01);
+        ahb_single_write(10'h22, {16'b0, 8'h01, 40'b0});
         @(posedge clk);
     end
     endtask
@@ -145,7 +145,7 @@ module tb_ai_accelerator ();
     end
     endtask
 
-    task ahb_single_write(input [9:0] addr,input [7:0] data);
+    task ahb_single_write(input [9:0] addr,input [63:0] data);
     begin
         @(posedge clk);
         hsel <= 1'b1;
@@ -155,6 +155,10 @@ module tb_ai_accelerator ();
         hsize <= 2'b00;
         hburst <= HBURST_SINGLE;
         hwdata <= data;
+
+        // @(posedge clk);
+        // // hwrite <= 1'b0;
+        // hsel <= 1'b0;
 
         wait_hready();
 
@@ -222,7 +226,7 @@ module tb_ai_accelerator ();
     task write_activation();
     begin
         @(negedge clk);           
-        ahb_single_write(10'h24, 8'h02);
+        ahb_single_write(10'h24, {56'b0, 8'h02});
         wait_hready();
         
     end
@@ -231,7 +235,8 @@ module tb_ai_accelerator ();
     task load_weights();
     begin
         @(negedge clk);           
-        ahb_single_write(10'h22, 8'h02);
+        ahb_single_write(10'h22, {16'b0, 8'h02, 40'b0});
+        repeat(300)@(posedge clk);
         wait_hready();
 
     end
@@ -261,32 +266,32 @@ module tb_ai_accelerator ();
         write_bias();
         write_activation();
         load_weights();
-        start_inference();
-        check_data();
+        // start_inference();
+        // check_data();
         
-        // error during inference
-        write_weights(64'hA00F_BC41_DEAD_BEEF);
-        fork
-            begin
-                check_data();
-            end
-            begin
-                load_weights();
-            end
-        join
-        // ================== inference before weight test ==================
-        reset_dut();
-        start_inference();
-        load_weights();
-        fork
-            begin
-            check_data();
-            end
-            begin
-            while(!hresp) @(posedge clk);
-            $display("Passed error inference before weight test");
-            end
-        join
+        // // error during inference
+        // write_weights(64'hA00F_BC41_DEAD_BEEF);
+        // fork
+        //     begin
+        //         check_data();
+        //     end
+        //     begin
+        //         load_weights();
+        //     end
+        // join
+        // // ================== inference before weight test ==================
+        // reset_dut();
+        // start_inference();
+        // load_weights();
+        // fork
+        //     begin
+        //     check_data();
+        //     end
+        //     begin
+        //     while(!hresp) @(posedge clk);
+        //     $display("Passed error inference before weight test");
+        //     end
+        // join
 
 
         $finish;

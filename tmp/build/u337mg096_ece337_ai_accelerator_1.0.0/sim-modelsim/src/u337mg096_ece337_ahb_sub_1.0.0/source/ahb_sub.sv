@@ -225,7 +225,7 @@ always_comb begin
     n_ctrl_reg = ctrl_reg;
     n_act_reg = act_reg;
     n_is_weight = is_weight;
-    n_wr_en = 1'b0;
+    n_wr_en = wr_en_push;
     write_error = 1'b0;
 
     if (wr_en) begin
@@ -243,17 +243,17 @@ always_comb begin
             10'h10 : begin
                 n_bias_reg = rf_wdata;
                 n_is_weight = 1'b0;
-                n_wr_en = 1'b1;
+                n_wr_en = 1'b0;
             end
             10'h22 : begin
                 n_ctrl_reg = rf_wdata[47:40];
                 n_is_weight = 1'b0;
-                n_wr_en = 1'b1;
+                n_wr_en = 1'b0;
             end
             10'h24 : begin
                 n_act_reg = rf_wdata[7:0];
                 n_is_weight = 1'b0;
-                n_wr_en = 1'b1;
+                n_wr_en = 1'b0;
             end
             default : begin
                 write_error  = 1'b1;
@@ -302,6 +302,7 @@ always_comb begin
 end
 
 
+
 //output logic
 
 logic ready;
@@ -346,10 +347,7 @@ end
 always_comb begin
     handshake_n = 1'b0;
 
-    if (rd_en &&
-        rf_addr == 10'h018 &&
-        status_reg[0] &&
-        !any_error) begin
+    if (rd_en && rf_addr == 10'h018 && status_reg[0] && !any_error) begin
         handshake_n = 1'b1;
     end
 end

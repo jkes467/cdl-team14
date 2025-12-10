@@ -11,10 +11,10 @@ z2
 cModel Technology
 Z0 d/home/ecegridfs/a/337mg209/cdl-team14/tmp/build/u337mg096_ece337_ai_accelerator_1.0.0/sim-modelsim
 T_opt
-!s110 1765365366
-VJIBSP:A@7M7VW[lfhS1_g3
+!s110 1765372561
+VjDJO0Zb9Olaf?dmiQl`R<0
 04 17 4 work tb_ai_accelerator fast 0
-=1-b49691d91a8d-69395676-49be0-1b79c8
+=1-b49691d91a8d-69397291-971ee-3da569
 !s124 OEM100
 o-quiet -auto_acc_if_foreign -work work +acc
 Z1 tCvgOpt 0
@@ -22,7 +22,7 @@ n@_opt
 OL;O;2021.4;73
 vactivation
 Z2 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z3 !s110 1765365361
+Z3 !s110 1765372557
 !i10b 1
 !s100 kER7=?]B2f@@3j5AE^1nz0
 In8WkMDILe97jo5e`FKKGE0
@@ -38,7 +38,7 @@ Z6 OL;L;2021.4;73
 r1
 !s85 0
 31
-Z7 !s108 1765365361.000000
+Z7 !s108 1765372557.000000
 !s107 src/u337mg096_ece337_activation_1.0.0/source/activation.sv|
 !s90 +cover|-sv|-quiet|-work|work|src/u337mg096_ece337_activation_1.0.0/source/activation.sv|
 !i113 0
@@ -47,13 +47,13 @@ Z9 o-quiet +cover -sv -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiU
 R1
 vahb_model_updated
 R2
-R3
+Z10 !s110 1765372556
 !i10b 1
 !s100 ]0K>]BFiiV<[Xk@ID=d=^3
 I0hGX^2UUkc^Ue<03Nh1X]2
 S1
 R0
-Z10 w1764708619
+Z11 w1764708619
 8src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv
 Fsrc/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv
 !i122 0
@@ -63,7 +63,7 @@ R6
 r1
 !s85 0
 31
-!s108 1765365360.000000
+Z12 !s108 1765372556.000000
 !s107 src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv|
 !s90 +cover|-sv|-quiet|-work|work|src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv|
 !i113 0
@@ -72,23 +72,23 @@ R9
 R1
 vahb_sub
 R2
-R3
+R10
 !i10b 1
-!s100 Eb[ek>]i8bgg[g@dYdg5i0
-IzSeG0zADmKcS=RkR^JT?20
+!s100 C>W5WRVNj<GP4?5F0GZAV0
+I8h^bNDg2z2Z9`8<C]`K0G2
 S1
 R0
-R4
+w1765372553
 8src/u337mg096_ece337_ahb_sub_1.0.0/source/ahb_sub.sv
 Fsrc/u337mg096_ece337_ahb_sub_1.0.0/source/ahb_sub.sv
 !i122 2
-L0 3 383
+L0 3 386
 R5
 R6
 r1
 !s85 0
 31
-R7
+R12
 !s107 src/u337mg096_ece337_ahb_sub_1.0.0/source/ahb_sub.sv|
 !s90 +cover|-sv|-quiet|-work|work|src/u337mg096_ece337_ahb_sub_1.0.0/source/ahb_sub.sv|
 !i113 0
@@ -97,7 +97,7 @@ R9
 R1
 vai_accelerator
 R2
-Z11 !s110 1765365362
+R3
 !i10b 1
 !s100 ;FMVaVi??9;VPFCE6T3BQ0
 I@VEeVkGNV=DBWjPX4h5^51
@@ -113,7 +113,7 @@ R6
 r1
 !s85 0
 31
-Z12 !s108 1765365362.000000
+R7
 !s107 src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv|
 !s90 +cover|-sv|-quiet|-work|work|src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv|
 !i113 0
@@ -197,7 +197,7 @@ R9
 R1
 vflex_counter
 R2
-R3
+R10
 !i10b 1
 !s100 Z`eK]`Ph95LlN@7i]V4hG3
 ISCKiP>1[277_j;Eo6T[7A1
@@ -213,7 +213,7 @@ R6
 r1
 !s85 0
 31
-R7
+R12
 !s107 src/u337mg096_ece337_flex_counter_1.0.0/source/flex_counter.sv|
 !s90 +cover|-sv|-quiet|-work|work|src/u337mg096_ece337_flex_counter_1.0.0/source/flex_counter.sv|
 !i113 0
@@ -222,7 +222,7 @@ R9
 R1
 vmultiply_by_2
 R2
-R3
+R10
 !i10b 1
 !s100 aaNB`dZJ?99Vk<9]go^jz3
 IlE:Z_ANol<M4mVImVOcWB3
@@ -238,7 +238,7 @@ R6
 r1
 !s85 0
 31
-R7
+R12
 !s107 src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv|
 !s90 +cover|-sv|-quiet|-work|work|src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv|
 !i113 0
@@ -289,7 +289,7 @@ R6
 r1
 !s85 0
 31
-R7
+R12
 !s107 src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv|
 !s90 +cover|-sv|-quiet|-work|work|src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv|
 !i113 0
@@ -298,13 +298,13 @@ R9
 R1
 vsram1024x32_wrapper
 R2
-R3
+R10
 !i10b 1
 !s100 AlKaUdda:;goN[?[7ZFNi3
 ISO^_a906H5F0BhCDV3Jfg3
 S1
 R0
-R10
+R11
 8src/ece337_course-lib_sram1024x32_wrapper_1.0.0/source/sram1024x32_wrapper.sv
 Fsrc/ece337_course-lib_sram1024x32_wrapper_1.0.0/source/sram1024x32_wrapper.sv
 !i122 1
@@ -314,7 +314,7 @@ R6
 r1
 !s85 0
 31
-R7
+R12
 !s107 src/ece337_course-lib_sram1024x32_wrapper_1.0.0/source/sram1024x32_wrapper.sv|
 !s90 +cover|-sv|-quiet|-work|work|src/ece337_course-lib_sram1024x32_wrapper_1.0.0/source/sram1024x32_wrapper.sv|
 !i113 0
@@ -323,7 +323,7 @@ R9
 R1
 vsram_buffer
 R2
-R11
+R3
 !i10b 1
 !s100 ^@fVZLa^C1:i]<R?ezTXm0
 IiT<dN;1BV]N_DBF[KSm;n2
@@ -339,7 +339,7 @@ R6
 r1
 !s85 0
 31
-R12
+R7
 !s107 src/u337mg096_ece337_sram_buffer_1.0.0/source/sram_buffer.sv|
 !s90 +cover|-sv|-quiet|-work|work|src/u337mg096_ece337_sram_buffer_1.0.0/source/sram_buffer.sv|
 !i113 0
@@ -373,7 +373,7 @@ R9
 R1
 vsystolic_array
 R2
-R11
+R3
 !i10b 1
 !s100 mV1@87ZRh_zQWE`mm2ed90
 IUDG7RLWBCH<M>MBKHYnTU2
@@ -389,7 +389,7 @@ R6
 r1
 !s85 0
 31
-R12
+R7
 !s107 src/u337mg096_ece337_systolic_array_1.0.0/source/systolic_array.sv|
 !s90 +cover|-sv|-quiet|-work|work|src/u337mg096_ece337_systolic_array_1.0.0/source/systolic_array.sv|
 !i113 0
@@ -398,23 +398,23 @@ R9
 R1
 vtb_ai_accelerator
 R2
-R11
+!s110 1765372558
 !i10b 1
-!s100 _`j3YbUCdP[>LiN40]oeW1
-I^YiJ08Y0X2[_6M>WYJh];0
+!s100 HfX4o<JMbAaHOI9_6EzP?1
+I9GnDn>n^QR1?_JKL^49DU3
 S1
 R0
-w1765365182
+w1765372234
 8src/u337mg096_ece337_ai_accelerator_1.0.0/testbench/tb_ai_accelerator.sv
 Fsrc/u337mg096_ece337_ai_accelerator_1.0.0/testbench/tb_ai_accelerator.sv
 !i122 15
-L0 4 291
+L0 4 296
 R5
 R6
 r1
 !s85 0
 31
-R12
+R7
 !s107 src/u337mg096_ece337_ai_accelerator_1.0.0/testbench/tb_ai_accelerator.sv|
 !s90 +cover|-sv|-quiet|-work|work|src/u337mg096_ece337_ai_accelerator_1.0.0/testbench/tb_ai_accelerator.sv|
 !i113 0

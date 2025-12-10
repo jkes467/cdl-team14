@@ -5,7 +5,6 @@ add wave -noupdate /tb_ai_accelerator/clk
 add wave -noupdate /tb_ai_accelerator/haddr
 add wave -noupdate /tb_ai_accelerator/hburst
 add wave -noupdate /tb_ai_accelerator/hrdata
-add wave -noupdate /tb_ai_accelerator/hread
 add wave -noupdate /tb_ai_accelerator/hready
 add wave -noupdate /tb_ai_accelerator/hresp
 add wave -noupdate /tb_ai_accelerator/hsel
@@ -19,8 +18,55 @@ add wave -noupdate /tb_ai_accelerator/ren
 add wave -noupdate /tb_ai_accelerator/sram_state
 add wave -noupdate /tb_ai_accelerator/wdata
 add wave -noupdate /tb_ai_accelerator/wen
+add wave -noupdate /tb_ai_accelerator/DUT/clk
+add wave -noupdate /tb_ai_accelerator/DUT/n_rst
+add wave -noupdate /tb_ai_accelerator/DUT/hsel
+add wave -noupdate /tb_ai_accelerator/DUT/haddr
+add wave -noupdate /tb_ai_accelerator/DUT/htrans
+add wave -noupdate /tb_ai_accelerator/DUT/hsize
+add wave -noupdate /tb_ai_accelerator/DUT/hwrite
+add wave -noupdate /tb_ai_accelerator/DUT/hwdata
+add wave -noupdate /tb_ai_accelerator/DUT/hburst
+add wave -noupdate /tb_ai_accelerator/DUT/hrdata
+add wave -noupdate /tb_ai_accelerator/DUT/hresp
+add wave -noupdate /tb_ai_accelerator/DUT/hready
+add wave -noupdate /tb_ai_accelerator/DUT/wen
+add wave -noupdate /tb_ai_accelerator/DUT/ren
+add wave -noupdate /tb_ai_accelerator/DUT/rdata
+add wave -noupdate /tb_ai_accelerator/DUT/wdata
+add wave -noupdate /tb_ai_accelerator/DUT/addr
+add wave -noupdate /tb_ai_accelerator/DUT/sram_state
+add wave -noupdate /tb_ai_accelerator/DUT/status_reg
+add wave -noupdate /tb_ai_accelerator/DUT/ctrl_reg
+add wave -noupdate /tb_ai_accelerator/DUT/error_reg
+add wave -noupdate /tb_ai_accelerator/DUT/bias_reg
+add wave -noupdate /tb_ai_accelerator/DUT/output_data
+add wave -noupdate /tb_ai_accelerator/DUT/handshake
+add wave -noupdate /tb_ai_accelerator/DUT/is_weight
+add wave -noupdate /tb_ai_accelerator/DUT/wr_en_push
+add wave -noupdate /tb_ai_accelerator/DUT/get_weights
+add wave -noupdate /tb_ai_accelerator/DUT/get_inputs
+add wave -noupdate /tb_ai_accelerator/DUT/get_out
+add wave -noupdate /tb_ai_accelerator/DUT/data_ready
+add wave -noupdate /tb_ai_accelerator/DUT/out_done
+add wave -noupdate /tb_ai_accelerator/DUT/occupancy_err
+add wave -noupdate /tb_ai_accelerator/DUT/write_data
+add wave -noupdate /tb_ai_accelerator/DUT/data
+add wave -noupdate /tb_ai_accelerator/DUT/num_inputs
+add wave -noupdate /tb_ai_accelerator/DUT/float
+add wave -noupdate /tb_ai_accelerator/DUT/load
+add wave -noupdate /tb_ai_accelerator/DUT/input_value
+add wave -noupdate /tb_ai_accelerator/DUT/input_valid
+add wave -noupdate /tb_ai_accelerator/DUT/output_valid
+add wave -noupdate /tb_ai_accelerator/DUT/output_value_sys
+add wave -noupdate /tb_ai_accelerator/DUT/bias_outputs
+add wave -noupdate /tb_ai_accelerator/DUT/output_valid_bias
+add wave -noupdate /tb_ai_accelerator/DUT/activated_outputs
+add wave -noupdate /tb_ai_accelerator/DUT/output_valid_act
+add wave -noupdate /tb_ai_accelerator/DUT/act_mode
+add wave -noupdate /tb_ai_accelerator/DUT/output_valid_sys
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {523328 ps} 0}
+WaveRestoreCursors {{Cursor 1} {425499 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 50
@@ -36,4 +82,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ps} {1975446 ps}
+WaveRestoreZoom {698327 ps} {2673773 ps}
