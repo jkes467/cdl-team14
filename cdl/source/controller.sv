@@ -11,7 +11,7 @@ module controller #(
     // inputs from sram buffer
     input logic data_ready, out_done, output_valid, occupancy_err,
     input logic [63:0] data,
-    input logic [6:0] num_inputs,
+    input logic [7:0] num_inputs,
 
     // outputs to ahb
     // output logic busy, inference_done,
@@ -28,7 +28,7 @@ module controller #(
 );
     logic start_inference, load_weights, weight_inc, input_inc, weight_flag, input_flag, clear_weights, clear_inputs, get_out_next;
     logic [2:0] weight_count;
-    logic [6:0] input_count;
+    logic [7:0] input_count;
     logic busy, inference_done;
 
     assign status_reg = {6'b0, busy, inference_done && output_valid};
@@ -62,12 +62,12 @@ module controller #(
         .count_out(weight_count),
         .rollover_flag(weight_flag)
     );
-    flex_counter #(.SIZE(7)) input_counter (
+    flex_counter #(.SIZE(8)) input_counter (
         .clk(clk),
         .n_rst(n_rst),
         .clear(clear_inputs),
         .count_enable(input_inc),
-        .rollover_val(num_inputs - 1),
+        .rollover_val(num_inputs - 8'd1),
         .count_out(input_count),
         .rollover_flag(input_flag)
     );

@@ -1,0 +1,166 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : signed_multiplier
+Version: W-2024.09-SP4
+Date   : Wed Dec 10 05:55:58 2025
+****************************************
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: weight[0] (input port)
+  Endpoint: out[5] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  input external delay                                    0.00       0.00 r
+  weight[0] (in)                                          0.00       0.00 r
+  U1138/Y (NAND2X1)                                       0.17       0.17 f
+  U1137/Y (OR2X1)                                         0.33       0.49 f
+  U1136/Y (OAI21X1)                                       0.32       0.82 r
+  U1134/Y (NOR2X1)                                        0.28       1.10 f
+  U877/Y (INVX1)                                          0.16       1.26 r
+  U876/Y (AND2X1)                                         0.21       1.47 r
+  U874/Y (MUX2X1)                                         0.27       1.74 f
+  add_2_root_add_63_7/A[3] (signed_multiplier_DW01_add_10)
+                                                          0.00       1.74 f
+  add_2_root_add_63_7/U1_3/YC (FAX1)                      0.45       2.19 f
+  add_2_root_add_63_7/U1_4/YC (FAX1)                      0.45       2.64 f
+  add_2_root_add_63_7/U1_5/YS (FAX1)                      0.63       3.28 f
+  add_2_root_add_63_7/SUM[5] (signed_multiplier_DW01_add_10)
+                                                          0.00       3.28 f
+  add_0_root_add_63_7/A[5] (signed_multiplier_DW01_add_6)
+                                                          0.00       3.28 f
+  add_0_root_add_63_7/U1_5/YC (FAX1)                      0.46       3.74 f
+  add_0_root_add_63_7/U1_6/YC (FAX1)                      0.45       4.19 f
+  add_0_root_add_63_7/U1_7/YS (FAX1)                      0.41       4.60 r
+  add_0_root_add_63_7/SUM[7] (signed_multiplier_DW01_add_6)
+                                                          0.00       4.60 r
+  U795/Y (INVX1)                                          0.11       4.71 f
+  U793/Y (MUX2X1)                                         0.27       4.98 r
+  U792/Y (INVX1)                                          0.78       5.76 f
+  U675/Y (AND2X1)                                         0.52       6.28 f
+  U669/Y (MUX2X1)                                         0.15       6.43 r
+  U668/Y (NOR2X1)                                         0.30       6.73 f
+  U667/Y (INVX1)                                          0.38       7.11 r
+  U644/Y (OAI21X1)                                        0.08       7.19 f
+  U643/Y (OAI21X1)                                        0.21       7.40 r
+  U622/Y (AOI22X1)                                        0.24       7.64 f
+  U616/Y (OAI21X1)                                        0.24       7.88 r
+  U614/Y (NOR2X1)                                         0.90       8.78 f
+  U613/Y (INVX1)                                          0.42       9.20 r
+  U612/Y (NAND2X1)                                        0.09       9.29 f
+  U611/Y (AOI21X1)                                        0.11       9.40 r
+  U610/Y (NAND3X1)                                        0.14       9.55 f
+  U609/Y (INVX1)                                          0.18       9.73 r
+  U585/Y (NAND3X1)                                        0.09       9.82 f
+  U577/Y (INVX1)                                          0.12       9.93 r
+  U574/Y (MUX2X1)                                         0.11      10.05 f
+  U573/Y (OAI21X1)                                        0.27      10.31 r
+  U572/Y (INVX1)                                          0.27      10.59 f
+  U540/Y (AND2X1)                                         0.48      11.07 f
+  U534/Y (OAI21X1)                                        0.18      11.25 r
+  U532/Y (OAI21X1)                                        0.19      11.43 f
+  U531/Y (AND2X1)                                         0.53      11.96 f
+  U511/Y (OAI21X1)                                        0.21      12.17 r
+  U510/Y (OAI21X1)                                        0.11      12.28 f
+  U509/Y (AOI22X1)                                        0.14      12.42 r
+  U508/Y (OAI21X1)                                        0.21      12.62 f
+  U490/Y (NOR2X1)                                         0.20      12.82 r
+  U489/Y (NAND2X1)                                        0.19      13.02 f
+  U488/Y (INVX1)                                          0.29      13.30 r
+  U460/Y (NAND3X1)                                        0.10      13.40 f
+  U444/Y (OAI21X1)                                        0.18      13.58 r
+  U443/Y (INVX1)                                          0.11      13.69 f
+  U442/Y (OAI21X1)                                        0.13      13.82 r
+  U441/Y (MUX2X1)                                         0.11      13.93 f
+  U440/Y (OAI21X1)                                        0.15      14.08 r
+  U439/Y (AOI21X1)                                        0.13      14.21 f
+  U438/Y (OAI21X1)                                        0.08      14.30 r
+  out[5] (out)                                            0.00      14.30 r
+  data arrival time                                                 14.30
+  --------------------------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : area
+Design : signed_multiplier
+Version: W-2024.09-SP4
+Date   : Wed Dec 10 05:55:58 2025
+****************************************
+
+Library(s) Used:
+
+    osu05_stdcells (File: /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db)
+
+Number of ports:                          134
+Number of nets:                           889
+Number of cells:                          754
+Number of combinational cells:            749
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                        173
+Number of references:                      16
+
+Combinational area:             221067.000000
+Buf/Inv area:                    25056.000000
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                221067.000000
+Total area:                 undefined
+1
+Loading db file '/home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated primary inputs. (PWR-414)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : signed_multiplier
+Version: W-2024.09-SP4
+Date   : Wed Dec 10 05:55:58 2025
+****************************************
+
+
+Library(s) Used:
+
+    osu05_stdcells (File: /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db)
+
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 5    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+signed_multiplier                       104.380  103.894   68.880  208.275 100.0
+  add_2_root_add_63_7 (signed_multiplier_DW01_add_10)
+                                          6.076    7.061    5.033   13.137   6.3
+  add_0_root_add_63_7 (signed_multiplier_DW01_add_6)
+                                          4.993    8.973    4.305   13.966   6.7
+1

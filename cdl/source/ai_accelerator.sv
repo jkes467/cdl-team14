@@ -5,7 +5,7 @@ module ai_accelerator #(
 ) (
     input clk, n_rst, hsel,
     input logic [9:0] haddr,
-    input logic [2:0] htrans, hsize,
+    input logic [1:0] htrans, hsize,
     input logic hwrite,
     input logic [63:0] hwdata,
     input logic [2:0] hburst,
@@ -21,10 +21,29 @@ module ai_accelerator #(
     input logic [1:0] sram_state
 );
 
-logic [7:0] status_reg, error_reg, ctrl_reg;
+logic [7:0] status_reg, ctrl_reg;
+logic [15:0] error_reg;
 logic [63:0] bias_reg, output_data;
 logic handshake, is_weight, wr_en_push;
 
+logic get_weights, get_inputs, get_out, data_ready, out_done, occupancy_err;
+logic [63:0] write_data, data;
+logic [7:0] num_inputs;
+
+logic float;
+logic [7:0] load;
+logic [63:0] input_value;
+logic input_valid;
+logic output_valid;
+logic [63:0] output_value_sys;
+
+logic [63:0] bias_outputs;
+logic output_valid_bias;
+
+logic [63:0] activated_outputs;
+logic output_valid_act;
+
+logic [2:0] act_mode;
 ahb_sub subordinate(
         .clk(clk),
         .n_rst(n_rst),
@@ -48,18 +67,7 @@ ahb_sub subordinate(
         .wr_en_push(wr_en_push),
         .is_weight(is_weight),
         .write_data(write_data)
-    );
-
-controller c0 (
-
 );
-
-logic get_weights, get_inputs, get_out, data_ready, out_done, wen, ren, occupancy_err;
-logic [63:0] write_data, data;
-logic [31:0] rdata, wdata;
-logic [9:0] addr;
-logic [1:0] sram_state;
-logic [7:0] num_inputs;
 
 sram_buffer buffer (
     .clk(clk),
@@ -99,7 +107,7 @@ controller control_unit (
     .data(data),
     .num_inputs(num_inputs),
     .status_reg(status_reg),
-    .error_reg(err_reg),
+    .error_reg(error_reg),
     .get_weights(get_weights),
     .get_inputs(get_inputs),
     .get_out(get_out),
@@ -107,13 +115,6 @@ controller control_unit (
     .array_inputs(input_value),
     .load(load)
 );
-
-logic float;
-logic [7:0] load;
-logic [63:0] input_value;
-logic input_valid;
-logic output_valid;
-logic [63:0] output_value_sys;
 
 systolic_array sys (
     .clk(clk),
@@ -123,23 +124,17 @@ systolic_array sys (
     .input_value(input_value),
     .input_valid(input_valid),
     .output_valid(output_valid_sys),
-    .output_value(output_value)
+    .output_value(output_value_sys)
 );
 
-logic [63:0] bias_outputs;
-logic output_valid_bias;
-
 bias_adder bias (
-    .array_outputs(output_value), 
+    .array_outputs(output_value_sys), 
     .input_valid(output_valid_sys),
     .bias(bias_reg),
     .bias_outputs(bias_outputs), 
-    .float(float)
+    .float(float),
     .output_valid(output_valid_bias)
 );
-
-logic [63:0] activation_outputs;
-logic output_valid_act;
 
 activation act (
     .biased_inputs(bias_outputs),

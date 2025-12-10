@@ -1,0 +1,109 @@
+Reading pref.tclError: tag "Error" isn't defined in text widget
+
+//  Questa Sim-64
+//  Version 2021.4 linux_x86_64 Oct 13 2021
+//
+//  Copyright 1991-2021 Mentor Graphics Corporation
+//  All Rights Reserved.
+//
+//  QuestaSim and its associated documentation contain trade
+//  secrets and commercial or financial information that are the property of
+//  Mentor Graphics Corporation and are privileged, confidential,
+//  and exempt from disclosure under the Freedom of Information Act,
+//  5 U.S.C. Section 552. Furthermore, this information
+//  is prohibited from disclosure under the Trade Secrets Act,
+//  18 U.S.C. Section 1905.
+//
+vsim -gui -vopt -voptargs="+acc" -t ps -do "waves/ai_accelerator.do" -do "set PrefSource(OpenOnFinish) 0 ; set PrefMain(LinePrefix) "" ; set PrefMain(colorizeTranscript) 1" -onfinish stop -coverage tb_ai_accelerator 
+Start time: 06:16:06 on Dec 10,2025
+** Note: (vsim-3812) Design is being optimized...
+** Note: (vopt-143) Recognized 1 FSM in module "sram_buffer(fast)".
+** Note: (vopt-143) Recognized 1 FSM in module "sram1024x32_wrapper(fast)".
+** Warning: src/u337mg096_ece337_controller_1.0.0/source/controller.sv(41): (vopt-2685) [TFMPC] - Too few port connections for 'detect_inference'.  Expected 5, found 4.
+** Warning: src/u337mg096_ece337_controller_1.0.0/source/controller.sv(41): (vopt-2718) [TFMPC] - Missing connection for port 'edge_flag'.
+** Warning: src/u337mg096_ece337_controller_1.0.0/source/controller.sv(48): (vopt-2685) [TFMPC] - Too few port connections for 'detect_weights'.  Expected 5, found 4.
+** Warning: src/u337mg096_ece337_controller_1.0.0/source/controller.sv(48): (vopt-2718) [TFMPC] - Missing connection for port 'edge_flag'.
+** Note: (vopt-143) Recognized 1 FSM in module "controller(fast)".
+** Warning: src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv(119): (vopt-2685) [TFMPC] - Too few port connections for 'sys'.  Expected 9, found 8.
+** Warning: src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv(119): (vopt-2718) [TFMPC] - Missing connection for port 'overflow'.
+** Warning: src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv(130): (vopt-2685) [TFMPC] - Too few port connections for 'bias'.  Expected 7, found 6.
+** Warning: src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv(130): (vopt-2718) [TFMPC] - Missing connection for port 'overflow'.
+** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=8.
+Loading sv_std.std
+Loading work.tb_ai_accelerator(fast)
+Loading work.ai_accelerator(fast)
+Loading work.ahb_sub(fast)
+Loading work.sram_buffer(fast)
+Loading work.flex_counter(fast)
+Loading work.flex_counter(fast__1)
+Loading work.edge_det(fast)
+Loading work.sync(fast)
+Loading work.controller(fast)
+Loading work.flex_counter(fast__2)
+Loading work.systolic_array(fast)
+Loading work.PE(fast)
+Loading work.signed_multiplier(fast)
+Loading work.bias_adder(fast)
+Loading work.activation(fast)
+Loading work.multiply_by_2(fast)
+Loading work.sram1024x32_wrapper(fast)
+** Warning: (vsim-3015) [PCDPC] - Port size (3) does not match connection size (1) for port 'hburst'. The port definition is at: src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv(11).
+   Time: 0 ps  Iteration: 0  Instance: /tb_ai_accelerator/DUT File: src/u337mg096_ece337_ai_accelerator_1.0.0/testbench/tb_ai_accelerator.sv Line: 66
+do waves/ai_accelerator.do
+set PrefSource(OpenOnFinish) 0 
+0
+ set PrefMain(LinePrefix) "" 
+ set PrefMain(colorizeTranscript) 1
+1
+add wave -position insertpoint  \
+sim:/tb_ai_accelerator/DUT/n_rst
+add wave -position 0  sim:/tb_ai_accelerator/DUT/act_mode
+add wave -position 1  sim:/tb_ai_accelerator/DUT/activated_outputs
+add wave -position 2  sim:/tb_ai_accelerator/DUT/addr
+add wave -position 3  sim:/tb_ai_accelerator/DUT/bias_outputs
+add wave -position 4  sim:/tb_ai_accelerator/DUT/bias_reg
+add wave -position 5  sim:/tb_ai_accelerator/DUT/clk
+add wave -position 6  sim:/tb_ai_accelerator/DUT/ctrl_reg
+add wave -position 7  sim:/tb_ai_accelerator/DUT/data
+add wave -position 8  sim:/tb_ai_accelerator/DUT/data_ready
+add wave -position 9  sim:/tb_ai_accelerator/DUT/error_reg
+add wave -position 10  sim:/tb_ai_accelerator/DUT/float
+add wave -position 11  sim:/tb_ai_accelerator/DUT/get_inputs
+add wave -position 12  sim:/tb_ai_accelerator/DUT/get_out
+add wave -position 13  sim:/tb_ai_accelerator/DUT/get_weights
+add wave -position 14  sim:/tb_ai_accelerator/DUT/haddr
+add wave -position 15  sim:/tb_ai_accelerator/DUT/handshake
+add wave -position 16  sim:/tb_ai_accelerator/DUT/hburst
+add wave -position 17  sim:/tb_ai_accelerator/DUT/hrdata
+add wave -position 18  sim:/tb_ai_accelerator/DUT/hready
+add wave -position 19  sim:/tb_ai_accelerator/DUT/hresp
+add wave -position 20  sim:/tb_ai_accelerator/DUT/hsel
+add wave -position 21  sim:/tb_ai_accelerator/DUT/hsize
+add wave -position 22  sim:/tb_ai_accelerator/DUT/htrans
+add wave -position 23  sim:/tb_ai_accelerator/DUT/hwdata
+add wave -position 24  sim:/tb_ai_accelerator/DUT/hwrite
+add wave -position 25  sim:/tb_ai_accelerator/DUT/input_valid
+add wave -position 26  sim:/tb_ai_accelerator/DUT/input_value
+add wave -position 27  sim:/tb_ai_accelerator/DUT/is_weight
+add wave -position 28  sim:/tb_ai_accelerator/DUT/load
+add wave -position 29  sim:/tb_ai_accelerator/DUT/n_rst
+add wave -position 30  sim:/tb_ai_accelerator/DUT/num_inputs
+add wave -position 31  sim:/tb_ai_accelerator/DUT/occupancy_err
+add wave -position 32  sim:/tb_ai_accelerator/DUT/out_done
+add wave -position 33  sim:/tb_ai_accelerator/DUT/output_data
+add wave -position 34  sim:/tb_ai_accelerator/DUT/output_valid
+add wave -position 35  sim:/tb_ai_accelerator/DUT/output_valid_act
+add wave -position 36  sim:/tb_ai_accelerator/DUT/output_valid_bias
+add wave -position 37  sim:/tb_ai_accelerator/DUT/output_valid_sys
+add wave -position 38  sim:/tb_ai_accelerator/DUT/output_value_sys
+add wave -position 39  sim:/tb_ai_accelerator/DUT/rdata
+add wave -position 40  sim:/tb_ai_accelerator/DUT/ren
+add wave -position 41  sim:/tb_ai_accelerator/DUT/sram_state
+add wave -position 42  sim:/tb_ai_accelerator/DUT/status_reg
+add wave -position 43  sim:/tb_ai_accelerator/DUT/wdata
+add wave -position 44  sim:/tb_ai_accelerator/DUT/wen
+add wave -position 45  sim:/tb_ai_accelerator/DUT/wr_en_push
+add wave -position 46  sim:/tb_ai_accelerator/DUT/write_data
+run -all
+End time: 06:18:48 on Dec 10,2025, Elapsed time: 0:02:42
+Errors: 0, Warnings: 9

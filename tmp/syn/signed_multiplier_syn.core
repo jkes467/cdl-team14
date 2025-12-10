@@ -1,0 +1,15 @@
+CAPI=2:
+name: "u337mg096:ece337:signed_multiplier_syn"
+
+filesets:
+    netlist:
+        files:
+            - "signed_multiplier.v"
+        file_type: systemVerilogSource
+
+targets:
+    default:
+        filesets:
+            - netlist
+        toplevel: signed_multiplier
+

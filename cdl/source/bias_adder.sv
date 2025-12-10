@@ -3,7 +3,7 @@
 module bias_adder #(
     // parameters
 ) (
-    input logic signed [63:0] array_outputs,
+    input logic [63:0] array_outputs,
     input logic signed [63:0] bias,
     input logic float,
     input logic input_valid,

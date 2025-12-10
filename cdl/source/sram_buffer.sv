@@ -132,7 +132,7 @@ module sram_buffer #(
         .n_rst(n_rst),
         .clear(out_clear),
         .count_enable(out_valid),
-        .rollover_val(num_inputs[7:0] - 8'd1),
+        .rollover_val(num_inputs - 8'd1),
         .count_out(out_count),
         .rollover_flag(out_flag)
     );
@@ -144,7 +144,7 @@ module sram_buffer #(
         if (~n_rst) begin
             state <= IDLE;
             data_reg <= 64'b0;
-            num_inputs <= 7'd0;
+            num_inputs <= 8'd0;
             out_mem <= '{default: 0};
             output_mem_index <= 0;
             inference_done <= 0;

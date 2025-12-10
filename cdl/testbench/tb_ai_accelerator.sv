@@ -47,9 +47,42 @@ module tb_ai_accelerator ();
     logic [9:0] addr;
     logic [1:0] sram_state;
 
+    localparam [1:0] HTRANS_IDLE = 2'b00;
+    localparam [1:0] HTRANS_BUSY = 2'b01;
+    localparam [1:0] HTRANS_NONSEQ = 2'b10;
+    localparam [1:0] HTRANS_SEQ = 2'b11;
 
-    ai_accelerator #() DUT (.clk(clk), .n_rst(n_rst), .hsel(hsel), .haddr(haddr), .htrans(htrans), .hsize(hsize), .hwrite(hwrite), .hwdata(hwdata), .hburst(hburst), .hrdata(hrdata), .hresp(hresp), .hready(hready), .address(addr), .read_enable(ren), .write_enable(wen), .write_data(wdata), .read_data(rdata), .sram_state(sram_state));
+    localparam [2:0] HBURST_SINGLE= 3'b000;
+    localparam [2:0] HBURST_INCR = 3'b001;
+    localparam [2:0] HBURST_WRAP4 = 3'b010;
+    localparam [2:0] HBURST_INCR4 = 3'b011;
+    localparam [2:0] HBURST_WRAP8 = 3'b100;
+    localparam [2:0] HBURST_INCR8 = 3'b101;
+    localparam [2:0] HBURST_WRAP16 = 3'b110;
+    localparam [2:0] HBURST_INCR16= 3'b111;
 
+    // ai_accelerator #() DUT (.clk(clk), .n_rst(n_rst), .hsel(hsel), .haddr(haddr), .htrans(htrans), .hsize(hsize), .hwrite(hwrite), .hwdata(hwdata), .hburst(hburst), .hrdata(hrdata), .hresp(hresp), .hready(hready), .address(addr), .read_enable(ren), .write_enable(wen), .write_data(wdata), .read_data(rdata), .sram_state(sram_state));
+
+    ai_accelerator DUT (
+        .clk(clk),
+        .n_rst(n_rst),
+        .hsel(hsel),
+        .haddr(haddr),
+        .htrans(htrans),
+        .hsize(hsize),
+        .hwrite(hwrite),
+        .hwdata(hwdata),
+        .hburst(hburst),
+        .hrdata(hrdata),
+        .hresp(hresp),
+        .hready(hread),
+        .wen(wen),
+        .ren(ren),
+        .rdata(rdata),
+        .wdata(wdata),
+        .addr(addr),
+        .sram_state(sram_state)
+    );
     task wait_hready;
     begin
         @(posedge clk);

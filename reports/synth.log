@@ -32,19 +32,19 @@ Please use '-no_save' simv switch to avoid this.
                         https://solvnetplus.synopsys.com)
 Initializing...
 Initializing gui preferences from file  /home/ecegridfs/a/337mg209/.synopsys_dc_gui/preferences.tcl
-Current time:       Wed Dec 10 05:08:01 2025
+Current time:       Wed Dec 10 05:55:55 2025
 Hostname:           ececomp1.ecn.purdue.edu
 CPU Model:          AMD EPYC 7513 32-Core Processor
 CPU Details:        Cores = 128 : Sockets = 2 : Cache Size = 512 KB : Freq = 2.60 GHz
 OS:                 Linux 4.18.0-553.78.1.el8_10.x86_64
-RAM:                502 GB (Free  18 GB)
+RAM:                502 GB (Free  15 GB)
 Swap:                63 GB (Free  12 GB)
 Work Filesystem:    /home/ecegridfs/a mounted to ecegridfs.ecn.purdue.edu:/export/home/a
 Tmp Filesystem:     /tmp mounted to tmpfs
 Work Disk:          2968 GB (Free   4 GB)
 Tmp Disk:            19 GB (Free  14 GB)
 
-CPU Load: 35%, Ram Free: 18 GB, Swap Free: 12 GB, Work Disk Free: 4 GB, Tmp Disk Free: 14 GB
+CPU Load: 16%, Ram Free: 15 GB, Swap Free: 12 GB, Work Disk Free: 4 GB, Tmp Disk Free: 14 GB
 ############################################
 #
 # Auto-generated project tcl file:
@@ -53,13 +53,13 @@ CPU Load: 35%, Ram Free: 18 GB, Swap Free: 12 GB, Work Disk Free: 4 GB, Tmp Disk
 #
 ############################################
 sh date
-Wed Dec 10 05:08:01 EST 2025
-set TOP_MODULE ai_accelerator
-ai_accelerator
+Wed Dec 10 05:55:55 EST 2025
+set TOP_MODULE signed_multiplier
+signed_multiplier
 set DC_SCRIPT synth.tcl
 synth.tcl
-set READ_SOURCES u337mg096_ece337_ai_accelerator_1.0.0-read-sources
-u337mg096_ece337_ai_accelerator_1.0.0-read-sources
+set READ_SOURCES u337mg096_ece337_signed_multiplier_1.0.0-read-sources
+u337mg096_ece337_signed_multiplier_1.0.0-read-sources
 set SCRIPT_DIR src/u337mg096_ece337_synfiles_0
 src/u337mg096_ece337_synfiles_0
 set REPORT_DIR reports
@@ -76,90 +76,324 @@ set link_library   [concat "*"  /home/ecegrid/a/ece337/summer24-refactor/tech/am
 ############################################
 source ${SCRIPT_DIR}/${DC_SCRIPT}
 Running PRESTO HDLC
-Compiling source file ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv
-Error:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:70: The construct '$' is not supported in synthesis. (VER-700)
-Error:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:104: The construct 'ref' is not supported in synthesis. (VER-700)
-Error:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:142: Syntax error at or near token ']'. (VER-294)
-Error:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:229: The construct 'string' is not supported in synthesis. (VER-700)
-Error:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:230: The construct 'string' is not supported in synthesis. (VER-700)
-Error:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:231: The construct 'string' is not supported in synthesis. (VER-700)
-Error:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:232: The construct 'string' is not supported in synthesis. (VER-700)
-Error:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:233: The construct 'string' is not supported in synthesis. (VER-700)
-Error:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:234: The construct 'string' is not supported in synthesis. (VER-700)
-Error:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:235: The construct 'string' is not supported in synthesis. (VER-700)
-Error:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:236: The construct 'string' is not supported in synthesis. (VER-700)
-Warning:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:255: The construct 'immediate assertion' is not supported in synthesis; it is ignored. (VER-708)
-Warning:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:259: The construct 'immediate assertion' is not supported in synthesis; it is ignored. (VER-708)
-Warning:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:267: The construct 'immediate assertion' is not supported in synthesis; it is ignored. (VER-708)
-Warning:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:271: The construct 'immediate assertion' is not supported in synthesis; it is ignored. (VER-708)
-Warning:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:279: The construct 'immediate assertion' is not supported in synthesis; it is ignored. (VER-708)
-Warning:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:283: The construct 'immediate assertion' is not supported in synthesis; it is ignored. (VER-708)
-Warning:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:291: The construct 'immediate assertion' is not supported in synthesis; it is ignored. (VER-708)
-Warning:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:307: The construct 'immediate assertion' is not supported in synthesis; it is ignored. (VER-708)
-Warning:  ./src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv:344: The construct 'immediate assertion' is not supported in synthesis; it is ignored. (VER-708)
-*** Presto compilation terminated with 11 errors. ***
-Loading db file '/home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db'
-Loading db file '/package/eda/synopsys/syn/W-2024.09-SP4/libraries/syn/dw_foundation.sldb'
-Running PRESTO HDLC
-Compiling source file ./src/u337mg096_ece337_ahb_sub_1.0.0/source/ahb_sub.sv
-Presto compilation completed successfully.
-Running PRESTO HDLC
-Compiling source file ./src/u337mg096_ece337_flex_counter_1.0.0/source/flex_counter.sv
-Presto compilation completed successfully.
-Running PRESTO HDLC
-Compiling source file ./src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv
-Presto compilation completed successfully.
-Running PRESTO HDLC
 Compiling source file ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv
 Presto compilation completed successfully.
-Running PRESTO HDLC
-Compiling source file ./src/u337mg096_ece337_sync_1.0.0/source/sync.sv
-Presto compilation completed successfully.
-Running PRESTO HDLC
-Compiling source file ./src/u337mg096_ece337_PE_1.0.0/source/PE.sv
-Presto compilation completed successfully.
-Running PRESTO HDLC
-Compiling source file ./src/u337mg096_ece337_activation_1.0.0/source/activation.sv
-Presto compilation completed successfully.
-Running PRESTO HDLC
-Compiling source file ./src/u337mg096_ece337_bias_adder_1.0.0/source/bias_adder.sv
-Presto compilation completed successfully.
-Running PRESTO HDLC
-Compiling source file ./src/u337mg096_ece337_edge_det_1.0.0/source/edge_det.sv
-Presto compilation completed successfully.
-Running PRESTO HDLC
-Compiling source file ./src/u337mg096_ece337_controller_1.0.0/source/controller.sv
-Presto compilation completed successfully.
-Running PRESTO HDLC
-Compiling source file ./src/u337mg096_ece337_sram_buffer_1.0.0/source/sram_buffer.sv
-Presto compilation completed successfully.
-Running PRESTO HDLC
-Compiling source file ./src/u337mg096_ece337_systolic_array_1.0.0/source/systolic_array.sv
-Presto compilation completed successfully.
-Running PRESTO HDLC
-Compiling source file ./src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv
-Error:  ./src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv:17: Syntax error at or near token 'output'. (VER-294)
-Warning:  ./src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv:57: Redeclaration of port 'ren'. (VER-331)
-Warning:  ./src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv:59: Redeclaration of port 'rdata'. (VER-331)
-Warning:  ./src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv:59: Redeclaration of port 'wdata'. (VER-331)
-Warning:  ./src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv:60: Redeclaration of port 'addr'. (VER-331)
-Warning:  ./src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv:61: Redeclaration of port 'sram_state'. (VER-331)
-Error:  ./src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv:132: Syntax error at or near token 'bias_adder'. (VER-294)
-Error:  ./src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv:142: Syntax error at or near token 'logic'. (VER-294)
-*** Presto compilation terminated with 3 errors. ***
+Loading db file '/home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db'
+Loading db file '/package/eda/synopsys/syn/W-2024.09-SP4/libraries/syn/dw_foundation.sldb'
 Loading db file '/package/eda/synopsys/syn/W-2024.09-SP4/libraries/syn/gtech.db'
 Loading db file '/package/eda/synopsys/syn/W-2024.09-SP4/libraries/syn/standard.sldb'
   Loading link library 'osu05_stdcells'
   Loading link library 'gtech'
-Error: Cannot find the design 'ai_accelerator' in the library 'WORK'. (LBR-0)
-Error: Current design is not defined. (UID-4)
-Error: Current design is not defined. (UID-4)
-Error: No files or designs were specified. (UID-22)
-Error: Current design is not defined. (UID-4)
+Running PRESTO HDLC
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:38: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:39: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:40: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:43: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:44: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:45: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:49: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:70: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:71: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:72: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:73: unsigned to signed assignment occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:86: signed to unsigned conversion occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:99: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:109: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:120: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:131: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:142: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:217: signed to unsigned part selection occurs. (VER-318)
+Warning:  ./src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv:249: unsigned to signed assignment occurs. (VER-318)
+Presto compilation completed successfully. (signed_multiplier)
+Module: signed_multiplier, Ports: 34, Input: 25, Output: 9, Inout: 0
+Module: signed_multiplier, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module signed_multiplier report end. (ELAB-965)
+Elaborated 1 design.
+Current design is now 'signed_multiplier'.
+CPU Load: 16%, Ram Free: 15 GB, Swap Free: 12 GB, Work Disk Free: 4 GB, Tmp Disk Free: 14 GB
+Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Evaluating DesignWare library utilization. (UISN-27)
 
-Memory usage for this session 117 Mbytes.
-Memory usage for this session including child processes 117 Mbytes.
-CPU usage for this session 3 seconds ( 0.00 hours ).
-Elapsed time for this session 4 seconds ( 0.00 hours ).
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | W-2024.09-DWBB_202409.4 |     *     |
+| Licensed DW Building Blocks        | W-2024.09-DWBB_202409.4 |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler                                                                   |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 211                                    |
+| Number of User Hierarchies                              | 0                                      |
+| Sequential Cell Count                                   | 0                                      |
+| Macro Count                                             | 0                                      |
+| Pad Count                                               | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 1                                      |
+| Number of VT Class                                      | 0                                      |
+| Number of Clocks                                        | 0                                      |
+| Number of Dont Touch Cells                              | 107                                    |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with Target Library Subset (with clock_path)     | false  (false )                        |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+
+Information: There are 18 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'signed_multiplier'
+Module: DW01_MUX, Ports: 4, Input: 3, Output: 1, Inout: 0
+Module: DW01_MUX, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_mmux_width2, Ports: 7, Input: 5, Output: 2, Inout: 0
+Module: DW01_mmux_width2, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_mmux_width3, Ports: 10, Input: 7, Output: 3, Inout: 0
+Module: DW01_mmux_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_mmux_width4, Ports: 13, Input: 9, Output: 4, Inout: 0
+Module: DW01_mmux_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_mmux_width5, Ports: 16, Input: 11, Output: 5, Inout: 0
+Module: DW01_mmux_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width16, Ports: 50, Input: 33, Output: 17, Inout: 0
+Module: DW01_add_width16, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_NAND2, Ports: 3, Input: 2, Output: 1, Inout: 0
+Module: DW01_NAND2, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width7, Ports: 23, Input: 15, Output: 8, Inout: 0
+Module: DW01_add_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width8, Ports: 26, Input: 17, Output: 9, Inout: 0
+Module: DW01_add_width8, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width9, Ports: 29, Input: 19, Output: 10, Inout: 0
+Module: DW01_add_width9, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width5, Ports: 17, Input: 11, Output: 6, Inout: 0
+Module: DW01_add_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_sub_width5, Ports: 17, Input: 11, Output: 6, Inout: 0
+Module: DW01_sub_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_inc_width3, Ports: 6, Input: 3, Output: 3, Inout: 0
+Module: DW01_inc_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_inc_width4, Ports: 8, Input: 4, Output: 4, Inout: 0
+Module: DW01_inc_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_dec_width4, Ports: 8, Input: 4, Output: 4, Inout: 0
+Module: DW01_dec_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_sub_width4, Ports: 14, Input: 9, Output: 5, Inout: 0
+Module: DW01_sub_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_NOT, Ports: 2, Input: 1, Output: 1, Inout: 0
+Module: DW01_NOT, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp6_width4, Ports: 15, Input: 9, Output: 6, Inout: 0
+Module: DW01_cmp6_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp6_width5, Ports: 17, Input: 11, Output: 6, Inout: 0
+Module: DW01_cmp6_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp6_width16, Ports: 39, Input: 33, Output: 6, Inout: 0
+Module: DW01_cmp6_width16, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_incdec_width4, Ports: 9, Input: 5, Output: 4, Inout: 0
+Module: DW01_incdec_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp2_width16, Ports: 36, Input: 34, Output: 2, Inout: 0
+Module: DW01_cmp2_width16, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width4, Ports: 14, Input: 9, Output: 5, Inout: 0
+Module: DW01_add_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_incdec_width3, Ports: 7, Input: 4, Output: 3, Inout: 0
+Module: DW01_incdec_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width3, Ports: 11, Input: 7, Output: 4, Inout: 0
+Module: DW01_add_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW_rash_A_width4_SH_width5, Ports: 15, Input: 11, Output: 4, Inout: 0
+Module: DW_rash_A_width4_SH_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp2_width5, Ports: 14, Input: 12, Output: 2, Inout: 0
+Module: DW01_cmp2_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp2_width4, Ports: 12, Input: 10, Output: 2, Inout: 0
+Module: DW01_cmp2_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Added key list 'DesignWare' to design 'signed_multiplier'. (DDB-72)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'signed_multiplier' has no optimization constraints set. (OPT-108)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'signed_multiplier_DW01_cmp2_0_DW01_cmp2_1'
+  Processing 'signed_multiplier_DW01_sub_0_DW01_sub_2'
+  Processing 'signed_multiplier_DW01_sub_1_DW01_sub_3'
+  Processing 'signed_multiplier_DW01_add_0'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_DW01_sub_2_DW01_sub_4'
+  Processing 'signed_multiplier_DW01_cmp2_1_DW01_cmp2_2'
+  Mapping 'DW_rightsh'
+  Processing 'signed_multiplier_DW01_sub_3_DW01_sub_5'
+  Processing 'signed_multiplier_DW01_cmp2_2_DW01_cmp2_3'
+  Processing 'signed_multiplier_DW01_sub_4_DW01_sub_6'
+  Processing 'signed_multiplier_DW01_sub_5_DW01_sub_7'
+  Processing 'signed_multiplier_DW01_sub_6_DW01_sub_8'
+  Processing 'signed_multiplier_DW01_sub_7_DW01_sub_9'
+  Processing 'signed_multiplier_DW01_sub_8_DW01_sub_10'
+  Processing 'signed_multiplier_DW01_add_1'
+  Processing 'signed_multiplier_DW01_cmp2_3_DW01_cmp2_4'
+  Processing 'signed_multiplier_DW01_add_2'
+  Processing 'signed_multiplier_DW01_add_3'
+  Processing 'signed_multiplier_DW01_add_4'
+  Processing 'signed_multiplier_DW01_add_5'
+  Processing 'signed_multiplier_DW01_add_6'
+  Processing 'signed_multiplier_DW01_add_7'
+  Processing 'signed_multiplier_DW01_add_8'
+  Processing 'signed_multiplier_DW01_add_9'
+  Processing 'signed_multiplier_DW01_add_10'
+  Processing 'signed_multiplier_DW01_add_11'
+  Processing 'signed_multiplier_DW01_add_12'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'signed_multiplier'
+  Mapping 'signed_multiplier'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02  220779.0      0.00       0.0      34.7                          
+    0:00:02  220779.0      0.00       0.0      34.7                          
+    0:00:02  220779.0      0.00       0.0      34.7                          
+    0:00:02  220779.0      0.00       0.0      34.7                          
+    0:00:02  220779.0      0.00       0.0      34.7                          
+    0:00:02  220779.0      0.00       0.0      34.7                          
+    0:00:02  220779.0      0.00       0.0      34.7                          
+    0:00:02  220779.0      0.00       0.0      34.7                          
+    0:00:02  220779.0      0.00       0.0      34.7                          
+    0:00:02  220995.0      0.00       0.0       7.5                          
+    0:00:02  221211.0      0.00       0.0       0.0                          
+    0:00:02  221211.0      0.00       0.0       0.0                          
+    0:00:02  221211.0      0.00       0.0       0.0                          
+    0:00:02  221211.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02  221211.0      0.00       0.0       0.0                          
+    0:00:02  221211.0      0.00       0.0       0.0                          
+    0:00:02  221211.0      0.00       0.0       0.0                          
+    0:00:02  221211.0      0.00       0.0       0.0                          
+    0:00:02  221211.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02  221211.0      0.00       0.0       0.0                          
+    0:00:02  221211.0      0.00       0.0       0.0                          
+    0:00:02  221067.0      0.00       0.0       0.0                          
+    0:00:02  221067.0      0.00       0.0       0.0                          
+    0:00:02  221067.0      0.00       0.0       0.0                          
+    0:00:02  221067.0      0.00       0.0       0.0                          
+    0:00:02  221067.0      0.00       0.0       0.0                          
+    0:00:02  221067.0      0.00       0.0       0.0                          
+    0:00:02  221067.0      0.00       0.0       0.0                          
+    0:00:02  221067.0      0.00       0.0       0.0                          
+    0:00:02  221067.0      0.00       0.0       0.0                          
+Loading db file '/home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+CPU Load: 16%, Ram Free: 15 GB, Swap Free: 12 GB, Work Disk Free: 4 GB, Tmp Disk Free: 14 GB
+Information: Total number of MV cells in the design.
+----------------------------------------------------------------------------------------------------
+ MV Cells                                           Total Number                                   
+----------------------------------------------------------------------------------------------------
+ Level Shifter:                                     0                                             
+ Enable Level Shifter:                              0                                             
+ Isolation Cell:                                    0                                             
+ Retention Cell:                                    0                                             
+ Retention Clamp Cell:                              0                                             
+ Switch Cell:                                       0                                             
+ Always-On Cell:                                    0                                             
+ Repeater Cell:                                     0                                             
+
+----------------------------------------------------------------------------------------------------
+Unmapped MV Cells 
+----------------------------------------------------------------------------------------------------
+0 Isolation Cells are unmapped 
+0 Retention Clamp Cells are unmapped 
+----------------------------------------------------------------------------------------------------
+Writing verilog file '/home/ecegridfs/a/337mg209/cdl-team14/tmp/build/u337mg096_ece337_signed_multiplier_1.0.0/syn-design_compiler/signed_multiplier.v'.
+ 
+****************************************
+check_design summary:
+Version:     W-2024.09-SP4
+Date:        Wed Dec 10 05:55:58 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Unconnected ports (LINT-28)                                    10
+    Feedthrough (LINT-29)                                           6
+
+Cells                                                              12
+    Connected to power or ground (LINT-32)                          8
+    Nets connected to multiple pins on same cell (LINT-33)          4
+--------------------------------------------------------------------------------
+
+Warning: In design 'signed_multiplier_DW01_add_6', port 'B[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'signed_multiplier_DW01_add_6', port 'B[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'signed_multiplier_DW01_add_6', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'signed_multiplier_DW01_add_6', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'signed_multiplier_DW01_add_6', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'signed_multiplier_DW01_add_6', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'signed_multiplier_DW01_add_10', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'signed_multiplier_DW01_add_10', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'signed_multiplier_DW01_add_10', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'signed_multiplier_DW01_add_10', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'signed_multiplier_DW01_add_6', input port 'A[3]' is connected directly to output port 'SUM[3]'. (LINT-29)
+Warning: In design 'signed_multiplier_DW01_add_6', input port 'A[2]' is connected directly to output port 'SUM[2]'. (LINT-29)
+Warning: In design 'signed_multiplier_DW01_add_6', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'signed_multiplier_DW01_add_6', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'signed_multiplier_DW01_add_10', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'signed_multiplier_DW01_add_10', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'signed_multiplier', a pin on submodule 'add_0_root_add_63_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[3]' is connected to logic 0. 
+Warning: In design 'signed_multiplier', a pin on submodule 'add_0_root_add_63_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[2]' is connected to logic 0. 
+Warning: In design 'signed_multiplier', a pin on submodule 'add_0_root_add_63_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'signed_multiplier', a pin on submodule 'add_0_root_add_63_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'signed_multiplier', a pin on submodule 'add_0_root_add_63_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'signed_multiplier', a pin on submodule 'add_2_root_add_63_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'signed_multiplier', a pin on submodule 'add_2_root_add_63_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'signed_multiplier', a pin on submodule 'add_2_root_add_63_7' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'signed_multiplier', the same net is connected to more than one pin on submodule 'add_0_root_add_63_7'. (LINT-33)
+   Net 'n1120' is connected to pins 'B[3]', 'B[2]'', 'B[1]', 'B[0]'.
+Warning: In design 'signed_multiplier', the same net is connected to more than one pin on submodule 'add_2_root_add_63_7'. (LINT-33)
+   Net 'n441' is connected to pins 'A[15]', 'A[14]'', 'A[13]', 'A[12]', 'A[11]', 'A[10]', 'A[9]'.
+Warning: In design 'signed_multiplier', the same net is connected to more than one pin on submodule 'add_2_root_add_63_7'. (LINT-33)
+   Net 'n440' is connected to pins 'B[15]', 'B[14]'', 'B[13]', 'B[12]', 'B[11]'.
+Warning: In design 'signed_multiplier', the same net is connected to more than one pin on submodule 'add_2_root_add_63_7'. (LINT-33)
+   Net 'n1120' is connected to pins 'B[1]', 'B[0]''.
+
+Memory usage for this session 147 Mbytes.
+Memory usage for this session including child processes 147 Mbytes.
+CPU usage for this session 5 seconds ( 0.00 hours ).
+Elapsed time for this session 7 seconds ( 0.00 hours ).
 
 Thank you...
