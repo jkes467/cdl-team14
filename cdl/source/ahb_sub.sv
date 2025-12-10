@@ -144,10 +144,10 @@ always_ff @(posedge clk or negedge n_rst) begin
         beats_left <= beats_left_n;
 
         if (burst_state_n == BC_IDLE) begin
-            burst_en <= 1'b0;
+            burst_en <= 1'b1;
         end
         else begin
-            burst_en <= 1'b1;
+            burst_en <= 1'b0;
         end
 
         if (trans_valid) begin

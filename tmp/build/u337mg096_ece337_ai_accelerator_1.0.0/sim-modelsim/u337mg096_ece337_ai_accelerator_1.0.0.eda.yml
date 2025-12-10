@@ -1,0 +1,108 @@
+version: 0.2.1
+dependencies:
+  ece337:course-lib:ahb_model_updated:1.0.0: []
+  ece337:course-lib:sram1024x32_wrapper:1.0.0: []
+  u337mg096:ece337:ahb_sub:1.0.0: []
+  u337mg096:ece337:flex_counter:1.0.0: []
+  u337mg096:ece337:multiply_by_2:1.0.0: []
+  u337mg096:ece337:signed_multiplier:1.0.0: []
+  u337mg096:ece337:sync:1.0.0: []
+  u337mg096:ece337:PE:1.0.0:
+  - u337mg096:ece337:signed_multiplier:1.0.0
+  u337mg096:ece337:activation:1.0.0:
+  - u337mg096:ece337:multiply_by_2:1.0.0
+  u337mg096:ece337:bias_adder:1.0.0:
+  - u337mg096:ece337:signed_multiplier:1.0.0
+  u337mg096:ece337:edge_det:1.0.0:
+  - u337mg096:ece337:sync:1.0.0
+  u337mg096:ece337:controller:1.0.0:
+  - u337mg096:ece337:edge_det:1.0.0
+  - u337mg096:ece337:flex_counter:1.0.0
+  u337mg096:ece337:sram_buffer:1.0.0:
+  - u337mg096:ece337:edge_det:1.0.0
+  - u337mg096:ece337:flex_counter:1.0.0
+  u337mg096:ece337:systolic_array:1.0.0:
+  - u337mg096:ece337:PE:1.0.0
+  u337mg096:ece337:ai_accelerator:1.0.0:
+  - ece337:course-lib:ahb_model_updated:1.0.0
+  - ece337:course-lib:sram1024x32_wrapper:1.0.0
+  - u337mg096:ece337:activation:1.0.0
+  - u337mg096:ece337:ahb_sub:1.0.0
+  - u337mg096:ece337:bias_adder:1.0.0
+  - u337mg096:ece337:controller:1.0.0
+  - u337mg096:ece337:sram_buffer:1.0.0
+  - u337mg096:ece337:systolic_array:1.0.0
+files:
+- file_type: systemVerilogSource
+  name: src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv
+  core: ece337:course-lib:ahb_model_updated:1.0.0
+- file_type: systemVerilogSource
+  name: src/ece337_course-lib_sram1024x32_wrapper_1.0.0/source/sram1024x32_wrapper.sv
+  core: ece337:course-lib:sram1024x32_wrapper:1.0.0
+- file_type: systemVerilogSource
+  name: src/u337mg096_ece337_ahb_sub_1.0.0/source/ahb_sub.sv
+  core: u337mg096:ece337:ahb_sub:1.0.0
+- file_type: systemVerilogSource
+  name: src/u337mg096_ece337_flex_counter_1.0.0/source/flex_counter.sv
+  core: u337mg096:ece337:flex_counter:1.0.0
+- file_type: systemVerilogSource
+  name: src/u337mg096_ece337_multiply_by_2_1.0.0/source/multiply_by_2.sv
+  core: u337mg096:ece337:multiply_by_2:1.0.0
+- file_type: systemVerilogSource
+  name: src/u337mg096_ece337_signed_multiplier_1.0.0/source/signed_multiplier.sv
+  core: u337mg096:ece337:signed_multiplier:1.0.0
+- file_type: systemVerilogSource
+  name: src/u337mg096_ece337_sync_1.0.0/source/sync.sv
+  core: u337mg096:ece337:sync:1.0.0
+- file_type: systemVerilogSource
+  name: src/u337mg096_ece337_PE_1.0.0/source/PE.sv
+  core: u337mg096:ece337:PE:1.0.0
+- file_type: systemVerilogSource
+  name: src/u337mg096_ece337_activation_1.0.0/source/activation.sv
+  core: u337mg096:ece337:activation:1.0.0
+- file_type: systemVerilogSource
+  name: src/u337mg096_ece337_bias_adder_1.0.0/source/bias_adder.sv
+  core: u337mg096:ece337:bias_adder:1.0.0
+- file_type: systemVerilogSource
+  name: src/u337mg096_ece337_edge_det_1.0.0/source/edge_det.sv
+  core: u337mg096:ece337:edge_det:1.0.0
+- file_type: systemVerilogSource
+  name: src/u337mg096_ece337_controller_1.0.0/source/controller.sv
+  core: u337mg096:ece337:controller:1.0.0
+- file_type: systemVerilogSource
+  name: src/u337mg096_ece337_sram_buffer_1.0.0/source/sram_buffer.sv
+  core: u337mg096:ece337:sram_buffer:1.0.0
+- file_type: systemVerilogSource
+  name: src/u337mg096_ece337_systolic_array_1.0.0/source/systolic_array.sv
+  core: u337mg096:ece337:systolic_array:1.0.0
+- file_type: systemVerilogSource
+  name: src/u337mg096_ece337_ai_accelerator_1.0.0/source/ai_accelerator.sv
+  core: u337mg096:ece337:ai_accelerator:1.0.0
+- file_type: systemVerilogSource
+  name: src/u337mg096_ece337_ai_accelerator_1.0.0/testbench/tb_ai_accelerator.sv
+  core: u337mg096:ece337:ai_accelerator:1.0.0
+- file_type: user
+  name: src/u337mg096_ece337_ai_accelerator_1.0.0/waves/ai_accelerator.do
+  core: u337mg096:ece337:ai_accelerator:1.0.0
+- file_type: user
+  name: src/u337mg096_ece337_ai_accelerator_1.0.0/waves/ai_accelerator.gtkw
+  core: u337mg096:ece337:ai_accelerator:1.0.0
+hooks: {}
+name: u337mg096_ece337_ai_accelerator_1.0.0
+parameters: {}
+tool_options:
+  modelsim:
+    vsim_options:
+    - -vopt
+    - -voptargs='+acc'
+    - -t ps
+    - -do waves/ai_accelerator.do
+    - -onfinish stop
+    - -do "set PrefSource(OpenOnFinish) 0 ; set PrefMain(LinePrefix) \"\" ; set PrefMain(colorizeTranscript)
+      1"
+    - -coverage
+    vlog_options:
+    - +cover
+toplevel: tb_ai_accelerator
+vpi: []
+flow_options: {}
