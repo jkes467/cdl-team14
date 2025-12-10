@@ -60,9 +60,6 @@ module tb_ai_accelerator ();
     task check_data;
     begin
         @(posedge clk);
-        // write to start inference
-        ahb_single_write(10'h23, 8'h01);
-
         hsel <= 1'b1;
         hwrite <= 1'b0;
         haddr <= 10'h23;
@@ -82,6 +79,15 @@ module tb_ai_accelerator ();
         else begin
             $display("Passed Test");
         end
+        @(posedge clk);
+    end
+    endtask
+
+    task start_inference;
+    begin
+        @(posedge clk);
+        // write to start inference
+        ahb_single_write(10'h22, 8'h01);
         @(posedge clk);
     end
     endtask
@@ -216,22 +222,39 @@ module tb_ai_accelerator ();
         n_rst = 1;
     
         reset_dut;
+        // ==================== Valid single transaction  =================
         write_weights(64'h0101_0101_0101_0101);
         write_inputs();
         write_bias();
         write_activation();
         load_weights();
+        start_inference();
         check_data();
-        // ==================== Valid single transaction above =================
+        
+        // error during inference
+        write_weights(64'hA00F_BC41_DEAD_BEEF);
         fork
             begin
                 check_data();
             end
             begin
-                write_weights(64'hA00F_BC41_DEAD_BEEF);
                 load_weights();
             end
         join
+        // ================== inference before weight test ==================
+        reset_dut();
+        start_inference();
+        load_weights();
+        fork
+            begin
+            check_data();
+            end
+            begin
+            while(!hresp) @(posedge clk);
+            $display("Passed error inference before weight test");
+            end
+        join
+
 
         $finish;
     end
