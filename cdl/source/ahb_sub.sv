@@ -268,75 +268,75 @@ assign act_mode = act_reg[2:0];
 
 // read logic
 logic [63:0] rf_rdata;
-logic error_flag;
-
+logic        error_flag;
 
 always_comb begin
     rf_rdata   = 64'd0;
     error_flag = 1'b0;
-    handshake = 1'b0;
-
 
     if (rd_en) begin
-        if (rf_addr == 10'h10) begin
-            rf_rdata = n_bias_reg;
-            error_flag = 1'b0;
-        end
-        else if (rf_addr == 10'h18) begin
-            rf_rdata = output_data;
-            error_flag = 1'b0;
-            handshake = 1'b1;
-        end
-        else if (rf_addr == 10'h20) begin
-            rf_rdata = {24'b0, err_reg, 24'b0};
-            error_flag = 1'b0;
-        end
-        else if (rf_addr == 10'h22) begin
-            rf_rdata = {16'b0, n_ctrl_reg, 40'b0};
-            error_flag = 1'b0;
-        end
-        else if (rf_addr == 10'h23) begin
-            rf_rdata = {8'b0, status_reg, 48'b0};
-            error_flag = 1'b0;
-        end
-        else if (rf_addr == 10'h24) begin
-            rf_rdata = {56'b0, n_act_reg};
-            error_flag = 1'b0;
-        end
-        else begin
-            error_flag = 1'b1;
-        end
+        case (rf_addr)
+            10'h010 : begin
+                rf_rdata = bias_reg;
+            end
+            10'h018 : begin
+                rf_rdata = output_data;
+            end
+            10'h020 : begin
+                rf_rdata = {24'b0, err_reg, 24'b0};
+            end
+            10'h022 : begin
+                rf_rdata = {16'b0, ctrl_reg, 40'b0};
+            end
+            10'h023 : begin
+                rf_rdata = {8'b0, status_reg, 48'b0};
+            end
+            10'h024 : begin
+                rf_rdata = {56'b0, act_reg};
+            end
+            default : begin
+                error_flag = 1'b1;
+            end
+        endcase
     end
 end
+
 
 //output logic
 
 logic ready;
+logic handshake_n;
 logic any_error;
 logic error_in_progress;
 logic [1:0] error_cnt;
 logic ready_q1, ready_q2;
 
+// combine error sources
 assign any_error = write_error | error_flag | burst_err | err_reg[0] | err_reg[8];
 
-
+// 2-cycle error FSM
 always_ff @(posedge clk or negedge n_rst) begin
-    if (!n_rst) begin
+    if(!n_rst) begin
         error_in_progress <= 1'b0;
         error_cnt <= 2'd0;
+        handshake <= 1'b0;
     end
     else begin
-        if (!error_in_progress) begin
-            if (any_error) begin
+        handshake <= handshake_n;
+        if(!error_in_progress) begin
+            // start error response when any_error goes high
+            if(any_error) begin
                 error_in_progress <= 1'b1;
-                error_cnt <= 2'd2;
+                error_cnt <= 2'd2;   // hold for 2 cycles
             end
         end
         else begin
-            if (error_cnt != 2'd0) begin
+            // already in error response
+            if(error_cnt != 2'd0) begin
                 error_cnt <= error_cnt - 2'd1;
             end
             else begin
+                // done, release bus
                 error_in_progress <= 1'b0;
             end
         end
@@ -344,33 +344,35 @@ always_ff @(posedge clk or negedge n_rst) begin
 end
 
 always_comb begin
-    hrdata = '0;
-    ready = 1'b1;
-    hresp = 1'b0;
+    handshake_n = 1'b0;
 
-    if (error_in_progress) begin
-        hresp = 1'b1;
-        if (error_cnt != 2'd0) begin
-            ready = 1'b0;
-        end
-        else begin
-            ready = 1'b1;
-        end
+    if (rd_en && rf_addr == 10'h018 && status_reg[0] && !any_error) begin
+        handshake_n = 1'b1;
     end
-    else if (burst_en == 1'b0 && (error_cnt == 2'd0)) begin
-        ready = 1'b0;
-    end
-    else if (status_reg[1] && (error_cnt == 2'd0)) begin
-        ready = 1'b0;
-    end
-    if (status_reg[0]) begin
-        hrdata = rf_rdata;
-    end
-
 end
 
+// main combinational outputs before HREADY pipeline
+always_comb begin
+    // default: no error, ready
+    hrdata = rf_rdata;
+    hresp  = 1'b0;
+    ready  = 1'b1;
+
+    // override during error response
+    if(error_in_progress) begin
+        hresp = 1'b1;
+        if(error_cnt != 2'd0) begin
+            ready = 1'b0;   // stall for these 2 cycles
+        end
+        else begin
+            ready = 1'b1;   // last cycle, allow HREADY high again
+        end
+    end
+end
+
+// HREADY stretching: ensures at least 2 cycles low when ready goes low
 always_ff @(posedge clk or negedge n_rst) begin
-    if (!n_rst) begin
+    if(!n_rst) begin
         ready_q1 <= 1'b1;
         ready_q2 <= 1'b1;
     end

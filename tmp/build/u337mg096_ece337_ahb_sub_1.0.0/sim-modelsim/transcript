@@ -15,10 +15,14 @@ Reading pref.tclError: tag "Error" isn't defined in text widget
 //  18 U.S.C. Section 1905.
 //
 vsim -gui -vopt -voptargs="+acc" -t ps -do "waves/ahb_sub.do" -do "set PrefSource(OpenOnFinish) 0 ; set PrefMain(LinePrefix) "" ; set PrefMain(colorizeTranscript) 1" -onfinish stop -coverage tb_ahb_sub 
-Start time: 03:07:36 on Dec 10,2025
+Start time: 06:16:13 on Dec 10,2025
 ** Note: (vsim-3812) Design is being optimized...
+** Warning: src/u337mg096_ece337_ahb_sub_1.0.0/testbench/tb_ahb_sub.sv(483): (vopt-2685) [TFMPC] - Too few port connections for 'DUT'.  Expected 22, found 21.
+** Warning: src/u337mg096_ece337_ahb_sub_1.0.0/testbench/tb_ahb_sub.sv(483): (vopt-2718) [TFMPC] - Missing connection for port 'write_data'.
+** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
 Loading sv_std.std
 Loading work.tb_ahb_sub(fast)
+Loading work.ahb_model_updated(fast)
 Loading work.ahb_sub(fast)
 do waves/ahb_sub.do
 set PrefSource(OpenOnFinish) 0 
@@ -27,6 +31,24 @@ set PrefSource(OpenOnFinish) 0
  set PrefMain(colorizeTranscript) 1
 1
 run -all
-** Note: $finish    : src/u337mg096_ece337_ahb_sub_1.0.0/testbench/tb_ahb_sub.sv(382)
-   Time: 2785 ns  Iteration: 1  Instance: /tb_ahb_sub
-Break in Module tb_ahb_sub at src/u337mg096_ece337_ahb_sub_1.0.0/testbench/tb_ahb_sub.sv line 382
+** Error: Incorrect 'hrdata' response from subordinate device during transaction (transaction 6).
+   Expected 3333333333333333, got 2222222222222222.
+   Time: 130 ns  Scope: tb_ahb_sub.BFM.VERIFY_OUTPUT File: src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv Line: 309
+** Error: Incorrect 'hrdata' response from subordinate device during transaction (transaction 11).
+   Expected f00000000, got 0.
+   Time: 180 ns  Scope: tb_ahb_sub.BFM.VERIFY_OUTPUT File: src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv Line: 309
+** Error: Incorrect 'hresp' response from subordinate device during transaction (transaction 20).
+   Expected 0, got 1.
+   Time: 270 ns  Scope: tb_ahb_sub.BFM.VERIFY_OUTPUT File: src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv Line: 293
+** Error: Incorrect 'hresp' response from subordinate device during transaction (transaction 25).
+   Expected 0, got 1.
+   Time: 350 ns  Scope: tb_ahb_sub.BFM.VERIFY_OUTPUT File: src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv Line: 293
+** Error: Incorrect 'hresp' response from subordinate device during transaction (transaction 30).
+   Expected 0, got 1.
+   Time: 430 ns  Scope: tb_ahb_sub.BFM.VERIFY_OUTPUT File: src/ece337_course-lib_ahb_model_updated_1.0.0/source/ahb_model_updated.sv Line: 293
+** Note: $finish    : src/u337mg096_ece337_ahb_sub_1.0.0/testbench/tb_ahb_sub.sv(784)
+   Time: 575 ns  Iteration: 1  Instance: /tb_ahb_sub
+Break in Module tb_ahb_sub at src/u337mg096_ece337_ahb_sub_1.0.0/testbench/tb_ahb_sub.sv line 784
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/ecegridfs/a/337mg096/cdl-team14/cdl/waves/ahb_sub.do
+End time: 06:22:19 on Dec 10,2025, Elapsed time: 0:06:06
+Errors: 5, Warnings: 2

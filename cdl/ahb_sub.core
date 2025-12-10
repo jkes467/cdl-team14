@@ -22,6 +22,8 @@ filesets:
             - "waves/ahb_sub.gtkw": { file_type: user }
             # - "data/file.txt": { file_type: user }
         file_type: systemVerilogSource
+        depend:
+            - "ece337:course-lib:ahb_model_updated"
 
     synfiles:
         depend:
