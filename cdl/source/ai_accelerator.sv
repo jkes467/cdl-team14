@@ -12,6 +12,8 @@ module ai_accelerator #(
     output logic [63:0] hrdata,
     output logic hresp,
     output logic hready
+
+    // external signals to sram
     output logic wen, ren,
     input logic [31:0] rdata,
     output logic [31:0] wdata,
@@ -52,11 +54,12 @@ controller c0 (
 
 );
 
-logic get_weights, get_inputs, get_out, data_ready, out_done, wen, ren;
+logic get_weights, get_inputs, get_out, data_ready, out_done, wen, ren, occupancy_err;
 logic [63:0] write_data, data;
 logic [31:0] rdata, wdata;
 logic [9:0] addr;
 logic [1:0] sram_state;
+logic [7:0] num_inputs;
 
 sram_buffer buffer (
     .clk(clk),
@@ -71,6 +74,8 @@ sram_buffer buffer (
     .data_ready(data_ready),
     .out_done(out_done),
     .output_valid(output_valid), // FIX it should be ored with to get the status register correct
+    .occupancy_err(occupancy_err),
+    .num_inputs(num_inputs),
     .wen(wen),
     .ren(ren),
     .write_data(write_data),
@@ -81,6 +86,26 @@ sram_buffer buffer (
     .wdata(wdata),
     .addr(addr),
     .sram_state(sram_state)
+);
+
+controller control_unit (
+    .clk(clk),
+    .n_rst(n_rst),
+    .ctrl_reg(ctrl_reg),
+    .data_ready(data_ready),
+    .out_done(out_done),
+    .output_valid(output_valid),
+    .occupancy_err(occupancy_err),
+    .data(data),
+    .num_inputs(num_inputs),
+    .status_reg(status_reg),
+    .error_reg(err_reg),
+    .get_weights(get_weights),
+    .get_inputs(get_inputs),
+    .get_out(get_out),
+    .in_valid(input_valid),
+    .array_inputs(input_value),
+    .load(load)
 );
 
 logic float;

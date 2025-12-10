@@ -1,0 +1,554 @@
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid this.
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version W-2024.09-SP4 for linux64 - Feb 26, 2025 
+
+                    Copyright (c) 1988 - 2025 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+Initializing gui preferences from file  /home/ecegridfs/a/337mg209/.synopsys_dc_gui/preferences.tcl
+Current time:       Wed Dec 10 01:37:29 2025
+Hostname:           ececomp1.ecn.purdue.edu
+CPU Model:          AMD EPYC 7513 32-Core Processor
+CPU Details:        Cores = 128 : Sockets = 2 : Cache Size = 512 KB : Freq = 2.60 GHz
+OS:                 Linux 4.18.0-553.78.1.el8_10.x86_64
+RAM:                502 GB (Free  14 GB)
+Swap:                63 GB (Free  12 GB)
+Work Filesystem:    /home/ecegridfs/a mounted to ecegridfs.ecn.purdue.edu:/export/home/a
+Tmp Filesystem:     /tmp mounted to tmpfs
+Work Disk:          2968 GB (Free   4 GB)
+Tmp Disk:            19 GB (Free  14 GB)
+
+CPU Load: 20%, Ram Free: 14 GB, Swap Free: 12 GB, Work Disk Free: 4 GB, Tmp Disk Free: 14 GB
+############################################
+#
+# Auto-generated project tcl file:
+#  * sets up variable
+#  * runs customized script
+#
+############################################
+sh date
+Wed Dec 10 01:37:29 EST 2025
+set TOP_MODULE sram_buffer
+sram_buffer
+set DC_SCRIPT synth.tcl
+synth.tcl
+set READ_SOURCES u337mg096_ece337_sram_buffer_1.0.0-read-sources
+u337mg096_ece337_sram_buffer_1.0.0-read-sources
+set SCRIPT_DIR src/u337mg096_ece337_synfiles_0
+src/u337mg096_ece337_synfiles_0
+set REPORT_DIR reports
+reports
+sh mkdir -p ${REPORT_DIR}
+set target_library /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db
+/home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db
+set link_library   [concat "*"  /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db dw_foundation.sldb]
+* /home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db dw_foundation.sldb
+############################################
+#
+# Run custom script
+#
+############################################
+source ${SCRIPT_DIR}/${DC_SCRIPT}
+Running PRESTO HDLC
+Compiling source file ./src/u337mg096_ece337_edge_det_1.0.0/source/edge_det.sv
+Presto compilation completed successfully.
+Loading db file '/home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db'
+Loading db file '/package/eda/synopsys/syn/W-2024.09-SP4/libraries/syn/dw_foundation.sldb'
+Running PRESTO HDLC
+Compiling source file ./src/u337mg096_ece337_flex_counter_1.0.0/source/flex_counter.sv
+Presto compilation completed successfully.
+Running PRESTO HDLC
+Compiling source file ./src/u337mg096_ece337_sram_buffer_1.0.0/source/sram_buffer.sv
+Presto compilation completed successfully.
+Loading db file '/package/eda/synopsys/syn/W-2024.09-SP4/libraries/syn/gtech.db'
+Loading db file '/package/eda/synopsys/syn/W-2024.09-SP4/libraries/syn/standard.sldb'
+  Loading link library 'osu05_stdcells'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Warning:  ./src/u337mg096_ece337_sram_buffer_1.0.0/source/sram_buffer.sv:298: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block in file
+	'./src/u337mg096_ece337_sram_buffer_1.0.0/source/sram_buffer.sv'
+============================================================
+|    Line    |  full/ parallel  |      block location      |
+============================================================
+|    177     |     no/auto      | always block at line 153 |
+============================================================
+
+Inferred memory devices in process in routine 'sram_buffer' in file
+	 ./src/u337mg096_ece337_sram_buffer_1.0.0/source/sram_buffer.sv'.
+===================================================================================
+|    Register Name     |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+===================================================================================
+|  inference_done_reg  | Flip-flop |   1   |  N  | N  | None  | Async | N  | 135  |
+|      state_reg       | Flip-flop |  32   |  Y  | N  | None  | Async | N  | 135  |
+|     data_reg_reg     | Flip-flop |  64   |  Y  | N  | None  | Async | N  | 135  |
+|    num_inputs_reg    | Flip-flop |   7   |  Y  | N  | None  | Async | N  | 135  |
+|     out_mem_reg      | Flip-flop | 8192  |  Y  | N  | None  | Async | N  | 135  |
+| output_mem_index_reg | Flip-flop |   7   |  Y  | N  | None  | Async | N  | 135  |
+===================================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|  sram_buffer/46  |  128   |   64    |      7       |
+| sram_buffer/299  |  128   |   64    |      7       |
+======================================================
+Presto compilation completed successfully. (sram_buffer)
+Module: sram_buffer, Ports: 346, Input: 171, Output: 175, Inout: 0
+Module: sram_buffer, Registers: 8303, Async set/reset: 8303, Sync set/reset: 0
+Information: Module sram_buffer report end. (ELAB-965)
+Module: sram_buffer, Elapsed Time: 00:00:11, CPU Time: 00:00:10, Total Mem: 679.67 MB, Mem: 556.89 MB, Time: Wed Dec 10 01:37:40 2025
+Elaborated 1 design.
+Current design is now 'sram_buffer'.
+Information: Building the design 'flex_counter' instantiated from design 'sram_buffer' with
+	the parameters "SIZE=3". (HDL-193)
+
+Inferred memory devices in process in routine 'flex_counter_SIZE3' in file
+	 ./src/u337mg096_ece337_flex_counter_1.0.0/source/flex_counter.sv'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|  rollover_flag_reg  | Flip-flop |   1   |  N  | N  | None  | Async | N  |  15  |
+|    count_out_reg    | Flip-flop |   3   |  Y  | N  | None  | Async | N  |  15  |
+==================================================================================
+Presto compilation completed successfully. (flex_counter_SIZE3)
+Module: flex_counter_SIZE3, Ports: 11, Input: 7, Output: 4, Inout: 0
+Module: flex_counter_SIZE3, Registers: 4, Async set/reset: 4, Sync set/reset: 0
+Information: Module flex_counter_SIZE3 report end. (ELAB-965)
+Information: Building the design 'flex_counter' instantiated from design 'sram_buffer' with
+	the parameters "SIZE=7". (HDL-193)
+
+Inferred memory devices in process in routine 'flex_counter_SIZE7' in file
+	 ./src/u337mg096_ece337_flex_counter_1.0.0/source/flex_counter.sv'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|  rollover_flag_reg  | Flip-flop |   1   |  N  | N  | None  | Async | N  |  15  |
+|    count_out_reg    | Flip-flop |   7   |  Y  | N  | None  | Async | N  |  15  |
+==================================================================================
+Presto compilation completed successfully. (flex_counter_SIZE7)
+Module: flex_counter_SIZE7, Ports: 19, Input: 11, Output: 8, Inout: 0
+Module: flex_counter_SIZE7, Registers: 8, Async set/reset: 8, Sync set/reset: 0
+Information: Module flex_counter_SIZE7 report end. (ELAB-965)
+Information: Uniquified 2 instances of design 'flex_counter_SIZE3'. (OPT-1056)
+Information: Uniquified 3 instances of design 'flex_counter_SIZE7'. (OPT-1056)
+CPU Load: 20%, Ram Free: 13 GB, Swap Free: 12 GB, Work Disk Free: 4 GB, Tmp Disk Free: 14 GB
+Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | W-2024.09-DWBB_202409.4 |     *     |
+| Licensed DW Building Blocks        | W-2024.09-DWBB_202409.4 |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler                                                                   |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 14497                                  |
+| Number of User Hierarchies                              | 5                                      |
+| Sequential Cell Count                                   | 8335                                   |
+| Macro Count                                             | 0                                      |
+| Pad Count                                               | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 1                                      |
+| Number of VT Class                                      | 0                                      |
+| Number of Clocks                                        | 0                                      |
+| Number of Dont Touch Cells                              | 5596                                   |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with Target Library Subset (with clock_path)     | false  (false )                        |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+
+Information: There are 51 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'flex_counter_SIZE7_0'
+Module: DW01_MUX, Ports: 4, Input: 3, Output: 1, Inout: 0
+Module: DW01_MUX, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_mmux_width2, Ports: 7, Input: 5, Output: 2, Inout: 0
+Module: DW01_mmux_width2, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_mmux_width3, Ports: 10, Input: 7, Output: 3, Inout: 0
+Module: DW01_mmux_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_mmux_width4, Ports: 13, Input: 9, Output: 4, Inout: 0
+Module: DW01_mmux_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_mmux_width5, Ports: 16, Input: 11, Output: 5, Inout: 0
+Module: DW01_mmux_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_inc_width7, Ports: 14, Input: 7, Output: 7, Inout: 0
+Module: DW01_inc_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_NAND2, Ports: 3, Input: 2, Output: 1, Inout: 0
+Module: DW01_NAND2, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_NOT, Ports: 2, Input: 1, Output: 1, Inout: 0
+Module: DW01_NOT, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp6_width7, Ports: 21, Input: 15, Output: 6, Inout: 0
+Module: DW01_cmp6_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp2_width7, Ports: 18, Input: 16, Output: 2, Inout: 0
+Module: DW01_cmp2_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width7, Ports: 23, Input: 15, Output: 8, Inout: 0
+Module: DW01_add_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_incdec_width7, Ports: 15, Input: 8, Output: 7, Inout: 0
+Module: DW01_incdec_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW02_mult_A_width7_B_width1, Ports: 17, Input: 9, Output: 8, Inout: 0
+Module: DW02_mult_A_width7_B_width1, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_absval_width7, Ports: 14, Input: 7, Output: 7, Inout: 0
+Module: DW01_absval_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_inc_width7, Ports: 14, Input: 7, Output: 7, Inout: 0
+Module: DW01_inc_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_absval_width1, Ports: 2, Input: 1, Output: 1, Inout: 0
+Module: DW01_absval_width1, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_inc_width1, Ports: 2, Input: 1, Output: 1, Inout: 0
+Module: DW01_inc_width1, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_inc_width8, Ports: 16, Input: 8, Output: 8, Inout: 0
+Module: DW01_inc_width8, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW02_mult_A_width1_B_width7, Ports: 17, Input: 9, Output: 8, Inout: 0
+Module: DW02_mult_A_width1_B_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Processing 'flex_counter_SIZE3_0'
+Module: DW01_inc_width3, Ports: 6, Input: 3, Output: 3, Inout: 0
+Module: DW01_inc_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp6_width3, Ports: 13, Input: 7, Output: 6, Inout: 0
+Module: DW01_cmp6_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp2_width3, Ports: 10, Input: 8, Output: 2, Inout: 0
+Module: DW01_cmp2_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width3, Ports: 11, Input: 7, Output: 4, Inout: 0
+Module: DW01_add_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_incdec_width3, Ports: 7, Input: 4, Output: 3, Inout: 0
+Module: DW01_incdec_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW02_mult_A_width3_B_width1, Ports: 9, Input: 5, Output: 4, Inout: 0
+Module: DW02_mult_A_width3_B_width1, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_absval_width3, Ports: 6, Input: 3, Output: 3, Inout: 0
+Module: DW01_absval_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_inc_width3, Ports: 6, Input: 3, Output: 3, Inout: 0
+Module: DW01_inc_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_inc_width4, Ports: 8, Input: 4, Output: 4, Inout: 0
+Module: DW01_inc_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW02_mult_A_width1_B_width3, Ports: 9, Input: 5, Output: 4, Inout: 0
+Module: DW02_mult_A_width1_B_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Added key list 'DesignWare' to design 'flex_counter_SIZE3_0'. (DDB-72)
+  Processing 'sram_buffer'
+Module: DW01_dec_width7, Ports: 14, Input: 7, Output: 7, Inout: 0
+Module: DW01_dec_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_dec_width4, Ports: 8, Input: 4, Output: 4, Inout: 0
+Module: DW01_dec_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_inc_width6, Ports: 12, Input: 6, Output: 6, Inout: 0
+Module: DW01_inc_width6, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_dec_width8, Ports: 16, Input: 8, Output: 8, Inout: 0
+Module: DW01_dec_width8, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width10, Ports: 32, Input: 21, Output: 11, Inout: 0
+Module: DW01_add_width10, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_sub_width7, Ports: 23, Input: 15, Output: 8, Inout: 0
+Module: DW01_sub_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_incdec_width6, Ports: 13, Input: 7, Output: 6, Inout: 0
+Module: DW01_incdec_width6, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_add_width6, Ports: 20, Input: 13, Output: 7, Inout: 0
+Module: DW01_add_width6, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: The register 'state_reg[31]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[30]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[29]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[28]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[27]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[26]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[25]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[23]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[22]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[21]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[19]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[18]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[17]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[15]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'state_reg[5]' is a constant and will be removed. (OPT-1206)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'sram_buffer' has no optimization constraints set. (OPT-108)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'sram_buffer_DW01_add_0'
+  Processing 'sram_buffer_DW01_add_1'
+  Processing 'sram_buffer_DW01_add_2'
+  Processing 'sram_buffer_DW01_inc_0_DW01_inc_5'
+  Processing 'sram_buffer_DW01_inc_1_DW01_inc_6'
+  Processing 'sram_buffer_DW01_add_3'
+  Processing 'sram_buffer_DW01_add_4'
+  Processing 'sram_buffer_DW01_inc_2_DW01_inc_7'
+  Processing 'sram_buffer_DW01_inc_3_DW01_inc_8'
+  Processing 'sram_buffer_DW01_dec_0_DW01_dec_2'
+  Processing 'sram_buffer_DW01_inc_4_DW01_inc_9'
+  Processing 'sram_buffer_DW01_add_5'
+  Processing 'sram_buffer_DW01_dec_1_DW01_dec_3'
+  Processing 'sram_buffer_DW01_cmp2_0_DW01_cmp2_2'
+  Processing 'sram_buffer_DW01_dec_2_DW01_dec_4'
+  Processing 'flex_counter_SIZE7_0_DW01_cmp2_0_DW01_cmp2_3'
+  Processing 'flex_counter_SIZE7_0_DW01_inc_0_DW01_inc_10'
+  Mapping 'flex_counter_SIZE7_0_DW_mult_uns_0'
+Module: DW01_cmp2_width7, Ports: 18, Input: 16, Output: 2, Inout: 0
+Module: DW01_cmp2_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Processing 'flex_counter_SIZE7_0_DW01_cmp2_1_DW01_cmp2_4'
+  Processing 'flex_counter_SIZE7_1_DW01_cmp2_0_DW01_cmp2_5'
+Module: DW01_inc_width7, Ports: 14, Input: 7, Output: 7, Inout: 0
+Module: DW01_inc_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Processing 'flex_counter_SIZE7_1_DW01_inc_0_DW01_inc_11'
+  Mapping 'flex_counter_SIZE7_1_DW_mult_uns_0'
+Module: DW01_cmp2_width7, Ports: 18, Input: 16, Output: 2, Inout: 0
+Module: DW01_cmp2_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Processing 'flex_counter_SIZE7_1_DW01_cmp2_1_DW01_cmp2_6'
+  Processing 'flex_counter_SIZE7_2_DW01_cmp2_0_DW01_cmp2_7'
+Module: DW01_inc_width7, Ports: 14, Input: 7, Output: 7, Inout: 0
+Module: DW01_inc_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Processing 'flex_counter_SIZE7_2_DW01_inc_0_DW01_inc_12'
+  Mapping 'flex_counter_SIZE7_2_DW_mult_uns_0'
+Module: DW01_cmp2_width7, Ports: 18, Input: 16, Output: 2, Inout: 0
+Module: DW01_cmp2_width7, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Processing 'flex_counter_SIZE7_2_DW01_cmp2_1_DW01_cmp2_8'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+Information: Added key list 'DesignWare' to design 'flex_counter_SIZE7_0'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'flex_counter_SIZE7_1'. (DDB-72)
+Information: Added key list 'DesignWare' to design 'flex_counter_SIZE7_2'. (DDB-72)
+  Structuring 'flex_counter_SIZE7_1'
+  Mapping 'flex_counter_SIZE7_1'
+  Structuring 'flex_counter_SIZE7_0'
+  Mapping 'flex_counter_SIZE7_0'
+  Structuring 'flex_counter_SIZE3_0'
+  Mapping 'flex_counter_SIZE3_0'
+  Structuring 'flex_counter_SIZE7_2'
+  Mapping 'flex_counter_SIZE7_2'
+  Structuring 'flex_counter_SIZE3_1'
+  Mapping 'flex_counter_SIZE3_1'
+  Structuring 'sram_buffer'
+  Mapping 'sram_buffer'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:01:02 22842081.0      0.00       0.0   22133.3                          
+    0:01:02 22842081.0      0.00       0.0   22133.3                          
+    0:01:02 22842081.0      0.00       0.0   22133.3                          
+    0:01:02 22842081.0      0.00       0.0   22133.3                          
+    0:01:03 22842081.0      0.00       0.0   22133.3                          
+    0:01:04 22606929.0      0.00       0.0   22133.3                          
+    0:01:05 22606929.0      0.00       0.0   22133.3                          
+    0:01:05 22606929.0      0.00       0.0   22133.3                          
+    0:01:05 22606929.0      0.00       0.0   22133.3                          
+    0:01:05 22606929.0      0.00       0.0   22133.3                          
+    0:01:05 22607577.0      0.00       0.0   21932.0                          
+    0:01:05 22607937.0      0.00       0.0   21871.0                          
+    0:01:06 22608153.0      0.00       0.0   21829.7                          
+    0:01:06 22608153.0      0.00       0.0   21829.7                          
+    0:01:06 22608153.0      0.00       0.0   21829.7                          
+    0:01:06 22608153.0      0.00       0.0   21829.7                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:01:06 22608153.0      0.00       0.0   21829.7                          
+    0:01:06 22608153.0      0.00       0.0   21829.7                          
+    0:01:06 22608153.0      0.00       0.0   21829.7                          
+    0:01:06 22608153.0      0.00       0.0   21829.7                          
+    0:01:06 22608153.0      0.00       0.0   21829.7                          
+
+
+  Beginning Design Rule Fixing  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:01:06 22608153.0      0.00       0.0   21829.7                          
+    0:01:06 22627809.0      0.00       0.0   17596.7 net237884                
+    0:01:06 22640121.0      0.00       0.0   14883.2 net236231                
+    0:01:06 22643577.0      0.00       0.0   14014.9 net235702                
+    0:01:06 22647033.0      0.00       0.0   13146.6 net235173                
+    0:01:07 22650489.0      0.00       0.0   12278.3 net234644                
+    0:01:07 22653081.0      0.00       0.0   11627.0 net234248                
+    0:01:07 22656537.0      0.00       0.0   10758.7 net233718                
+    0:01:07 22659993.0      0.00       0.0    9890.4 net233190                
+    0:01:07 22663449.0      0.00       0.0    9022.1 net232654                
+    0:01:07 22666905.0      0.00       0.0    8153.8 net232118                
+    0:01:07 22668345.0      0.00       0.0    7629.4 net240141                
+    0:01:08 22669353.0      0.00       0.0    7195.2 net239677                
+    0:01:08 22670361.0      0.00       0.0    6761.0 net239208                
+    0:01:08 22670793.0      0.00       0.0    6574.9                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:01:08 22670793.0      0.00       0.0    6574.9                          
+    0:01:08 22670793.0      0.00       0.0    6574.9                          
+    0:01:15 22663449.0      0.00       0.0    6574.9                          
+    0:01:16 22660713.0      0.00       0.0    6574.9                          
+    0:01:16 22658121.0      0.00       0.0    6574.9                          
+    0:01:16 22652937.0      0.00       0.0    6574.9                          
+    0:01:17 22649481.0      0.00       0.0    6574.9                          
+    0:01:17 22646889.0      0.00       0.0    6574.9                          
+    0:01:17 22646889.0      0.00       0.0    6574.9                          
+    0:01:17 22646889.0      0.00       0.0    6574.9                          
+    0:01:17 22646889.0      0.00       0.0    6574.9                          
+    0:01:17 22646889.0      0.00       0.0    6574.9                          
+    0:01:17 22646889.0      0.00       0.0    6574.9                          
+    0:01:17 22646889.0      0.00       0.0    6574.9                          
+    0:01:17 22646889.0      0.00       0.0    6574.9                          
+Loading db file '/home/ecegrid/a/ece337/summer24-refactor/tech/ami05/osu05_stdcells.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'sram_buffer' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'input_counter_read/clk': 8308 load(s), 1 driver(s)
+     Net 'input_counter_read/n_rst': 8287 load(s), 1 driver(s)
+CPU Load: 31%, Ram Free: 13 GB, Swap Free: 12 GB, Work Disk Free: 4 GB, Tmp Disk Free: 14 GB
+Information: Total number of MV cells in the design.
+----------------------------------------------------------------------------------------------------
+ MV Cells                                           Total Number                                   
+----------------------------------------------------------------------------------------------------
+ Level Shifter:                                     0                                             
+ Enable Level Shifter:                              0                                             
+ Isolation Cell:                                    0                                             
+ Retention Cell:                                    0                                             
+ Retention Clamp Cell:                              0                                             
+ Switch Cell:                                       0                                             
+ Always-On Cell:                                    0                                             
+ Repeater Cell:                                     0                                             
+
+----------------------------------------------------------------------------------------------------
+Unmapped MV Cells 
+----------------------------------------------------------------------------------------------------
+0 Isolation Cells are unmapped 
+0 Retention Clamp Cells are unmapped 
+----------------------------------------------------------------------------------------------------
+Writing verilog file '/home/ecegridfs/a/337mg209/cdl-team14/tmp/build/u337mg096_ece337_sram_buffer_1.0.0/syn-design_compiler/sram_buffer.v'.
+ 
+****************************************
+check_design summary:
+Version:     W-2024.09-SP4
+Date:        Wed Dec 10 01:39:06 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Cells                                                              24
+    Connected to power or ground (LINT-32)                         20
+    Nets connected to multiple pins on same cell (LINT-33)          4
+--------------------------------------------------------------------------------
+
+Warning: In design 'sram_buffer', a pin on submodule 'weight_counter_write' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[2]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'weight_counter_write' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[1]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'weight_counter_write' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[0]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'weight_counter_read' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[2]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'weight_counter_read' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[1]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'weight_counter_read' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[0]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'input_counter_write' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[6]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'input_counter_write' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[5]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'input_counter_write' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[4]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'input_counter_write' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[3]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'input_counter_write' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[2]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'input_counter_write' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[1]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'input_counter_write' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[0]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'input_counter_read' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[6]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'input_counter_read' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[5]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'input_counter_read' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[4]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'input_counter_read' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[3]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'input_counter_read' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[2]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'input_counter_read' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[1]' is connected to logic 1. 
+Warning: In design 'sram_buffer', a pin on submodule 'input_counter_read' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'rollover_val[0]' is connected to logic 1. 
+Warning: In design 'sram_buffer', the same net is connected to more than one pin on submodule 'weight_counter_write'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'rollover_val[2]', 'rollover_val[1]'', 'rollover_val[0]'.
+Warning: In design 'sram_buffer', the same net is connected to more than one pin on submodule 'weight_counter_read'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'rollover_val[2]', 'rollover_val[1]'', 'rollover_val[0]'.
+Warning: In design 'sram_buffer', the same net is connected to more than one pin on submodule 'input_counter_write'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'rollover_val[6]', 'rollover_val[5]'', 'rollover_val[4]', 'rollover_val[3]', 'rollover_val[2]', 'rollover_val[1]', 'rollover_val[0]'.
+Warning: In design 'sram_buffer', the same net is connected to more than one pin on submodule 'input_counter_read'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'rollover_val[6]', 'rollover_val[5]'', 'rollover_val[4]', 'rollover_val[3]', 'rollover_val[2]', 'rollover_val[1]', 'rollover_val[0]'.
+
+Memory usage for this session 661 Mbytes.
+Memory usage for this session including child processes 661 Mbytes.
+CPU usage for this session 96 seconds ( 0.03 hours ).
+Elapsed time for this session 100 seconds ( 0.03 hours ).
+
+Thank you...
