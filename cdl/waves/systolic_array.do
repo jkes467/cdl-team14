@@ -9,8 +9,8 @@ add wave -noupdate /tb_systolic_array/input_value
 add wave -noupdate /tb_systolic_array/input_valid
 add wave -noupdate /tb_systolic_array/output_valid
 add wave -noupdate /tb_systolic_array/output_value
+add wave -noupdate /tb_systolic_array/overflow
 add wave -noupdate /tb_systolic_array/weights
-add wave -noupdate /tb_systolic_array/random_byte
 add wave -noupdate /tb_systolic_array/total_failed
 add wave -noupdate -divider DUT
 add wave -noupdate /tb_systolic_array/DUT/clk
@@ -52,8 +52,8 @@ add wave -noupdate /tb_systolic_array/DUT/v5
 add wave -noupdate /tb_systolic_array/DUT/v6
 add wave -noupdate /tb_systolic_array/DUT/v7
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {0 ps} 0}
-quietly wave cursor active 0
+WaveRestoreCursors {{Cursor 1} {923469 ps} 0}
+quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
@@ -68,4 +68,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ps} {498750 ps}
+WaveRestoreZoom {0 ps} {6893250 ps}
