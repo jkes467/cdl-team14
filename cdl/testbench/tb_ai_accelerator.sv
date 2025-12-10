@@ -90,6 +90,16 @@ module tb_ai_accelerator ();
     end
     endtask
 
+    task wait_weight_done;
+        logic [63:0] r;
+    begin
+        // poll CTRL register at 0x22
+        do begin
+            ahb_single_read(10'h22, 2'b00, r);
+            @(posedge clk);
+        end while (r[41]); // ctrl_reg[1] bit
+    end
+    endtask
     task check_data;
     begin
         @(posedge clk);
@@ -145,27 +155,29 @@ module tb_ai_accelerator ();
     end
     endtask
 
-    task ahb_single_write(input [9:0] addr,input [63:0] data);
+    task ahb_single_write(input [9:0] addr, input [63:0] data);
     begin
+        // Wait for bus to be free before starting a transfer
         @(posedge clk);
-        hsel <= 1'b1;
+        while (!hready) @(posedge clk);
+
+        // Address/control phase
+        hsel   <= 1'b1;
         hwrite <= 1'b1;
-        haddr <= addr;
+        haddr  <= addr;
         htrans <= HTRANS_NONSEQ;
-        hsize <= 2'b00;
+        hsize  <= 2'b00;
         hburst <= HBURST_SINGLE;
         hwdata <= data;
 
-        // @(posedge clk);
-        // // hwrite <= 1'b0;
-        // hsel <= 1'b0;
-
-        wait_hready();
-
+        // Wait for HREADY for THIS transfer
         @(posedge clk);
-        hsel <=1'b0;
-        htrans <= HTRANS_IDLE;
+        while (!hready) @(posedge clk);
+
+        // Now the transfer is complete, drop signals
+        hsel   <= 1'b0;
         hwrite <= 1'b0;
+        htrans <= HTRANS_IDLE;
     end
     endtask
 
@@ -195,7 +207,7 @@ module tb_ai_accelerator ();
         @(negedge clk);
         for(int i = 0; i<8;i++) begin
             @(negedge clk);
-            ahb_single_write64(i, weights);
+            ahb_single_write64(0, weights);
             wait_hready();
         end
     end
@@ -206,7 +218,7 @@ module tb_ai_accelerator ();
         @(negedge clk);
         for(int i = 8; i<16;i++) begin
             @(negedge clk);
-            ahb_single_write64(i, 64'h0101_0101_0101_0101);
+            ahb_single_write64(8, 64'h0101_0101_0101_0101);
             wait_hready();
         end
     end
@@ -217,7 +229,7 @@ module tb_ai_accelerator ();
         @(negedge clk);
         for(int i = 16; i<24;i++) begin
             @(negedge clk);
-            ahb_single_write64(i, 64'h0101_0101_0101_0101);
+            ahb_single_write64(16, 64'h0101_0101_0101_0101);
             wait_hready();
         end
     end
@@ -236,8 +248,8 @@ module tb_ai_accelerator ();
     begin
         @(negedge clk);           
         ahb_single_write(10'h22, {16'b0, 8'h02, 40'b0});
-        repeat(300)@(posedge clk);
-        wait_hready();
+        // repeat(300)@(posedge clk);
+        wait_weight_done();
 
     end
     endtask
@@ -261,14 +273,17 @@ module tb_ai_accelerator ();
     
         reset_dut;
         // ==================== Valid single transaction  =================
-        write_weights(64'h0101_0101_1111_1111);
+        write_weights(64'h0101_0101_0101_0101);
         write_inputs();
         write_bias();
         write_activation();
         load_weights();
-        // start_inference();
+        start_inference();
+        repeat(100) @ (posedge clk);
+        // DUT.sys.float = 0;
         // check_data();
         
+        repeat(150) @ (posedge clk);
         // // error during inference
         // write_weights(64'hA00F_BC41_DEAD_BEEF);
         // fork
@@ -280,18 +295,28 @@ module tb_ai_accelerator ();
         //     end
         // join
         // // ================== inference before weight test ==================
-        // reset_dut();
-        // start_inference();
-        // load_weights();
-        // fork
-        //     begin
-        //     check_data();
-        //     end
-        //     begin
-        //     while(!hresp) @(posedge clk);
-        //     $display("Passed error inference before weight test");
-        //     end
-        // join
+        reset_dut();
+        repeat(20) @ (posedge clk);
+        start_inference();
+
+        repeat(300) @ (posedge clk);
+
+        reset_dut();
+        repeat(20) @ (posedge clk);
+
+        // begin inference and then try to load weights
+        write_weights(64'h0101_0101_0101_0101);
+        write_inputs();
+        write_bias();
+        write_activation();
+        fork
+            begin
+                load_weights();
+                start_inference();
+            end
+        join
+
+        repeat(300) @ (posedge clk);
 
 
         $finish;
