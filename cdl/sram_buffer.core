@@ -7,8 +7,9 @@ filesets:
         files:
             - "source/sram_buffer.sv"
         file_type: systemVerilogSource
-        # depend:
-        #     - "fusesoc:core:name"
+        depend:
+            - "u337mg096:ece337:edge_det"
+            - "u337mg096:ece337:flex_counter"
 
     synth:
         depend:
@@ -22,6 +23,8 @@ filesets:
             - "waves/sram_buffer.gtkw": { file_type: user }
             # - "data/file.txt": { file_type: user }
         file_type: systemVerilogSource
+        depend:
+            - "ece337:course-lib:sram1024x32_wrapper"
 
     synfiles:
         depend:
