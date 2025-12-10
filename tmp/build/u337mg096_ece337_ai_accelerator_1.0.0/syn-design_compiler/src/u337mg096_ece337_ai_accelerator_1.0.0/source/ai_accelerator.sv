@@ -11,7 +11,7 @@ module ai_accelerator #(
     input logic [2:0] hburst,
     output logic [63:0] hrdata,
     output logic hresp,
-    output logic hready,
+    output logic hready
 
     // external signals to sram
     output logic wen, ren,
@@ -127,7 +127,7 @@ systolic_array sys (
 );
 
 logic [63:0] bias_outputs;
-logic output_valid_bias;
+logic output_valid_bias
 
 bias_adder bias (
     .array_outputs(output_value), 
@@ -138,7 +138,7 @@ bias_adder bias (
     .output_valid(output_valid_bias)
 );
 
-logic [63:0] activation_outputs;
+logic [63:0] activation_outputs
 logic output_valid_act;
 
 activation act (
