@@ -261,7 +261,7 @@ module tb_ai_accelerator ();
     
         reset_dut;
         // ==================== Valid single transaction  =================
-        write_weights(64'h0101_0101_0101_0101);
+        write_weights(64'h0101_0101_1111_1111);
         write_inputs();
         write_bias();
         write_activation();
